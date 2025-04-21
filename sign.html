@@ -537,4 +537,41 @@
                 behavior: 'smooth'
             });
         }
+        function validateForm(userType) {
+            let isValid = true;
+            const formPrefix = userType;
+            
+            // Validate name fields
+            if (!validateRequiredField(`${formPrefix}-first-name`, `${formPrefix}-first-name-error`)) {
+                isValid = false;
+            }
+            
+            if (!validateRequiredField(`${formPrefix}-last-name`, `${formPrefix}-last-name-error`)) {
+                isValid = false;
+            }
+            
+            // Validate email
+            if (!validateEmailField(`${formPrefix}-email`, `${formPrefix}-email-error`)) {
+                isValid = false;
+            }
+            
+            // Validate phone
+            if (!validatePhoneField(`${formPrefix}-phone`, `${formPrefix}-phone-error`)) {
+                isValid = false;
+            }
+            
+            // Validate special fields
+            if (userType === 'patient') {
+                if (!validateRequiredField(`${formPrefix}-dob`, `${formPrefix}-dob-error`)) {
+                    isValid = false;
+                }
+            } else {
+                if (!validateRequiredField(`${formPrefix}-specialization`, `${formPrefix}-specialization-error`)) {
+                    isValid = false;
+                }
+                if (!validateRequiredField(`${formPrefix}-license`, `${formPrefix}-license-error`)) {
+                    isValid = false;
+                }
+            }
+            
         
