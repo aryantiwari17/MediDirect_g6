@@ -618,5 +618,55 @@
             error.style.display = 'none';
             return true;
         }
+        function validatePhoneField(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+            
+            if (!phoneRegex.test(field.value.trim())) {
+                field.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            field.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
         
+        function validatePasswordField(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            
+            if (field.value.length < 8) {
+                field.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            field.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        
+        function validateConfirmPassword(passwordId, confirmPasswordId, errorId) {
+            const password = document.getElementById(passwordId);
+            const confirmPassword = document.getElementById(confirmPasswordId);
+            const error = document.getElementById(errorId);
+            
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            confirmPassword.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        
+        function checkPasswordStrength(userType) {
+            const password = document.getElementById(`${userType}-password`).value;
+            const strengthMeter = document.getElementById(`${userType}-strength-meter`);
+            let strength = 0;
         
