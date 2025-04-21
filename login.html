@@ -293,4 +293,48 @@
             text-decoration: none;
             font-weight: 600;
         }
+        .patient-form .register-link a {
+            color: var(--patient-green);
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 950px) {
+            .login-container {
+                width: 90%;
+                height: auto;
+                flex-direction: column;
+            }
+            
+            .welcome-section {
+                padding: 30px;
+                border-radius: 20px 20px 0 0;
+            }
+            
+            .login-section {
+                padding: 30px;
+                border-radius: 0 0 20px 20px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .login-container {
+                width: 95%;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .login-title {
+                font-size: 1.5rem;
+            }
+            
+            .tabs {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
         
