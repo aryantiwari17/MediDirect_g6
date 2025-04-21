@@ -204,7 +204,31 @@
         .auth-buttons .btn {
             margin-left: 10px;
         }
+         /* Hero Section */
+         .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            height: 80vh;
+            min-height: 600px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            position: relative;
+            animation: fadeIn 1s ease-in;
+        }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: slideUp 1s ease-out;
+        }
 
     </style>
 </head>
