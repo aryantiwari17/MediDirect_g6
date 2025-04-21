@@ -370,7 +370,7 @@
                 <div class="tab patient active" onclick="switchTab('patient')">Patient</div>
                 <div class="tab doctor" onclick="switchTab('doctor')">Doctor</div>
             </div>
-            
+
                 <div class="form-container">
                     <!-- Patient Login Form -->
                     <form class="login-form patient-form active" id="patient-form">
@@ -382,6 +382,57 @@
                             <i class="fas fa-lock"></i>
                             <input type="password" id="patient-password" placeholder="Password" required>
                         </div>
+                    <div class="options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="patient-remember">
+                            <label for="patient-remember">Remember me</label>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="login-btn" onclick="login('patient')">
+                        Login as Patient
+                    </button>
+                    
+                    <div class="register-link">
+                        New patient? <a href="#">Create an account</a>
+                    </div>
+                </form>
+                                <!-- Doctor Login Form -->
+                                <form class="login-form doctor-form" id="doctor-form">
+                                    <div class="input-group">
+                                        <i class="fas fa-user-md"></i>
+                                        <input type="text" id="doctor-id" placeholder="Doctor ID or Email" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="doctor-password" placeholder="Password" required>
+                                    </div>
+                                    
+                                    <div class="options">
+                                        <div class="remember-me">
+                                            <input type="checkbox" id="doctor-remember">
+                                            <label for="doctor-remember">Remember me</label>
+                                        </div>
+                                        <div class="forgot-password">
+                                            <a href="#">Forgot password?</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="button" class="login-btn" onclick="login('doctor')">
+                                        Login as Doctor
+                                    </button>
+                                    
+                                    <div class="register-link">
+                                        Medical professional? <a href="#">Request access</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                
                         
                     
         
