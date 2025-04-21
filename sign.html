@@ -451,3 +451,73 @@
                         Already have an account? <a href="#">Login here</a>
                     </div>
                 </form>
+
+                <form class="registration-form doctor-form" id="doctor-registration-form">
+                    <div class="name-fields">
+                        <div class="input-group">
+                            <input type="text" id="doctor-first-name" placeholder="First Name" required>
+                            <div class="error-message" id="doctor-first-name-error">Please enter your first name</div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="doctor-last-name" placeholder="Last Name" required>
+                            <div class="error-message" id="doctor-last-name-error">Please enter your last name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="doctor-email" placeholder="Email Address" required>
+                        <div class="error-message" id="doctor-email-error">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="doctor-phone" placeholder="Phone Number" required>
+                        <div class="error-message" id="doctor-phone-error">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-briefcase-medical"></i>
+                        <select id="doctor-specialization" required>
+                            <option value="">Select Specialization</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                            <option value="pediatrics">Pediatrics</option>
+                            <option value="orthopedics">Orthopedics</option>
+                            <option value="dermatology">Dermatology</option>
+                        </select>
+                        <div class="error-message" id="doctor-specialization-error">Please select your specialization</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" id="doctor-license" placeholder="Medical License Number" required>
+                        <div class="error-message" id="doctor-license-error">Please enter your license number</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="doctor-password" placeholder="Password" required oninput="checkPasswordStrength('doctor')">
+                        <div class="error-message" id="doctor-password-error">Password must be at least 8 characters</div>
+                        <div class="password-strength">
+                            <div class="strength-meter" id="doctor-strength-meter"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="doctor-confirm-password" placeholder="Confirm Password" required>
+                        <div class="error-message" id="doctor-confirm-password-error">Passwords do not match</div>
+                    </div>
+                    
+                    <button type="button" class="register-btn" onclick="validateForm('doctor')">
+                        Register as Doctor
+                    </button>
+                    
+                    <div class="login-link">
+                        Already have an account? <a href="#">Login here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
