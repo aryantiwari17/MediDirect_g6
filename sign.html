@@ -396,3 +396,58 @@
                 <div class="tab patient active" onclick="switchTab('patient')">Patient</div>
                 <div class="tab doctor" onclick="switchTab('doctor')">Doctor</div>
             </div>
+            <div class="form-container">
+                <!-- Patient Registration Form -->
+                <form class="registration-form patient-form active" id="patient-registration-form">
+                    <div class="name-fields">
+                        <div class="input-group">
+                            <input type="text" id="patient-first-name" placeholder="First Name" required>
+                            <div class="error-message" id="patient-first-name-error">Please enter your first name</div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="patient-last-name" placeholder="Last Name" required>
+                            <div class="error-message" id="patient-last-name-error">Please enter your last name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="patient-email" placeholder="Email Address" required>
+                        <div class="error-message" id="patient-email-error">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="patient-phone" placeholder="Phone Number" required>
+                        <div class="error-message" id="patient-phone-error">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="patient-dob" placeholder="Date of Birth" required>
+                        <div class="error-message" id="patient-dob-error">Please enter your date of birth</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="patient-password" placeholder="Password" required oninput="checkPasswordStrength('patient')">
+                        <div class="error-message" id="patient-password-error">Password must be at least 8 characters</div>
+                        <div class="password-strength">
+                            <div class="strength-meter" id="patient-strength-meter"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="patient-confirm-password" placeholder="Confirm Password" required>
+                        <div class="error-message" id="patient-confirm-password-error">Passwords do not match</div>
+                    </div>
+                    
+                    <button type="button" class="register-btn" onclick="validateForm('patient')">
+                        Register as Patient
+                    </button>
+                    
+                    <div class="login-link">
+                        Already have an account? <a href="#">Login here</a>
+                    </div>
+                </form>
