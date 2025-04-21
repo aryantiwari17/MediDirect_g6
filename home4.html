@@ -1489,10 +1489,53 @@
     </div>
 </footer>
 
-
-
-
-    
+<!-- Appointment Modal -->
+<div class="modal" id="appointment-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Book an Appointment</h2>
+        <form class="modal-form">
+            <div class="form-group">
+                <label for="appointment-name">Full Name</label>
+                <input type="text" id="appointment-name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="appointment-email">Email</label>
+                <input type="email" id="appointment-email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="appointment-phone">Phone</label>
+                <input type="tel" id="appointment-phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="appointment-department">Department</label>
+                <select id="appointment-department" required>
+                    <option value="">Select Department</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="neurology">Neurology</option>
+                    <option value="oncology">Oncology</option>
+                    <option value="orthopedics">Orthopedics</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="appointment-doctor">Preferred Doctor</label>
+                <select id="appointment-doctor">
+                    <option value="">Any Available Doctor</option>
+                    <option value="dr-sharma">Dr. Sharma</option>
+                    <option value="dr-patel">Dr. Patel</option>
+                    <option value="dr-kumar">Dr. Kumar</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="appointment-date">Preferred Date</label>
+                <input type="date" id="appointment-date" required>
+            </div>
+            <div class="form-submit">
+                <button type="submit" class="btn btn-primary">Book Appointment</button>
+            </div>
+        </form>
+    </div>
+</div> 
     <script></script>
 </body>
 </html>
