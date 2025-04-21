@@ -443,7 +443,53 @@
                             document.getElementById('patient-form').classList.toggle('active', userType === 'patient');
                             document.getElementById('doctor-form').classList.toggle('active', userType === 'doctor');
                         }
+                      
+        function login(userType) {
+            if (userType === 'patient') {
+                const patientId = document.getElementById('patient-id').value;
+                const password = document.getElementById('patient-password').value;
+                const rememberMe = document.getElementById('patient-remember').checked;
                 
+                console.log(`Patient login attempt: ${patientId}, Remember: ${rememberMe}`);
+                // Add actual patient login logic here
+                
+                // Show loading state
+                const btn = document.querySelector('#patient-form .login-btn');
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+                btn.disabled = true;
+                
+                // Simulate API call
+               // Replace the setTimeout in the patient login section with:
+                setTimeout(() => {
+                    btn.innerHTML = 'Login as Patient';
+                    btn.disabled = false;
+                    // Redirect to patient portal after "successful" login
+                    window.location.href = 'pp2.html';
+                }, 1500);
+            } else {
+                const doctorId = document.getElementById('doctor-id').value;
+                const password = document.getElementById('doctor-password').value;
+                const rememberMe = document.getElementById('doctor-remember').checked;
+                
+                console.log(`Doctor login attempt: ${doctorId}, Remember: ${rememberMe}`);
+                // Add actual doctor login logic here
+                
+                // Show loading state
+                const btn = document.querySelector('#doctor-form .login-btn');
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+                btn.disabled = true;
+                
+                // Simulate API call
+              // Replace the setTimeout in the patient login section with:
+                setTimeout(() => {
+                    btn.innerHTML = 'Login as Doctor';
+                    btn.disabled = false;
+                    // Redirect to patient portal after "successful" login
+                    window.location.href = 'doctorportal.html';
+                }, 1500);
+            }
+        }
+    </script>
                         
                     
         
