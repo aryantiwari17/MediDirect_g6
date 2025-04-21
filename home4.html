@@ -468,7 +468,114 @@
             max-width: 700px;
             font-size: 1.1rem;
         }
+        /* Specialties Section */
+        .specialties-section {
+            padding: 100px 0;
+        }
 
+        .specialties-header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .specialties-header.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .specialty-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .specialty-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .specialty-card:nth-child(1) { transition-delay: 0.1s; }
+        .specialty-card:nth-child(2) { transition-delay: 0.2s; }
+        .specialty-card:nth-child(3) { transition-delay: 0.3s; }
+        .specialty-card:nth-child(4) { transition-delay: 0.4s; }
+        .specialty-card:nth-child(5) { transition-delay: 0.5s; }
+        .specialty-card:nth-child(6) { transition-delay: 0.6s; }
+
+        .specialty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .specialty-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .specialty-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .specialty-card:hover .specialty-img img {
+            transform: scale(1.05);
+        }
+
+        .specialty-content {
+            padding: 25px;
+        }
+
+        .specialty-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .specialty-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .specialty-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .specialty-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .view-all {
+            text-align: center;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease 0.3s;
+        }
+
+        .view-all.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
     </style>
 </head>
