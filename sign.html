@@ -588,4 +588,35 @@
                 registerUser(userType);
             }
         }
+        function validateRequiredField(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            
+            if (!field.value.trim()) {
+                field.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            field.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        
+        function validateEmailField(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(field.value.trim())) {
+                field.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            field.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        
         
