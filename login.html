@@ -433,6 +433,17 @@
                         </div>
                     </div>
                 
+                    <script>
+                        function switchTab(userType) {
+                            // Update tabs
+                            document.querySelector('.tab.patient').classList.toggle('active', userType === 'patient');
+                            document.querySelector('.tab.doctor').classList.toggle('active', userType === 'doctor');
+                            
+                            // Update forms
+                            document.getElementById('patient-form').classList.toggle('active', userType === 'patient');
+                            document.getElementById('doctor-form').classList.toggle('active', userType === 'doctor');
+                        }
+                
                         
                     
         
