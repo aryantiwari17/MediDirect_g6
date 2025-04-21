@@ -697,4 +697,102 @@
                     color = '#0f9d58'; // green
                 }
             }
+            strengthMeter.style.width = `${width}%`;
+            strengthMeter.style.backgroundColor = color;
+        }
+        
+        function registerUser(userType) {
+            const btn = document.querySelector(`#${userType}-registration-form .register-btn`);
+            const originalText = btn.innerHTML;
+            
+            // Show loading state
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Collect form data
+                const formData = {
+                    firstName: document.getElementById(`${userType}-first-name`).value,
+                    lastName: document.getElementById(`${userType}-last-name`).value,
+                    email: document.getElementById(`${userType}-email`).value,
+                    phone: document.getElementById(`${userType}-phone`).value,
+                    password: document.getElementById(`${userType}-password`).value
+                };
+                
+                // Add user-specific fields
+                if (userType === 'patient') {
+                    formData.dob = document.getElementById('patient-dob').value;
+                } else {
+                    formData.specialization = document.getElementById('doctor-specialization').value;
+                    formData.license = document.getElementById('doctor-license').value;
+                }
+                
+                console.log('Form data:', formData);
+                
+                // Reset form
+                document.getElementById(`${userType}-registration-form`).reset();
+                
+                // Reset password strength meter
+                document.getElementById(`${userType}-strength-meter`).style.width = '0%';
+                
+                // Show success message
+                alert(`${userType.charAt(0).toUpperCase() + userType.slice(1)} registration successful!`);
+                
+                // Reset button
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+                // Optionally redirect to login or dashboard
+                // window.location.href = 'login.html';
+            }, 2000);
+        }
+        
+        // Add event listeners for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add input event listeners for real-time validation
+            ['patient', 'doctor'].forEach(userType => {
+                const form = document.getElementById(`${userType}-registration-form`);
+                if (form) {
+                    form.querySelectorAll('input').forEach(input => {
+                        input.addEventListener('blur', function() {
+                            const fieldId = this.id;
+                            const errorId = `${fieldId}-error`;
+                            
+                            if (fieldId.includes('email')) {
+                                validateEmailField(fieldId, errorId);
+                            } else if (fieldId.includes('phone')) {
+                                validatePhoneField(fieldId, errorId);
+                            } else if (fieldId.includes('confirm-password')) {
+                                const passwordFieldId = fieldId.replace('confirm-', '');
+                                validateConfirmPassword(passwordFieldId, fieldId, errorId);
+                            } else if (!fieldId.includes('password') && !fieldId.includes('dob') && 
+                                      !fieldId.includes('specialization') && !fieldId.includes('license')) {
+                                validateRequiredField(fieldId, errorId);
+                            }
+                        });
+                    });
+                    
+                    // Special handling for select elements
+                    const select = form.querySelector('select');
+                    if (select) {
+                        select.addEventListener('change', function() {
+                            validateRequiredField(this.id, `${this.id}-error`);
+                        });
+                    }
+                }
+            });
+            
+            // Allow form submission with Enter key
+            document.querySelectorAll('.registration-form').forEach(form => {
+                form.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const userType = form.classList.contains('patient-form') ? 'patient' : 'doctor';
+                        validateForm(userType);
+                    }
+                });
+            });
+        });
+    </script>
         
