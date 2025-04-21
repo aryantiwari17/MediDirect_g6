@@ -573,5 +573,19 @@
                     isValid = false;
                 }
             }
+             // Validate password
+             if (!validatePasswordField(`${formPrefix}-password`, `${formPrefix}-password-error`)) {
+                isValid = false;
+            }
             
+            // Validate confirm password
+            if (!validateConfirmPassword(`${formPrefix}-password`, `${formPrefix}-confirm-password`, 
+                                        `${formPrefix}-confirm-password-error`)) {
+                isValid = false;
+            }
+            
+            if (isValid) {
+                registerUser(userType);
+            }
+        }
         
