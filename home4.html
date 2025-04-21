@@ -1536,7 +1536,81 @@
         </form>
     </div>
 </div> 
-    <script></script>
+    <script>
+               // Enhanced Scroll Animation Functionality
+               function animateOnScroll() {
+            const elements = document.querySelectorAll(
+                '.stat-item, .section-text, .section-image, ' +
+                '.specialties-header, .specialty-card, .view-all, ' +
+                '.doctors-header, .doctor-card, .search-container, ' +
+                '.award-item, .testimonial-card'
+            );
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Run on initial load
+        window.addEventListener('load', () => {
+            animateOnScroll();
+            // Add fade-in to body for initial load
+            document.body.style.opacity = '1';
+        });
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Appointment Modal Functionality
+        const appointmentBtn = document.getElementById('appointment-btn');
+        const appointmentModal = document.getElementById('appointment-modal');
+        const closeBtns = document.querySelectorAll('.close-modal');
+        
+        // Show appointment modal
+        appointmentBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            appointmentModal.classList.add('active');
+        });
+        
+        // Close modal
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                appointmentModal.classList.remove('active');
+            });
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === appointmentModal) {
+                appointmentModal.classList.remove('active');
+            }
+        });
+        
+        // Form Submission
+        const appointmentForm = document.querySelector('#appointment-modal form');
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Appointment request submitted successfully! We will contact you shortly.');
+            appointmentModal.classList.remove('active');
+            appointmentForm.reset();
+        });
+
+    </script>
 </body>
 </html>
 
