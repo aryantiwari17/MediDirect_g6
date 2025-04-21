@@ -971,6 +971,119 @@
             text-decoration: none;
             font-weight: 600;
         }
+      /* Responsive Styles */
+      @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-content {
+                flex-direction: column;
+            }
+            
+            .section-text, 
+            .section-image {
+                flex: none;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-contact {
+                margin-bottom: 10px;
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav {
+                margin: 20px 0;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 15px;
+            }
+
+            .auth-buttons {
+                margin: 20px 0 0;
+            }
+
+            .hero {
+                height: auto;
+                min-height: auto;
+                padding: 100px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .appointment-btn-container {
+                position: static;
+                margin-top: 40px;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                margin: 15px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .search-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .search-form input,
+            .search-form select {
+                width: 100%;
+            }
+        }
 
 
     </style>
