@@ -462,3 +462,58 @@
             box-shadow: var(--shadow);
         }
 
+
+               /* Departments Contact Cards */
+               .departments-contact {
+            padding: 60px 0;
+            background-color: var(--light);
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .department-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .department-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .department-icon {
+            background: var(--primary);
+            color: var(--white);
+            padding: 25px;
+            font-size: 2.5rem;
+        }
+
+        .department-content {
+            padding: 25px;
+        }
+
+        .department-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .department-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .department-contact {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+     
