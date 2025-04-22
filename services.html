@@ -920,5 +920,60 @@
             box-shadow: var(--shadow);
             transform: translateY(-3px);
         }
+        /* Experience Section - New */
+        .experience-section {
+            padding: 100px 0;
+            background: 
+                linear-gradient(#008080, #006666), 
+                url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') 
+                no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .experience-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .experience-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .experience-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .experience-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .experience-feature i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+
+        .experience-feature h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-feature p {
+            margin: 0;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
 
 
