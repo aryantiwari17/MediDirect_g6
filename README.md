@@ -19,3 +19,7 @@ this is the image used
 ![newsweek](https://github.com/user-attachments/assets/e0b76fe1-e7fe-4cb0-a709-691070084c40)
 ![rena care](https://github.com/user-attachments/assets/2ed90ccc-0569-4324-9e1c-ec098ee727b6)
 >>>>>>> 62617255fb9fe08b8dbc99393d8b805223dcbfe7
+![rajesh](https://github.com/user-attachments/assets/f396d6fd-7149-4c24-8e37-04b8d2edba93)
+![as saini](https://github.com/user-attachments/assets/d63bc469-1c8e-46ce-8d3c-a1f39825039e)
+![pooja dr](https://github.com/user-attachments/assets/587c56b7-eff9-453e-a4e3-0e8ec90b782c)
+
