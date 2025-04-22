@@ -514,5 +514,54 @@
         .specialty-icon {
             display: none; /* Hide the specialty icons */
         }
+        /* Make emergency button match appointment button */
+        .btn-emergency {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            background-color: #e74c3c; /* Red color for emergency */
+            color: var(--white);
+        }
 
+        .btn-emergency:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-emergency i {
+            margin-right: 8px;
+        }
+
+        /* Adjust specialties grid to show 4 boxes */
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Ensure even number of boxes (4 boxes) */
+        @media (min-width: 1100px) {
+            .specialties-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .view-all {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
 
