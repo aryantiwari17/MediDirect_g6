@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # MediDirect_g6
 
 
@@ -21,6 +19,3 @@ this is the image for home page
 ![newsweek](https://github.com/user-attachments/assets/e0b76fe1-e7fe-4cb0-a709-691070084c40)
 ![rena care](https://github.com/user-attachments/assets/2ed90ccc-0569-4324-9e1c-ec098ee727b6)
 >>>>>>> 62617255fb9fe08b8dbc99393d8b805223dcbfe7
-![pooja dr](https://github.com/user-attachments/assets/f14e245d-95db-49c0-a627-4716e67d1f58)
-![as saini](https://github.com/user-attachments/assets/d9eab92b-fafa-4c50-9a92-d46615177874)
-![rajesh](https://github.com/user-attachments/assets/88b144c0-0762-4ead-817f-fd94a4ad2a1d)
