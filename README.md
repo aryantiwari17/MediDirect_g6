@@ -22,4 +22,8 @@ this is the image used
 ![rajesh](https://github.com/user-attachments/assets/f396d6fd-7149-4c24-8e37-04b8d2edba93)
 ![as saini](https://github.com/user-attachments/assets/d63bc469-1c8e-46ce-8d3c-a1f39825039e)
 ![pooja dr](https://github.com/user-attachments/assets/587c56b7-eff9-453e-a4e3-0e8ec90b782c)
+![JCI](https://github.com/user-attachments/assets/415d840b-2022-4625-a32e-826c7636e66d)
+
+![NABH](https://github.com/user-attachments/assets/f98ccf3c-44a1-4d78-9ff2-6d7409d52cc6)
+![iISO](https://github.com/user-attachments/assets/07d607aa-827e-46d5-b69f-6900a857380a)
 
