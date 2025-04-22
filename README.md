@@ -28,3 +28,5 @@ this is the image used
 ![iISO](https://github.com/user-attachments/assets/07d607aa-827e-46d5-b69f-6900a857380a)
 
 ![download](https://github.com/user-attachments/assets/87f3e47a-b934-42e3-86a9-b50a71a41266)
+![pulmanology](https://github.com/user-attachments/assets/fc8b1048-9a38-41d5-bb4b-35ad3934b0d5)
+![paediatric](https://github.com/user-attachments/assets/a715b3fa-9f06-4a70-b40b-80060da458e9)
