@@ -518,4 +518,40 @@
 
 
         /* /this is for testing */
+               /* Map Section */
+               .map-container {
+            margin-top: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            display: block;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+
+        .map-overlay h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .map-overlay p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
      
