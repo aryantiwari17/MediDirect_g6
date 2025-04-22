@@ -4,6 +4,8 @@
 📌 Overview
 MediDirect is a modern, efficient, and user-friendly Hospital Management System (HMS) designed to streamline healthcare operations.   			
 It provides a centralized platform for managing patient records, appointments, staff, billing, and medical inventory, improving workflow efficiency and patient care.
+
+this is the image for home page
 ![cancer care](https://github.com/user-attachments/assets/10cb4eba-ca7b-4b07-81f5-c00d684401bc)
 ![arun](https://github.com/user-attachments/assets/b8618394-a9ae-4e94-9ca8-a4a3962943ca)
 ![cardiac care](https://github.com/user-attachments/assets/0bf86c62-dcc1-4f38-b1ae-6e68dc4aea09)
