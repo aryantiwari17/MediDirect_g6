@@ -485,3 +485,79 @@
     opacity: 0.9;
     margin-top: 10px;
 }
+.leadership-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .leader-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .leader-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .leader-card:hover .leader-image img {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 300px); /* Adjust based on image height */
+}
+
+.leader-info .bio {
+    flex-grow: 1; /* Makes bio take available space */
+    margin-bottom: 20px;
+}
+
+.leader-info .btn {
+    align-self: center; /* Center the button */
+    margin-top: auto; /* Push button to bottom */
+    width: fit-content; /* Make button fit content */
+    min-width: 150px; /* Ensure consistent width */
+}
+
+        .leader-info h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .leader-info p {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .leader-info .bio {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
