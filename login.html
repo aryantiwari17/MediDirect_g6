@@ -1,4 +1,310 @@
-<!DOCTYPE html>
+{
+  "patients": [
+    {
+      "patient": {
+        "id": "MD-789456",
+        "name": "Aryab Tiwari",
+        "password": "password123",
+        "avatar": "JD",
+        "email": "aryantiwari745@gmail.com",
+        "phone": "+1 (555) 123-4567",
+        "address": "123 Main St, Anytown, USA",
+        "bloodType": "A+",
+        "primaryCarePhysician": "Dr. Sarah Johnson",
+        "insurance": "Blue Cross Blue Shield"
+      },
+      "stats": {
+        "upcomingAppointments": 8,
+        "activeMedications": 5,
+        "recentTestResults": 3,
+        "unreadMessages": 1
+      },
+      "appointments": [
+        {
+          "id": "APT-001",
+          "title": "Annual Physical Examination",
+          "type": "checkup",
+          "status": "upcoming",
+          "date": "2023-06-10",
+          "time": "09:30",
+          "provider": {
+            "name": "Dr. Sarah Johnson",
+            "specialty": "Primary Care Physician",
+            "avatar": "https://randomuser.me/api/portraits/women/43.jpg"
+          },
+          "location": "Main Hospital - Suite 205",
+          "reason": "Annual checkup and routine blood work. Discuss cholesterol levels and exercise regimen.",
+          "isVirtual": true
+        },
+        {
+          "id": "APT-002",
+          "title": "Follow-up Consultation",
+          "type": "consultation",
+          "status": "completed",
+          "date": "2023-05-28",
+          "time": "14:00",
+          "provider": {
+            "name": "Dr. Michael Chen",
+            "specialty": "Cardiologist",
+            "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+          },
+          "location": "Cardiology Center - Suite 101",
+          "reason": "Follow-up on recent ECG results and medication adjustment.",
+          "isVirtual": false
+        },
+        {
+          "id": "APT-003",
+          "title": "MRI Scan",
+          "type": "diagnostic",
+          "status": "pending",
+          "date": "2023-06-15",
+          "time": "10:00",
+          "provider": {
+            "name": "City Imaging Center",
+            "specialty": "Radiology Department",
+            "avatar": null
+          },
+          "location": "City Imaging Center - Floor 3",
+          "reason": "MRI of lower back to investigate chronic pain.",
+          "isVirtual": false
+        }
+      ]
+    },
+    {
+      "patient": {
+        "id": "MD-567890",
+        "name": "Ashmita",
+        "password": "password123",
+        "avatar": "AS",
+        "email": "ashmita0064.becse24@chitkara.edu.in",
+        "phone": "+91 (987) 654-3210",
+        "address": "456 College Rd, Chandigarh, India",
+        
+        "bloodType": "O+",
+        "primaryCarePhysician": "Dr. Ravi Kapoor",
+        "insurance": "National Health Insurance"
+      },
+      "stats": {
+        "upcomingAppointments": 4,
+        "activeMedications": 2,
+        "recentTestResults": 1,
+        "unreadMessages": 2
+      },
+      "appointments": [
+        {
+          "id": "APT-101",
+          "title": "Allergy Evaluation",
+          "type": "consultation",
+          "status": "upcoming",
+          "date": "2023-07-15",
+          "time": "11:00",
+          "provider": {
+            "name": "Dr. Anjali Sharma",
+            "specialty": "Allergist",
+            "avatar": "https://randomuser.me/api/portraits/women/22.jpg"
+          },
+          "location": "University Medical Center - Room 104",
+          "reason": "Seasonal allergy assessment and treatment plan.",
+          "isVirtual": false
+        },
+        {
+          "id": "APT-102",
+          "title": "Vision Check",
+          "type": "checkup",
+          "status": "upcoming",
+          "date": "2023-07-20",
+          "time": "14:30",
+          "provider": {
+            "name": "Dr. Prakash Verma",
+            "specialty": "Optometrist",
+            "avatar": "https://randomuser.me/api/portraits/men/25.jpg"
+          },
+          "location": "EyeCare Clinic - Suite 301",
+          "reason": "Annual vision assessment and prescription update.",
+          "isVirtual": false
+        },
+        {
+          "id": "APT-103",
+          "title": "Dermatology Consultation",
+          "type": "consultation",
+          "status": "upcoming",
+          "date": "2023-08-05",
+          "time": "10:15",
+          "provider": {
+            "name": "Dr. Meena Patel",
+            "specialty": "Dermatologist",
+            "avatar": "https://randomuser.me/api/portraits/women/35.jpg"
+          },
+          "location": "Skin & Beauty Center - Office 205",
+          "reason": "Treatment for persistent acne and skin care routine.",
+          "isVirtual": true
+        },
+        {
+          "id": "APT-104",
+          "title": "Nutritional Counseling",
+          "type": "consultation",
+          "status": "upcoming",
+          "date": "2023-08-12",
+          "time": "13:00",
+          "provider": {
+            "name": "Ms. Priya Singh",
+            "specialty": "Nutritionist",
+            "avatar": "https://randomuser.me/api/portraits/women/48.jpg"
+          },
+          "location": "Health & Wellness Center - Room 107",
+          "reason": "Diet planning for athletic performance and immunity boost.",
+          "isVirtual": false
+        },
+        {
+          "id": "APT-105",
+          "title": "Blood Test",
+          "type": "laboratory",
+          "status": "upcoming",
+          "date": "2023-07-10",
+          "time": "08:30",
+          "provider": {
+            "name": "University Diagnostics",
+            "specialty": "Clinical Laboratory",
+            "avatar": null
+          },
+          "location": "University Hospital - Laboratory Wing",
+          "reason": "Complete blood count and vitamin D level assessment.",
+          "isVirtual": false
+        }
+      ],
+      "medications": [
+        {
+          "name": "Cetirizine",
+          "dosage": "10mg",
+          "frequency": "Once daily",
+          "prescribedBy": "Dr. Ravi Kapoor",
+          "startDate": "2023-05-20",
+          "reason": "Seasonal allergies"
+        },
+        {
+          "name": "Isotretinoin",
+          "dosage": "20mg",
+          "frequency": "Once daily",
+          "prescribedBy": "Dr. Meena Patel",
+          "startDate": "2023-06-01",
+          "reason": "Acne treatment"
+        }
+      ]
+    },
+    {
+      "patient": {
+        "id": "MD-123456",
+        "name": "Aryan Balodi",
+        "avatar": "AB",
+        "email": "aryan0061.becse24@chitkara.edu.in",
+        "phone": "+91 (876) 543-2109",
+        "address": "789 University Ave, Chandigarh, India",
+        "bloodType": "B-",
+        "primaryCarePhysician": "Dr. Sunil Gupta",
+        "password": "password123",
+        "insurance": "Student Health Plan"
+      },
+      "stats": {
+        "upcomingAppointments": 5,
+        "activeMedications": 1,
+        "recentTestResults": 2,
+        "unreadMessages": 0
+      },
+      "appointments": [
+        {
+          "id": "APT-201",
+          "title": "Sports Injury Follow-up",
+          "type": "consultation",
+          "status": "upcoming",
+          "date": "2023-07-05",
+          "time": "15:30",
+          "provider": {
+            "name": "Dr. Rajiv Khanna",
+            "specialty": "Orthopedic Surgeon",
+            "avatar": "https://randomuser.me/api/portraits/men/42.jpg"
+          },
+          "location": "Sports Medicine Center - Suite 405",
+          "reason": "Follow-up on knee injury rehabilitation progress.",
+          "isVirtual": false
+        },
+        {
+          "id": "APT-202",
+          "title": "Physical Therapy Session",
+          "type": "therapy",
+          "status": "upcoming",
+          "date": "2023-07-12",
+          "time": "16:00",
+          "provider": {
+            "name": "Mr. Vikram Sharma",
+            "specialty": "Physical Therapist",
+            "avatar": "https://randomuser.me/api/portraits/men/67.jpg"
+          },
+          "location": "University Rehabilitation Center - Gym Area",
+          "reason": "Knee strengthening exercises and mobility assessment.",
+          "isVirtual": false
+        },
+        {
+          "id": "APT-203",
+          "title": "Dental Checkup",
+          "type": "dental",
+          "status": "upcoming",
+          "date": "2023-07-25",
+          "time": "11:30",
+          "provider": {
+            "name": "Dr. Neha Joshi",
+            "specialty": "Dentist",
+            "avatar": "https://randomuser.me/api/portraits/women/33.jpg"
+          },
+          "location": "Campus Dental Clinic - Office 2",
+          "reason": "Regular dental cleaning and checkup.",
+          "isVirtual": false
+        },
+        {
+          "id": "APT-204",
+          "title": "X-Ray Imaging",
+          "type": "diagnostic",
+          "status": "upcoming",
+          "date": "2023-08-02",
+          "time": "09:45",
+          "provider": {
+            "name": "University Radiology",
+            "specialty": "Imaging Department",
+            "avatar": null
+          },
+          "location": "University Hospital - Radiology Department",
+          "reason": "Follow-up X-ray to assess knee healing progress.",
+          "isVirtual": false
+        },
+        {
+          "id": "APT-205",
+          "title": "Sports Medicine Consultation",
+          "type": "consultation",
+          "status": "upcoming",
+          "date": "2023-08-10",
+          "time": "14:00",
+          "provider": {
+            "name": "Dr. Sunil Gupta",
+            "specialty": "Sports Medicine Specialist",
+            "avatar": "https://randomuser.me/api/portraits/men/53.jpg"
+          },
+          "location": "University Health Center - Room 303",
+          "reason": "Clearance evaluation for returning to sports activities.",
+          "isVirtual": true
+        }
+      ],
+      "medications": [
+        {
+          "name": "Diclofenac",
+          "dosage": "50mg",
+          "frequency": "Twice daily with meals",
+          "prescribedBy": "Dr. Rajiv Khanna",
+          "startDate": "2023-06-10",
+          "reason": "Anti-inflammatory for knee injury"
+        }
+      ]
+    }
+  ]
+}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -434,61 +740,92 @@
                     </div>
                 
                     <script>
-                        function switchTab(userType) {
-                            // Update tabs
-                            document.querySelector('.tab.patient').classList.toggle('active', userType === 'patient');
-                            document.querySelector('.tab.doctor').classList.toggle('active', userType === 'doctor');
-                            
-                            // Update forms
-                            document.getElementById('patient-form').classList.toggle('active', userType === 'patient');
-                            document.getElementById('doctor-form').classList.toggle('active', userType === 'doctor');
-                        }
-                      
-        function login(userType) {
+// Function to switch between Patient and Doctor tabs
+function switchTab(userType) {
+    // Update tab classes
+    document.querySelector('.tab.patient').classList.toggle('active', userType === 'patient');
+    document.querySelector('.tab.doctor').classList.toggle('active', userType === 'doctor');
+
+    // Update form visibility
+    document.getElementById('patient-form').classList.toggle('active', userType === 'patient');
+    document.getElementById('doctor-form').classList.toggle('active', userType === 'doctor');
+}
+
+// Function to handle login
+function login(userType) {
+    let emailInput, passwordInput, rememberInput, loginBtn, storageKey;
+
+    if (userType === 'patient') {
+        emailInput = document.getElementById('patient-id');
+        passwordInput = document.getElementById('patient-password');
+        rememberInput = document.getElementById('patient-remember');
+        loginBtn = document.querySelector('#patient-form .login-btn');
+        storageKey = 'currentPatient';
+    } else {
+        emailInput = document.getElementById('doctor-id');
+        passwordInput = document.getElementById('doctor-password');
+        rememberInput = document.getElementById('doctor-remember');
+        loginBtn = document.querySelector('#doctor-form .login-btn');
+        storageKey = 'currentDoctor';
+    }
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    const rememberMe = rememberInput.checked;
+
+    // Display loading state
+    loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+    loginBtn.disabled = true;
+
+    // Simulate authentication with JSON file
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            let authenticated = false;
+            let userData = null;
+
             if (userType === 'patient') {
-                const patientId = document.getElementById('patient-id').value;
-                const password = document.getElementById('patient-password').value;
-                const rememberMe = document.getElementById('patient-remember').checked;
-                
-                console.log(`Patient login attempt: ${patientId}, Remember: ${rememberMe}`);
-                // Add actual patient login logic here
-                
-                // Show loading state
-                const btn = document.querySelector('#patient-form .login-btn');
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
-                btn.disabled = true;
-                
-                // Simulate API call
-               // Replace the setTimeout in the patient login section with:
-                setTimeout(() => {
-                    btn.innerHTML = 'Login as Patient';
-                    btn.disabled = false;
-                    // Redirect to patient portal after "successful" login
-                    window.location.href = 'pp2.html';
-                }, 1500);
+                const matched = data.patients.find(p => 
+                    p.patient.email === email && p.patient.password === password
+                );
+                if (matched) {
+                    authenticated = true;
+                    userData = matched;
+                }
             } else {
-                const doctorId = document.getElementById('doctor-id').value;
-                const password = document.getElementById('doctor-password').value;
-                const rememberMe = document.getElementById('doctor-remember').checked;
-                
-                console.log(`Doctor login attempt: ${doctorId}, Remember: ${rememberMe}`);
-                // Add actual doctor login logic here
-                
-                // Show loading state
-                const btn = document.querySelector('#doctor-form .login-btn');
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
-                btn.disabled = true;
-                
-                // Simulate API call
-              // Replace the setTimeout in the patient login section with:
-                setTimeout(() => {
-                    btn.innerHTML = 'Login as Doctor';
-                    btn.disabled = false;
-                    // Redirect to patient portal after "successful" login
-                    window.location.href = 'doctorportal.html';
-                }, 1500);
+                const matched = data.doctors.find(d => 
+                    d.doctor.email === email && d.doctor.password === password
+                );
+                if (matched) {
+                    authenticated = true;
+                    userData = matched;
+                }
             }
-        }
+
+            if (authenticated) {
+                if (rememberMe) {
+                    localStorage.setItem(storageKey, JSON.stringify(userData));
+                } else {
+                    sessionStorage.setItem(storageKey, JSON.stringify(userData));
+                }
+
+                alert(`Login successful as ${userType}!`);
+                // Redirect to dashboard (example)
+                window.location.href = "pb.html";
+            } else {
+                alert('Invalid credentials. Please try again.');
+                loginBtn.innerHTML = `Login as ${userType.charAt(0).toUpperCase() + userType.slice(1)}`;
+                loginBtn.disabled = false;
+            }
+        })
+        .catch(err => {
+            console.error('Login error:', err);
+            alert('An error occurred. Please try again later.');
+            loginBtn.innerHTML = `Login as ${userType.charAt(0).toUpperCase() + userType.slice(1)}`;
+            loginBtn.disabled = false;
+        });
+}
+
     </script>
     </body>
     </html>
