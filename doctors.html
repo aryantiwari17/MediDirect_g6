@@ -38,3 +38,45 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
+               /* Header Styles - Same as services page */
+               .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-contact a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 25px;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .top-contact a:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .top-contact i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        .top-social a {
+            color: var(--white);
+            margin-left: 18px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
