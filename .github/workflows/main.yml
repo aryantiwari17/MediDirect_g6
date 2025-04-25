@@ -1,0 +1,26 @@
+name: C Build and Run
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install build essentials
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+
+    - name: Compile C program
+      run: |
+        gcc -o main main.c
+        echo "Compilation finished."
+
+    - name: Run the program
+      run: ./main
