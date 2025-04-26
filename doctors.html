@@ -358,3 +358,30 @@
             margin-top: 20px;
         }
 
+
+        /* Doctors Grid */
+        .doctors-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .doctor-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .doctor-img {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
