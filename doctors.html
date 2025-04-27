@@ -1472,6 +1472,60 @@
                 </div>
             </div>
         </footer>
+                <!-- Back to Top Button -->
+                <div class="back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </div>
+                
+                <script>
+                    // Back to Top Button
+                    const backToTopButton = document.querySelector('.back-to-top');
+                    
+                    window.addEventListener('scroll', () => {
+                        if (window.pageYOffset > 300) {
+                            backToTopButton.classList.add('visible');
+                        } else {
+                            backToTopButton.classList.remove('visible');
+                        }
+                    });
+                    
+                    backToTopButton.addEventListener('click', () => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                    
+                    // Department Tabs
+                    const departmentTabs = document.querySelectorAll('.department-tab');
+                    
+                    departmentTabs.forEach(tab => {
+                        tab.addEventListener('click', () => {
+                            departmentTabs.forEach(t => t.classList.remove('active'));
+                            tab.classList.add('active');
+                            // Here you would typically filter doctors by department
+                        });
+                    });
+                    
+                    // Filter Doctors (example functionality)
+                    const filterButtons = document.querySelectorAll('.filter-buttons button');
+                    
+                    filterButtons[0].addEventListener('click', () => {
+                        // Apply filters logic would go here
+                        console.log('Filters applied');
+                    });
+                    
+                    filterButtons[1].addEventListener('click', () => {
+                        // Reset filters logic would go here
+                        document.querySelectorAll('.filter-section select').forEach(select => {
+                            select.selectedIndex = 0;
+                        });
+                        document.querySelector('#search').value = '';
+                        console.log('Filters reset');
+                    });
+                </script>
+            </body>
+            </html>
 
                 
         
