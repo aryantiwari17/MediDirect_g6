@@ -1532,4 +1532,107 @@
             mainContent.appendChild(errorDiv);
         }
     }
-    
+     // Function to update user avatars
+     function updateUserAvatars() {
+            const patient = patientData.patient;
+            if (!patient) return;
+            
+            // Get user initials for avatars
+            const nameParts = patient.name.split(' ');
+            let initials = '';
+            if (nameParts.length >= 2) {
+                initials = nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0);
+            } else {
+                initials = nameParts[0].charAt(0);
+            }
+            initials = initials.toUpperCase();
+            
+            // Update header user avatar
+            const headerAvatar = document.querySelector('.user-avatar');
+            if (headerAvatar) {
+                headerAvatar.textContent = initials;
+                
+                // If patient has a profile image, use it instead of initials
+                if (patient.profileImage) {
+                    headerAvatar.innerHTML = `<img src="${patient.profileImage}" alt="${patient.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+                }
+            }
+            
+            // Update sidebar avatar
+            const sidebarAvatar = document.querySelector('.sidebar-avatar');
+            if (sidebarAvatar) {
+                sidebarAvatar.textContent = initials;
+                
+                // If patient has a profile image, use it instead of initials
+                if (patient.profileImage) {
+                    sidebarAvatar.innerHTML = `<img src="${patient.profileImage}" alt="${patient.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+                }
+            }
+        }
+        
+        // Helper function to update all data sections
+        function updateAllData() {
+            ensureElementsExist();
+            updatePatientInfo();
+            updateStatsCards();
+            updateAppointments(false); // Show only 3 by default
+            updateHealthMetrics();
+            updateActivity();
+        }
+        
+        function updatePatientInfo() {
+            console.log("Updating patient info with data:", patientData);
+            
+            // Check if patientData has the correct structure
+            const patient = patientData?.patient || patientData;
+            if (!patient) {
+                console.error("No valid patient data found");
+                return;
+            }
+            
+            const nameElement = document.querySelector('.sidebar-user h3');
+            const idElement = document.querySelector('.sidebar-user p');
+            
+            if (nameElement) nameElement.textContent = patient.name || "Patient Name";
+            if (idElement) idElement.textContent = `Patient ID: ${patient.id || "Unknown"}`;
+            
+            // Update the avatars
+            updateUserAvatars();
+        }
+        function updateStatsCards() {
+            const stats = patientData.stats;
+            if (!stats) return;
+            
+            const statCards = document.querySelectorAll('.stat-card');
+            if (statCards.length === 0) return;
+            
+            // Safely update each stat card if it exists
+            if (statCards[0] && statCards[0].querySelector('p'))
+                statCards[0].querySelector('p').textContent = stats.upcomingAppointments;
+            if (statCards[1] && statCards[1].querySelector('p'))
+                statCards[1].querySelector('p').textContent = stats.activeMedications;
+            if (statCards[2] && statCards[2].querySelector('p'))
+                statCards[2].querySelector('p').textContent = stats.recentTestResults;
+            if (statCards[3] && statCards[3].querySelector('p'))
+                statCards[3].querySelector('p').textContent = stats.unreadMessages;
+        }
+        
+        function updateAppointments(showAll = false) {
+            if (!patientData.appointments) return;
+            
+            let container = document.querySelector('.appointment-cards');
+            
+            if (!container) {
+                const parentElement = document.querySelector('.appointments');
+                
+                if (parentElement) {
+                    container = document.createElement('div');
+                    container.className = 'appointment-cards';
+                    parentElement.appendChild(container);
+                } else {
+                    console.error('Could not find a suitable parent for appointments container');
+                    return;
+                }
+            }
+            
+            container.innerHTML = '';
