@@ -660,3 +660,64 @@
             padding: 0 30px 20px;
             max-height: 500px;
         }
+        
+        /* Emergency Section */
+        .emergency-contact {
+            background: 
+                linear-gradient(rgba(5, 240, 193, 0.916), rgba(0, 68, 136, 0.9)), 
+                url('https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2089&q=80') 
+                no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .emergency-contact .container {
+            max-width: 800px;
+        }
+
+        .emergency-contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .emergency-contact p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .emergency-number {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+        }
+
+        .emergency-number:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .emergency-number i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+
+        .emergency-number span {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .emergency-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
