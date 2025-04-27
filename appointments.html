@@ -1524,4 +1524,32 @@
                     confirmationModal.classList.remove('active');
                 });
             });
+             // Add to calendar functionality
+             document.getElementById('add-to-calendar').addEventListener('click', function() {
+                alert('Added to your calendar!');
+                confirmationModal.classList.remove('active');
+            });
             
+            // Filter tabs functionality
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelector('.filter-tab.active').classList.remove('active');
+                    this.classList.add('active');
+                    // In a real app, you would filter the appointments here
+                });
+            });
+            
+            // Date selector functionality
+            const dateSelectorBtns = document.querySelectorAll('.date-selector button');
+            dateSelectorBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelector('.date-selector button.active').classList.remove('active');
+                    this.classList.add('active');
+                    // In a real app, you would filter the appointments by date range here
+                });
+            });
+        });
+    </script>
+</body>
+</html>
