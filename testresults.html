@@ -1459,6 +1459,98 @@
                             <p>3.2 pg/mL</p>
                         </div>
                     </div>
+                    <div class="test-tags">
+                        <span class="test-tag">Endocrine</span>
+                        <span class="test-tag">Hormonal</span>
+                    </div>
+                    
+                    <div class="test-notes">
+                        <h5>Physician Notes</h5>
+                        <p>Thyroid function tests within normal limits. No evidence of hypo- or hyperthyroidism at this time.</p>
+                    </div>
+                    
+                    <div class="test-actions">
+                        <button class="btn-sm"><i class="fas fa-download"></i> Download</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message Provider</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="test-section">
+                <div class="empty-state">
+                    <i class="fas fa-vial"></i>
+                    <h3>No Blood Tests Found</h3>
+                    <p>You don't have any blood test results yet. When you do, they'll appear here.</p>
+                    <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
+                </div>
+            </div>
+            
+            <div class="test-section">
+                <div class="empty-state">
+                    <i class="fas fa-flask"></i>
+                    <h3>No Urine Tests Found</h3>
+                    <p>You don't have any urine test results yet. When you do, they'll appear here.</p>
+                    <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
+                </div>
+            </div>
+            
+            <div class="test-section">
+                <div class="empty-state">
+                    <i class="fas fa-x-ray"></i>
+                    <h3>No Imaging Results Found</h3>
+                    <p>You don't have any imaging results yet. When you do, they'll appear here.</p>
+                    <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
+                </div>
+            </div>
+            
+            <div class="test-section">
+                <div class="empty-state">
+                    <i class="fas fa-microscope"></i>
+                    <h3>No Pathology Results Found</h3>
+                    <p>You don't have any pathology results yet. When you do, they'll appear here.</p>
+                    <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
+                </div>
+            </div>
+            
+            <div class="test-section">
+                <div class="empty-state">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h3>No Pending Tests</h3>
+                    <p>You don't have any pending test results at this time.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    // Tab switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.test-tab');
+        const sections = document.querySelectorAll('.test-section');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all sections
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Show corresponding section
+                const tabIndex = Array.from(tabs).indexOf(this);
+                sections[tabIndex].classList.add('active');
+            });
+        });
+        
+        // Quick actions functionality could be added here
+    });
+</script>
+</body>
+</html>
 
 
             
