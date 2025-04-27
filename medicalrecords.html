@@ -35,6 +35,7 @@
             --radius-md: 12px;
             --radius-lg: 16px;
         }
+
         * {
             margin: 0;
             padding: 0;
@@ -63,6 +64,7 @@
             z-index: -1;
             opacity: 0.8;
         }
+
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -109,6 +111,7 @@
         .logo:hover .logo-icon {
             transform: rotate(10deg);
         }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -140,6 +143,7 @@
             margin-right: 0.5rem;
             font-size: 1.1rem;
         }
+
         .user-menu {
             display: flex;
             align-items: center;
@@ -231,6 +235,7 @@
             background: var(--medium-gray);
             margin: 0.5rem 0;
         }
+
         .hero {
             position: relative;
             overflow: hidden;
@@ -259,6 +264,7 @@
             animation: gradientMove 25s linear infinite;
             z-index: 1;
         }
+
         @keyframes gradientMove {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -323,6 +329,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .btn:hover {
             background: var(--accent-dark);
             transform: translateY(-2px);
@@ -359,6 +366,7 @@
             grid-template-columns: 240px 1fr;
             gap: 1.5rem;
         }
+
         .sidebar {
             background: var(--white);
             border-radius: var(--radius-md);
@@ -396,6 +404,7 @@
             margin-right: 0.8rem;
             transition: var(--transition);
         }
+
         .sidebar:hover .sidebar-avatar {
             transform: rotate(15deg);
         }
@@ -464,6 +473,7 @@
             border-radius: 50px;
             font-weight: 600;
         }
+
         .main-content {
             background: var(--white);
             border-radius: var(--radius-md);
@@ -545,6 +555,7 @@
             font-size: 0.75rem;
             font-weight: 500;
         }
+
         /* Records Specific Styles */
         .records-header {
             display: flex;
@@ -596,7 +607,7 @@
             border-radius: 50px;
             font-weight: 600;
         }
-
+        
         .records-section {
             display: none;
         }
@@ -714,7 +725,7 @@
             align-items: center;
             margin-bottom: 0.8rem;
         }
-
+        
         .provider-avatar {
             width: 36px;
             height: 36px;
@@ -751,6 +762,7 @@
             gap: 0.8rem;
             margin-bottom: 1.2rem;
         }
+        
         .summary-item {
             background: var(--light-bg);
             padding: 0.8rem;
@@ -799,7 +811,7 @@
             font-size: 0.85rem;
             color: var(--medium-text);
         }
-
+        
         .record-tags {
             display: flex;
             flex-wrap: wrap;
@@ -824,7 +836,7 @@
             font-weight: 600;
             margin-bottom: 0.8rem;
         }
-
+        
         .status-active {
             background: rgba(56, 161, 105, 0.1);
             color: var(--success);
@@ -850,7 +862,7 @@
             font-size: 0.9rem;
             margin-bottom: 0.8rem;
         }
-
+        
         .attachment-item {
             display: flex;
             align-items: center;
@@ -972,7 +984,7 @@
             margin-bottom: 1.2rem;
             font-size: 0.9rem;
         }
-
+        
         /* Responsive adjustments */
         @media (max-width: 1200px) {
             .dashboard-grid {
@@ -1021,6 +1033,7 @@
                 flex-direction: column;
                 gap: 0.8rem;
             }
+            
             .btn-outline {
                 margin-left: 0;
             }
@@ -1076,7 +1089,6 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
          /* Health Summary Card */
     .health-summary {
         background: var(--white);
@@ -1129,8 +1141,7 @@
     .trend-neutral {
         color: var(--light-text);
     }
-
-         /* Medication Reminders */
+    /* Medication Reminders */
     .medication-reminders {
         background: var(--white);
         border-radius: var(--radius-md);
@@ -1181,8 +1192,7 @@
         font-size: 0.7rem;
         color: var(--light-text);
     }
-
-</style>
+    </style>
 </head>
 <body>
     <div class="bg-mesh"></div>
@@ -1204,6 +1214,7 @@
                 <li><a href="#"><i class="fas fa-comment-medical"></i> Messages</a></li>
             </ul>
         </nav>
+        
         <div class="user-menu">
             <div style="position: relative;">
                 <i class="fas fa-bell" style="font-size: 1.2rem; color: var(--medium-text);"></i>
@@ -1219,6 +1230,7 @@
             </div>
         </div>
     </header>
+    
     <div class="hero">
         <div class="hero-content">
             <h1>Your Medical Records</h1>
@@ -1240,6 +1252,7 @@
                         <p>Patient ID: MED123456</p>
                     </div>
                 </div>
+                
                 <ul class="sidebar-menu">
                     <li><a href="#" class="active"><i class="fas fa-user"></i> Profile Overview</a></li>
                     <li><a href="#"><i class="fas fa-file-medical"></i> Medical History</a></li>
@@ -1286,158 +1299,160 @@
                             </div>
                         </div>
                     </div>
-                    <div class="quick-actions">
-                        <h3>Quick Actions</h3>
-                        <div class="action-buttons">
-                            <div class="action-button">
-                                <i class="fas fa-file-upload"></i>
-                                <span>Upload Record</span>
-                            </div>
-                            <div class="action-button">
-                                <i class="fas fa-print"></i>
-                                <span>Print Summary</span>
-                            </div>
-                            <div class="action-button">
-                                <i class="fas fa-share-square"></i>
-                                <span>Share Records</span>
-                            </div>
-                            <div class="action-button">
-                                <i class="fas fa-qrcode"></i>
-                                <span>Emergency QR</span>
-                            </div>
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <div class="action-button">
+                            <i class="fas fa-file-upload"></i>
+                            <span>Upload Record</span>
+                        </div>
+                        <div class="action-button">
+                            <i class="fas fa-print"></i>
+                            <span>Print Summary</span>
+                        </div>
+                        <div class="action-button">
+                            <i class="fas fa-share-square"></i>
+                            <span>Share Records</span>
+                        </div>
+                        <div class="action-button">
+                            <i class="fas fa-qrcode"></i>
+                            <span>Emergency QR</span>
                         </div>
                     </div>
-                    <div class="records-header">
-                        <h2><i class="fas fa-file-medical"></i> Medical Records</h2>
-                        <div class="records-actions">
-                            <button class="btn-sm"><i class="fas fa-plus"></i> New Record</button>
-                            <button class="btn-sm btn-sm-outline"><i class="fas fa-filter"></i> Filters</button>
+                </div>
+
+                <div class="records-header">
+                    <h2><i class="fas fa-file-medical"></i> Medical Records</h2>
+                    <div class="records-actions">
+                        <button class="btn-sm"><i class="fas fa-plus"></i> New Record</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-filter"></i> Filters</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                    </div>
+                </div>
+                
+                <div class="records-tabs">
+                    <div class="records-tab active">All Records <span class="badge">24</span></div>
+                    <div class="records-tab">Doctor Visits <span class="badge">12</span></div>
+                    <div class="records-tab">Lab Results <span class="badge">5</span></div>
+                    <div class="records-tab">Prescriptions <span class="badge">7</span></div>
+                    <div class="records-tab">Immunizations</div>
+                    <div class="records-tab">Procedures</div>
+                    <div class="records-tab">Imaging</div>
+                </div>
+                
+                <div class="records-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search records...">
+                </div>
+                
+                <div class="records-filters">
+                    <div class="filter-group">
+                        <select>
+                            <option>Date: Newest First</option>
+                            <option>Date: Oldest First</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select>
+                            <option>All Providers</option>
+                            <option>Dr. Sarah Johnson</option>
+                            <option>Dr. Michael Chen</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select>
+                            <option>All Categories</option>
+                            <option>Primary Care</option>
+                            <option>Cardiology</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select>
+                            <option>All Statuses</option>
+                            <option>Active</option>
+                            <option>Archived</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="records-section active">
+                    <div class="record-item">
+                        <div class="record-header">
+                            <h3 class="record-title">Annual Physical Exam</h3>
+                            <span class="record-date">May 15, 2023</span>
+                        </div>
+                        
+                        <div class="record-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sarah Johnson">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>Primary Care Physician</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-summary">
+                            <div class="summary-item">
+                                <h4>Blood Pressure</h4>
+                                <p>120/80 mmHg</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Heart Rate</h4>
+                                <p>72 bpm</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Temperature</h4>
+                                <p>98.6°F</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Weight</h4>
+                                <p>175 lbs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-details">
+                            <p>Patient presented for routine annual physical examination. No acute complaints. Overall health status is good. Patient reports regular exercise 3-4 times per week and balanced diet. Recommended to continue current healthy lifestyle habits.</p>
+                            
+                            <div class="record-notes">
+                                <h5>Doctor's Notes</h5>
+                                <p>Patient should schedule follow-up in 6 months to monitor cholesterol levels. Recommended increasing fiber intake and reducing saturated fats.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-tags">
+                            <span class="record-tag">Preventive Care</span>
+                            <span class="record-tag">Vital Signs</span>
+                            <span class="record-tag">Normal Results</span>
+                        </div>
+                        
+                        <div class="record-status status-active">Active</div>
+                        
+                        <div class="record-attachments">
+                            <h5>Attachments</h5>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>Physical Exam Summary</h5>
+                                    <p>PDF • 245 KB • May 15, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="record-actions">
+                            <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
                             <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
                         </div>
                     </div>
-                    
-                    <div class="records-tabs">
-                        <div class="records-tab active">All Records <span class="badge">24</span></div>
-                        <div class="records-tab">Doctor Visits <span class="badge">12</span></div>
-                        <div class="records-tab">Lab Results <span class="badge">5</span></div>
-                        <div class="records-tab">Prescriptions <span class="badge">7</span></div>
-                        <div class="records-tab">Immunizations</div>
-                        <div class="records-tab">Procedures</div>
-                        <div class="records-tab">Imaging</div>
-                    </div>
-                    
-                    <div class="records-search">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search records...">
-                    </div>
-                    
-                    <div class="records-filters">
-                        <div class="filter-group">
-                            <select>
-                                <option>Date: Newest First</option>
-                                <option>Date: Oldest First</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <select>
-                                <option>All Providers</option>
-                                <option>Dr. Sarah Johnson</option>
-                                <option>Dr. Michael Chen</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <select>
-                                <option>All Categories</option>
-                                <option>Primary Care</option>
-                                <option>Cardiology</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <select>
-                                <option>All Statuses</option>
-                                <option>Active</option>
-                                <option>Archived</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="records-section active">
-                        <div class="record-item">
-                            <div class="record-header">
-                                <h3 class="record-title">Annual Physical Exam</h3>
-                                <span class="record-date">May 15, 2023</span>
-                            </div>
-                            
-                            <div class="record-provider">
-                                <div class="provider-avatar">
-                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sarah Johnson">
-                                </div>
-                                <div class="provider-info">
-                                    <h4>Dr. Sarah Johnson</h4>
-                                    <p>Primary Care Physician</p>
-                                </div>
-                            </div>
-                            
-                            <div class="record-summary">
-                                <div class="summary-item">
-                                    <h4>Blood Pressure</h4>
-                                    <p>120/80 mmHg</p>
-                                </div>
-                                <div class="summary-item">
-                                    <h4>Heart Rate</h4>
-                                    <p>72 bpm</p>
-                                </div>
-                                <div class="summary-item">
-                                    <h4>Temperature</h4>
-                                    <p>98.6°F</p>
-                                </div>
-                                <div class="summary-item">
-                                    <h4>Weight</h4>
-                                    <p>175 lbs</p>
-                                </div>
-                            </div>
-                            
-                            <div class="record-details">
-                                <p>Patient presented for routine annual physical examination. No acute complaints. Overall health status is good. Patient reports regular exercise 3-4 times per week and balanced diet. Recommended to continue current healthy lifestyle habits.</p>
-                                
-                                <div class="record-notes">
-                                    <h5>Doctor's Notes</h5>
-                                    <p>Patient should schedule follow-up in 6 months to monitor cholesterol levels. Recommended increasing fiber intake and reducing saturated fats.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="record-tags">
-                                <span class="record-tag">Preventive Care</span>
-                                <span class="record-tag">Vital Signs</span>
-                                <span class="record-tag">Normal Results</span>
-                            </div>
-                            
-                            <div class="record-status status-active">Active</div>
-                            
-                            <div class="record-attachments">
-                                <h5>Attachments</h5>
-                                <div class="attachment-item">
-                                    <div class="attachment-icon">
-                                        <i class="fas fa-file-pdf"></i>
-                                    </div>
-                                    <div class="attachment-info">
-                                        <h5>Physical Exam Summary</h5>
-                                        <p>PDF • 245 KB • May 15, 2023</p>
-                                    </div>
-                                    <div class="attachment-actions">
-                                        <button><i class="fas fa-download"></i></button>
-                                        <button><i class="fas fa-share"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="record-actions">
-                                <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
-                                <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
-                                <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
-                                <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
-                            </div>
-                        </div>
-                           <!-- Medication Reminders -->
+                     <!-- Medication Reminders -->
         <div class="medication-reminders">
             <h3 style="margin-bottom: 1rem; color: var(--primary-dark); display: flex; align-items: center;">
                 <i class="fas fa-pills" style="margin-right: 0.5rem;"></i> Current Medications
@@ -1483,234 +1498,233 @@
             </div>
         </div>
     </div>
-    <div class="record-item">
-        <div class="record-header">
-            <h3 class="record-title">Blood Test Results</h3>
-            <span class="record-date">April 28, 2023</span>
-        </div>
-        
-        <div class="record-provider">
-            <div class="provider-avatar">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Michael Chen">
-            </div>
-            <div class="provider-info">
-                <h4>Dr. Michael Chen</h4>
-                <p>Endocrinologist</p>
-            </div>
-        </div>
-        
-        <div class="record-summary">
-            <div class="summary-item">
-                <h4>Glucose</h4>
-                <p>92 mg/dL</p>
-            </div>
-            <div class="summary-item">
-                <h4>Cholesterol</h4>
-                <p>198 mg/dL</p>
-            </div>
-            <div class="summary-item">
-                <h4>HDL</h4>
-                <p>45 mg/dL</p>
-            </div>
-            <div class="summary-item">
-                <h4>LDL</h4>
-                <p>120 mg/dL</p>
-            </div>
-        </div>
-        
-        <div class="record-details">
-            <p>Comprehensive metabolic panel and lipid profile results. Glucose levels are within normal range. Cholesterol is slightly elevated but within acceptable limits. HDL could be improved with increased exercise. LDL is at the upper limit of normal.</p>
-            
-            <div class="record-notes">
-                <h5>Doctor's Notes</h5>
-                <p>Recommend dietary changes to focus on heart-healthy fats and increased physical activity. Follow-up blood work in 3 months to monitor progress.</p>
-            </div>
-        </div>
-        
-        <div class="record-tags">
-            <span class="record-tag">Lab Work</span>
-            <span class="record-tag">Blood Test</span>
-            <span class="record-tag">Follow-up Needed</span>
-        </div>
-        
-        <div class="record-status status-active">Active</div>
-        
-        <div class="record-attachments">
-            <h5>Attachments</h5>
-            <div class="attachment-item">
-                <div class="attachment-icon">
-                    <i class="fas fa-file-pdf"></i>
+                    <div class="record-item">
+                        <div class="record-header">
+                            <h3 class="record-title">Blood Test Results</h3>
+                            <span class="record-date">April 28, 2023</span>
+                        </div>
+                        
+                        <div class="record-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Michael Chen">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>Endocrinologist</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-summary">
+                            <div class="summary-item">
+                                <h4>Glucose</h4>
+                                <p>92 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Cholesterol</h4>
+                                <p>198 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>HDL</h4>
+                                <p>45 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>LDL</h4>
+                                <p>120 mg/dL</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-details">
+                            <p>Comprehensive metabolic panel and lipid profile results. Glucose levels are within normal range. Cholesterol is slightly elevated but within acceptable limits. HDL could be improved with increased exercise. LDL is at the upper limit of normal.</p>
+                            
+                            <div class="record-notes">
+                                <h5>Doctor's Notes</h5>
+                                <p>Recommend dietary changes to focus on heart-healthy fats and increased physical activity. Follow-up blood work in 3 months to monitor progress.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-tags">
+                            <span class="record-tag">Lab Work</span>
+                            <span class="record-tag">Blood Test</span>
+                            <span class="record-tag">Follow-up Needed</span>
+                        </div>
+                        
+                        <div class="record-status status-active">Active</div>
+                        
+                        <div class="record-attachments">
+                            <h5>Attachments</h5>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>Lab Results Report</h5>
+                                    <p>PDF • 312 KB • April 28, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="record-actions">
+                            <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                    
+                    <div class="record-item">
+                        <div class="record-header">
+                            <h3 class="record-title">Knee Pain Consultation</h3>
+                            <span class="record-date">March 10, 2023</span>
+                        </div>
+                        
+                        <div class="record-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Lisa Wong">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Lisa Wong</h4>
+                                <p>Orthopedic Specialist</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-details">
+                            <p>Patient presented with persistent right knee pain that began after running a marathon 3 weeks ago. Pain is localized to the patellar region and worsens with prolonged walking or stair climbing. Physical examination revealed mild swelling and tenderness over the patellar tendon.</p>
+                            
+                            <div class="record-notes">
+                                <h5>Diagnosis</h5>
+                                <p>Patellar tendinitis (runner's knee) - likely due to overuse and inadequate stretching regimen.</p>
+                            </div>
+                            
+                            <div class="record-notes">
+                                <h5>Treatment Plan</h5>
+                                <p>1. RICE protocol (Rest, Ice, Compression, Elevation) for 1-2 weeks<br>
+                                2. Physical therapy referral for quadriceps strengthening exercises<br>
+                                3. Over-the-counter NSAIDs as needed for pain<br>
+                                4. Follow-up in 4 weeks if symptoms persist</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-tags">
+                            <span class="record-tag">Orthopedics</span>
+                            <span class="record-tag">Sports Injury</span>
+                        </div>
+                        
+                        <div class="record-status status-inactive">Resolved</div>
+                        
+                        <div class="record-attachments">
+                            <h5>Attachments</h5>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>Consultation Notes</h5>
+                                    <p>PDF • 178 KB • March 10, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-share"></i></button>
+                                </div>
+                            </div>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>PT Exercises</h5>
+                                    <p>PDF • 1.2 MB • March 10, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="record-actions">
+                            <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="attachment-info">
-                    <h5>Lab Results Report</h5>
-                    <p>PDF • 312 KB • April 28, 2023</p>
+                
+                <div class="records-section">
+                    <!-- Doctor Visits content would go here -->
+                    <div class="empty-state">
+                        <i class="fas fa-stethoscope"></i>
+                        <h3>No Doctor Visits Found</h3>
+                        <p>You don't have any doctor visit records yet. Schedule an appointment to get started.</p>
+                        <button class="btn-sm"><i class="fas fa-calendar-plus"></i> Schedule Appointment</button>
+                    </div>
                 </div>
-                <div class="attachment-actions">
-                    <button><i class="fas fa-download"></i></button>
-                    <button><i class="fas fa-share"></i></button>
+                
+                <div class="records-section">
+                    <!-- Lab Results content would go here -->
+                    <div class="empty-state">
+                        <i class="fas fa-vial"></i>
+                        <h3>No Lab Results Found</h3>
+                        <p>You don't have any lab results uploaded yet. Contact your provider to request access.</p>
+                        <button class="btn-sm"><i class="fas fa-envelope"></i> Request Records</button>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="record-actions">
-            <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
-            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
-            <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
-            <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
+                
+                <div class="records-section">
+                    <!-- Prescriptions content would go here -->
+                    <div class="empty-state">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                        <h3>No Prescriptions Found</h3>
+                        <p>You don't have any prescription records yet. Contact your provider for medication management.</p>
+                        <button class="btn-sm"><i class="fas fa-comment-medical"></i> Message Provider</button>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
     
-    <div class="record-item">
-        <div class="record-header">
-            <h3 class="record-title">Knee Pain Consultation</h3>
-            <span class="record-date">March 10, 2023</span>
-        </div>
-        
-        <div class="record-provider">
-            <div class="provider-avatar">
-                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Lisa Wong">
-            </div>
-            <div class="provider-info">
-                <h4>Dr. Lisa Wong</h4>
-                <p>Orthopedic Specialist</p>
-            </div>
-        </div>
-        
-        <div class="record-details">
-            <p>Patient presented with persistent right knee pain that began after running a marathon 3 weeks ago. Pain is localized to the patellar region and worsens with prolonged walking or stair climbing. Physical examination revealed mild swelling and tenderness over the patellar tendon.</p>
-            
-            <div class="record-notes">
-                <h5>Diagnosis</h5>
-                <p>Patellar tendinitis (runner's knee) - likely due to overuse and inadequate stretching regimen.</p>
-            </div>
-            
-            <div class="record-notes">
-                <h5>Treatment Plan</h5>
-                <p>1. RICE protocol (Rest, Ice, Compression, Elevation) for 1-2 weeks<br>
-                2. Physical therapy referral for quadriceps strengthening exercises<br>
-                3. Over-the-counter NSAIDs as needed for pain<br>
-                4. Follow-up in 4 weeks if symptoms persist</p>
-            </div>
-        </div>
-        
-        <div class="record-tags">
-            <span class="record-tag">Orthopedics</span>
-            <span class="record-tag">Sports Injury</span>
-        </div>
-        
-        <div class="record-status status-inactive">Resolved</div>
-        
-        <div class="record-attachments">
-            <h5>Attachments</h5>
-            <div class="attachment-item">
-                <div class="attachment-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <div class="attachment-info">
-                    <h5>Consultation Notes</h5>
-                    <p>PDF • 178 KB • March 10, 2023</p>
-                </div>
-                <div class="attachment-actions">
-                    <button><i class="fas fa-download"></i></button>
-                    <button><i class="fas fa-share"></i></button>
-                </div>
-            </div>
-            <div class="attachment-item">
-                <div class="attachment-icon">
-                    <i class="fas fa-file-pdf"></i>
-                </div>
-                <div class="attachment-info">
-                    <h5>PT Exercises</h5>
-                    <p>PDF • 1.2 MB • March 10, 2023</p>
-                </div>
-                <div class="attachment-actions">
-                    <button><i class="fas fa-download"></i></button>
-                    <button><i class="fas fa-share"></i></button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="record-actions">
-            <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
-            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
-            <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
-            <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
-        </div>
-    </div>
-</div>
-
-<div class="records-section">
-    <!-- Doctor Visits content would go here -->
-    <div class="empty-state">
-        <i class="fas fa-stethoscope"></i>
-        <h3>No Doctor Visits Found</h3>
-        <p>You don't have any doctor visit records yet. Schedule an appointment to get started.</p>
-        <button class="btn-sm"><i class="fas fa-calendar-plus"></i> Schedule Appointment</button>
-    </div>
-</div>
-<div class="records-section">
-    <!-- Lab Results content would go here -->
-    <div class="empty-state">
-        <i class="fas fa-vial"></i>
-        <h3>No Lab Results Found</h3>
-        <p>You don't have any lab results uploaded yet. Contact your provider to request access.</p>
-        <button class="btn-sm"><i class="fas fa-envelope"></i> Request Records</button>
-    </div>
-</div>
-
-<div class="records-section">
-    <!-- Prescriptions content would go here -->
-    <div class="empty-state">
-        <i class="fas fa-prescription-bottle-alt"></i>
-        <h3>No Prescriptions Found</h3>
-        <p>You don't have any prescription records yet. Contact your provider for medication management.</p>
-        <button class="btn-sm"><i class="fas fa-comment-medical"></i> Message Provider</button>
-    </div>
-</div>
-</main>
-</div>
-</div>
-<script>
-    // Tab switching functionality
-    document.querySelectorAll('.records-tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Remove active class from all tabs and sections
-            document.querySelectorAll('.records-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.records-section').forEach(s => s.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            tab.classList.add('active');
-            
-            // Show corresponding section
-            const sections = document.querySelectorAll('.records-section');
-            const index = Array.from(document.querySelectorAll('.records-tab')).indexOf(tab);
-            if (sections[index]) {
-                sections[index].classList.add('active');
-            }
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.records-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.records-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.records-section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding section
+                const sections = document.querySelectorAll('.records-section');
+                const index = Array.from(document.querySelectorAll('.records-tab')).indexOf(tab);
+                if (sections[index]) {
+                    sections[index].classList.add('active');
+                }
+            });
         });
-    });
-    
-    // Simple animation for record items when they come into view
-    const recordItems = document.querySelectorAll('.record-item');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
+        
+        // Simple animation for record items when they come into view
+        const recordItems = document.querySelectorAll('.record-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        recordItems.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(item);
         });
-    }, { threshold: 0.1 });
-    
-    recordItems.forEach(item => {
-        item.style.opacity = 0;
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(item);
-    });
-</script>
+    </script>
 </body>
 </html>
-        
-                    
-                
-
