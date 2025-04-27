@@ -407,3 +407,75 @@
             box-shadow: var(--shadow);
             transform: translateY(-3px);
         }
+        /* Visitor Information Section */
+        .visitor-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .visitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .visitor-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .visitor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .visitor-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .visitor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .visitor-card:hover .visitor-img img {
+            transform: scale(1.05);
+        }
+
+        .visitor-content {
+            padding: 30px;
+        }
+
+        .visitor-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .visitor-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .visitor-features {
+            margin-bottom: 25px;
+        }
+
+        .visitor-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .visitor-feature i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1rem;
+        }
