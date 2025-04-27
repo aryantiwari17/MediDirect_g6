@@ -971,6 +971,119 @@
             font-size: 0.8rem;
             color: var(--light-text);
         }
+                /* Responsive adjustments */
+                @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.8rem 0.5rem;
+            }
+            
+            .hero {
+                padding: 3rem 1rem 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .dashboard {
+                padding: 0 1rem 2rem;
+            }
+            
+            .test-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .test-summary {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            
+            .test-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .test-tab {
+                padding: 0.7rem 0.9rem;
+            }
+            
+            .test-filters {
+                flex-direction: column;
+            }
+            
+            .test-actions {
+                flex-wrap: wrap;
+            }
+            
+            .btn-sm {
+                flex: 1;
+                min-width: 100px;
+                justify-content: center;
+            }
+
+            .results-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
 
 
         
