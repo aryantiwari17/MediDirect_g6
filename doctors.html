@@ -504,4 +504,34 @@
             background-color: var(--primary);
             color: var(--white);
         }
+         /* Department Section */
+         .department-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .department-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .department-tab {
+            padding: 12px 25px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .department-tab.active,
+        .department-tab:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
         
