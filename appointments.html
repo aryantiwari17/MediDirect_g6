@@ -746,3 +746,27 @@
         .btn-sm-danger:hover {
             background: #c53030;
         }
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .filter-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--light-text);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .filter-tab.active {
+            color: var(--primary-dark);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .filter-tab:hover:not(.active) {
+            color: var(--medium-text);
+        }
