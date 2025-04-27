@@ -586,3 +586,84 @@
             height: 100%;
             background: var(--primary);
         }
+        .appointment-card.upcoming {
+            border-left: 4px solid var(--success);
+        }
+
+        .appointment-card.pending {
+            border-left: 4px solid var(--warning);
+        }
+
+        .appointment-card.completed {
+            border-left: 4px solid var(--light-text);
+        }
+
+        .appointment-card.cancelled {
+            border-left: 4px solid var(--danger);
+        }
+
+        .appointment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .appointment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .appointment-status {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-upcoming {
+            background: rgba(56, 161, 105, 0.1);
+            color: var(--success);
+        }
+
+        .status-pending {
+            background: rgba(214, 158, 46, 0.1);
+            color: var(--warning);
+        }
+
+        .status-completed {
+            background: rgba(113, 128, 150, 0.1);
+            color: var(--light-text);
+        }
+
+        .status-cancelled {
+            background: rgba(229, 62, 62, 0.1);
+            color: var(--danger);
+        }
+
+        .appointment-time {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .appointment-time i {
+            margin-right: 0.5rem;
+        }
+
+        .appointment-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .appointment-doctor {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
