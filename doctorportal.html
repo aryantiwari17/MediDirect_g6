@@ -721,6 +721,115 @@
             background: rgba(113, 128, 150, 0.1);
             color: var(--light-text);
         }
+        .status-cancelled {
+            background: rgba(229, 62, 62, 0.1);
+            color: var(--danger);
+        }
+
+        .appointment-time {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .appointment-time i {
+            margin-right: 0.5rem;
+        }
+
+        .appointment-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .appointment-doctor {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .doctor-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            overflow: hidden;
+        }
+
+        .doctor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doctor-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .doctor-info p {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        .appointment-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-sm:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm i {
+            margin-right: 0.4rem;
+        }
+
+        .btn-sm-outline {
+            background: transparent;
+            border: 1px solid var(--medium-gray);
+            color: var(--medium-text);
+        }
+
+        .btn-sm-outline:hover {
+            background: var(--light-gray);
+            color: var(--primary-dark);
+            border-color: var(--primary-light);
+        }
+
+        .btn-sm-danger {
+            background: var(--danger);
+        }
+
+        .btn-sm-danger:hover {
+            background: #c53030;
+        }
 
 
 
