@@ -1636,3 +1636,89 @@
             }
             
             container.innerHTML = '';
+              // Show only first 3 appointments or all based on showAll parameter
+              const appointmentsToShow = showAll ? patientData.appointments : patientData.appointments.slice(0, 3);
+        
+        appointmentsToShow.forEach(appt => {
+            const apptDate = new Date(`${appt.date}T${appt.time}`);
+            const isToday = new Date().toDateString() === apptDate.toDateString();
+            const timeString = isToday
+                ? `Today, ${formatTime(appt.time)}`
+                : `${apptDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, ${formatTime(appt.time)}`;
+    
+            const statusText = {
+                upcoming: 'Upcoming',
+                completed: 'Completed',
+                pending: 'Pending',
+                cancelled: 'Cancelled'
+            };
+    
+            const providerAvatar = appt.provider.avatar
+                ? `<img src="${appt.provider.avatar}" alt="${appt.provider.name}">`
+                : `<i class="fas fa-hospital"></i>`;
+    
+            let buttons = '';
+            if (appt.status === 'upcoming') {
+                buttons = `
+                    <button class="btn-sm"><i class="fas fa-video"></i> Join Telehealth</button>
+                    <button class="btn-sm btn-sm-outline"><i class="fas fa-calendar-alt"></i> Reschedule</button>
+                `;
+            } else if (appt.status === 'completed') {
+                buttons = `
+                    <button class="btn-sm"><i class="fas fa-file-medical"></i> View Summary</button>
+                    <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message</button>
+                `;
+            } else if (appt.status === 'pending') {
+                buttons = `
+                    <button class="btn-sm"><i class="fas fa-check-circle"></i> Confirm</button>
+                    <button class="btn-sm btn-sm-outline"><i class="fas fa-times-circle"></i> Cancel</button>
+                `;
+            }
+    
+            const apptCard = document.createElement('div');
+            apptCard.className = `appointment-card ${appt.status}`;
+            apptCard.innerHTML = `
+                <div class="appointment-header">
+                    <span class="appointment-status status-${appt.status}">${statusText[appt.status]}</span>
+                    <span class="appointment-time"><i class="far fa-clock"></i> ${timeString}</span>
+                </div>
+                <h4 class="appointment-title">${appt.title}</h4>
+                <div class="appointment-doctor">
+                    <div class="doctor-avatar">${providerAvatar}</div>
+                    <div class="doctor-info">
+                        <h4>${appt.provider.name}</h4>
+                        <p>${appt.provider.specialty}</p>
+                    </div>
+                </div>
+                <div class="appointment-actions">${buttons}</div>
+            `;
+    
+            apptCard.addEventListener('click', function (e) {
+                if (!e.target.closest('.btn-sm')) {
+                    showAppointmentModal(appt);
+                }
+            });
+    
+            container.appendChild(apptCard);
+        });
+        
+        // Update the view all/show less link
+        updateAppointmentToggleLink(showAll);
+    }
+    
+    // Fixed toggle link function
+    function updateAppointmentToggleLink(showAll) {
+        const sectionTitle = document.querySelector('.appointments .section-title');
+        if (!sectionTitle) return;
+        
+        // Remove any existing toggle links (both view all and show less)
+        const existingViewAllLink = document.getElementById('view-all-appointments');
+        if (existingViewAllLink) {
+            existingViewAllLink.remove();
+        }
+        
+        const existingShowLessLink = document.getElementById('show-less-appointments');
+        if (existingShowLessLink) {
+            existingShowLessLink.remove();
+        }
+        
