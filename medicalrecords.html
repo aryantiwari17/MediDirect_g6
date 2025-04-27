@@ -1130,4 +1130,55 @@
         color: var(--light-text);
     }
 
+         /* Medication Reminders */
+    .medication-reminders {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .medication-item {
+        display: flex;
+        align-items: center;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--medium-gray);
+    }
+    
+    .medication-item:last-child {
+        border-bottom: none;
+    }
+    
+    .medication-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-lighter);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        color: var(--primary);
+    }
+    
+    .medication-info h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .medication-info p {
+        font-size: 0.8rem;
+        color: var(--light-text);
+    }
+    
+    .medication-dosage {
+        margin-left: auto;
+        text-align: right;
+    }
+    
+    .medication-dosage .next-dose {
+        font-size: 0.7rem;
+        color: var(--light-text);
+    }
 
