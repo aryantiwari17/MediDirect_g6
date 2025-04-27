@@ -921,4 +921,53 @@
             cursor: pointer;
             transition: var(--transition);
         }
+        .time-slot:hover {
+            background: var(--primary-lighter);
+            border-color: var(--primary);
+        }
         
+        .time-slot.selected {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary-dark);
+        }
+        
+        .time-slot.unavailable {
+            background: var(--light-gray);
+            color: var(--light-text);
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+        
+        .doctor-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .doctor-option {
+            padding: 1rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .doctor-option:hover {
+            background: var(--primary-lighter);
+            border-color: var(--primary);
+        }
+        
+        .doctor-option.selected {
+            background: var(--primary-lighter);
+            border: 2px solid var(--primary);
+        }
+        
+        .doctor-option img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.5rem;
+        }
