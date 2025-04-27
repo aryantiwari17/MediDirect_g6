@@ -478,3 +478,30 @@
             margin-left: 5px;
         }
         
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .pagination a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: var(--light);
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .pagination a.active,
+        .pagination a:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
