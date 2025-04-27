@@ -642,6 +642,78 @@
             margin-bottom: 1.5rem;
         }
         
+        .filter-group {
+            position: relative;
+        }
+        
+        .filter-group select {
+            padding: 0.5rem 1.8rem 0.5rem 0.8rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            appearance: none;
+            background-color: var(--white);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .filter-group::after {
+            content: "\f078";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--light-text);
+            font-size: 0.7rem;
+        }
+        
+        .records-list {
+            list-style: none;
+        }
+        
+        .record-item {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .record-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .record-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .record-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .record-date {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+        
+        .record-provider {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
 
 
 
