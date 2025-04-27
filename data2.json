@@ -1,0 +1,509 @@
+{
+    "user": {
+      "id": "doc-12345",
+      "name": "Dr. Sarah Smith",
+      "email": "sarah.smith@medicalcenter.com",
+      "password": "password123",
+      "department": "Cardiology Department",
+      "avatar": "DR",
+      "unreadNotifications": 5,
+      "role": "physician"
+    },
+    "dashboard": {
+      "stats": {
+        "scheduledPatients": 12,
+        "waitingRoom": 3,
+        "pendingPrescriptions": 2,
+        "unreadMessages": 5
+      },
+      "dateRange": "today" 
+    },
+    "appointments": {
+      "today": [
+        {
+          "id": "apt-112233",
+          "status": "in_progress",
+          "statusLabel": "In Progress",
+          "time": "10:30 AM", 
+          "isCurrent": true,
+          "title": "Chest Pain Evaluation",
+          "urgency": "high",
+          "patient": {
+            "id": "MD-78452",
+            "name": "Robert Johnson",
+            "age": 58,
+            "avatar": "https://randomuser.me/api/portraits/men/45.jpg"
+          },
+          "notes": {
+            "chiefComplaint": "Acute chest pain radiating to left arm, onset 2 hours ago",
+            "vitals": "BP 150/95, HR 110, Temp 98.6°F"
+          }
+        },
+        {
+          "id": "apt-112234",
+          "status": "upcoming",
+          "statusLabel": "Next",
+          "time": "11:15 AM", 
+          "isCurrent": false,
+          "title": "Hypertension Follow-up",
+          "urgency": "medium",
+          "patient": {
+            "id": "MD-45218",
+            "name": "Margaret Williams",
+            "age": 72,
+            "avatar": "https://randomuser.me/api/portraits/women/63.jpg"
+          },
+          "notes": {
+            "lastVisit": "3 months ago - BP 140/88",
+            "currentMeds": "Lisinopril 10mg daily"
+          }
+        },
+        {
+          "id": "apt-112235",
+          "status": "upcoming",
+          "statusLabel": "Confirmed",
+          "time": "2:00 PM", 
+          "isCurrent": false,
+          "title": "Annual Physical",
+          "urgency": "low",
+          "patient": {
+            "id": "MD-96325",
+            "name": "David Kim",
+            "age": 45,
+            "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+          },
+          "notes": {
+            "preVisitLabs": "Completed (View Results)",
+            "healthConcerns": "Family history of CAD"
+          }
+        },
+        {
+          "id": "apt-112238",
+          "status": "upcoming",
+          "statusLabel": "Confirmed",
+          "time": "3:15 PM", 
+          "isCurrent": false,
+          "title": "Palpitations Workup",
+          "urgency": "medium",
+          "patient": {
+            "id": "MD-65487",
+            "name": "Jennifer Martinez",
+            "age": 41,
+            "avatar": "https://randomuser.me/api/portraits/women/42.jpg"
+          },
+          "notes": {
+            "chiefComplaint": "Intermittent palpitations for past 2 weeks",
+            "vitals": "BP 130/85, HR 88, Temp 98.4°F"
+          }
+        },
+        {
+          "id": "apt-112239",
+          "status": "upcoming",
+          "statusLabel": "Confirmed",
+          "time": "4:30 PM", 
+          "isCurrent": false,
+          "title": "Post-Stent Follow-up",
+          "urgency": "medium",
+          "patient": {
+            "id": "MD-78963",
+            "name": "Thomas Wilson",
+            "age": 67,
+            "avatar": "https://randomuser.me/api/portraits/men/54.jpg"
+          },
+          "notes": {
+            "lastProcedure": "PTCA with stent placement 4 weeks ago",
+            "currentMeds": "ASA 81mg, Clopidogrel 75mg, Atorvastatin 40mg"
+          }
+        }
+      ],
+      "upcoming": [
+        {
+          "id": "apt-112236",
+          "status": "scheduled",
+          "statusLabel": "Scheduled",
+          "date": "April 25, 2025",
+          "time": "9:00 AM", 
+          "title": "Diabetes Management",
+          "urgency": "medium",
+          "patient": {
+            "id": "MD-74125",
+            "name": "Lisa Rodriguez",
+            "age": 64,
+            "avatar": "https://randomuser.me/api/portraits/women/28.jpg"
+          }
+        },
+        {
+          "id": "apt-112237",
+          "status": "scheduled",
+          "statusLabel": "Scheduled",
+          "date": "April 25, 2025",
+          "time": "10:30 AM", 
+          "title": "Post-Op Follow-up",
+          "urgency": "medium",
+          "patient": {
+            "id": "MD-85214",
+            "name": "Michael Thompson",
+            "age": 52,
+            "avatar": "https://randomuser.me/api/portraits/men/67.jpg"
+          }
+        },
+        {
+          "id": "apt-112240",
+          "status": "scheduled",
+          "statusLabel": "Scheduled",
+          "date": "April 25, 2025",
+          "time": "1:15 PM", 
+          "title": "Heart Failure Checkup",
+          "urgency": "high",
+          "patient": {
+            "id": "MD-36987",
+            "name": "Eleanor Davis",
+            "age": 79,
+            "avatar": "https://randomuser.me/api/portraits/women/57.jpg"
+          }
+        },
+        {
+          "id": "apt-112241",
+          "status": "scheduled",
+          "statusLabel": "Scheduled",
+          "date": "April 26, 2025",
+          "time": "11:00 AM", 
+          "title": "Arrhythmia Follow-up",
+          "urgency": "medium",
+          "patient": {
+            "id": "MD-96541",
+            "name": "Samuel Brown",
+            "age": 61,
+            "avatar": "https://randomuser.me/api/portraits/men/29.jpg"
+          }
+        },
+        {
+          "id": "apt-112242",
+          "status": "scheduled",
+          "statusLabel": "Scheduled",
+          "date": "April 26, 2025",
+          "time": "2:45 PM", 
+          "title": "Pre-op Cardiac Clearance",
+          "urgency": "medium",
+          "patient": {
+            "id": "MD-54872",
+            "name": "Patricia Adams",
+            "age": 68,
+            "avatar": "https://randomuser.me/api/portraits/women/35.jpg"
+          }
+        },
+        {
+          "id": "apt-112243",
+          "status": "scheduled",
+          "statusLabel": "Scheduled",
+          "date": "April 29, 2025",
+          "time": "9:30 AM", 
+          "title": "Valve Replacement Follow-up",
+          "urgency": "high",
+          "patient": {
+            "id": "MD-75384",
+            "name": "George Robinson",
+            "age": 71,
+            "avatar": "https://randomuser.me/api/portraits/men/75.jpg"
+          }
+        },
+        {
+          "id": "apt-112244",
+          "status": "scheduled",
+          "statusLabel": "Scheduled",
+          "date": "April 29, 2025",
+          "time": "3:00 PM", 
+          "title": "Hypertension Initial",
+          "urgency": "low",
+          "patient": {
+            "id": "MD-14523",
+            "name": "Emily Parker",
+            "age": 42,
+            "avatar": "https://randomuser.me/api/portraits/women/22.jpg"
+          }
+        }
+      ]
+    },
+    "pendingTasks": {
+      "prescriptions": {
+        "count": 2,
+        "isUrgent": true,
+        "details": [
+          {
+            "id": "rx-789456",
+            "patientName": "Robert Johnson",
+            "patientId": "MD-78452",
+            "medication": "Atorvastatin",
+            "dosage": "20mg",
+            "frequency": "daily",
+            "duration": "30 days",
+            "isRefill": false,
+            "urgency": "high",
+            "requestedTime": "2025-04-24T09:30:00"
+          },
+          {
+            "id": "rx-789457",
+            "patientName": "Emily Chen",
+            "patientId": "MD-36985",
+            "medication": "Lisinopril",
+            "dosage": "10mg",
+            "frequency": "daily",
+            "duration": "90 days",
+            "isRefill": true,
+            "urgency": "medium",
+            "requestedTime": "2025-04-23T16:45:00"
+          }
+        ]
+      },
+      "labResults": {
+        "count": 5,
+        "newSinceYesterday": 2,
+        "details": [
+          {
+            "id": "lab-112233",
+            "patientName": "Margaret Williams",
+            "patientId": "MD-45218",
+            "testType": "Lipid Panel",
+            "orderedDate": "2025-04-20",
+            "resultDate": "2025-04-23",
+            "status": "abnormal",
+            "viewed": false
+          },
+          {
+            "id": "lab-112234",
+            "patientName": "Robert Johnson",
+            "patientId": "MD-78452",
+            "testType": "Cardiac Enzymes",
+            "orderedDate": "2025-04-24",
+            "resultDate": "2025-04-24",
+            "status": "critical",
+            "viewed": false
+          },
+          {
+            "id": "lab-112235",
+            "patientName": "David Kim",
+            "patientId": "MD-96325",
+            "testType": "Comprehensive Metabolic Panel",
+            "orderedDate": "2025-04-15",
+            "resultDate": "2025-04-23",
+            "status": "normal",
+            "viewed": false
+          },
+          {
+            "id": "lab-112236",
+            "patientName": "Lisa Rodriguez",
+            "patientId": "MD-74125",
+            "testType": "HbA1c",
+            "orderedDate": "2025-04-10",
+            "resultDate": "2025-04-23",
+            "status": "abnormal",
+            "viewed": false
+          },
+          {
+            "id": "lab-112237",
+            "patientName": "James Wilson",
+            "patientId": "MD-65412",
+            "testType": "CBC",
+            "orderedDate": "2025-04-20",
+            "resultDate": "2025-04-24",
+            "status": "normal",
+            "viewed": false
+          }
+        ]
+      },
+      "messages": {
+        "count": 3,
+        "details": [
+          {
+            "id": "msg-456789",
+            "patientName": "David Kim",
+            "patientId": "MD-96325",
+            "subject": "Medication Side Effects",
+            "preview": "I've been experiencing some dizziness after starting the new blood pressure medication...",
+            "date": "2025-04-23",
+            "time": "15:20",
+            "isRead": false,
+            "urgency": "medium"
+          },
+          {
+            "id": "msg-456790",
+            "patientName": "Margaret Williams",
+            "patientId": "MD-45218",
+            "subject": "Prescription Refill",
+            "preview": "I'm running low on my Lisinopril and would need a refill soon...",
+            "date": "2025-04-23",
+            "time": "11:45",
+            "isRead": false,
+            "urgency": "low"
+          },
+          {
+            "id": "msg-456791",
+            "patientName": "Robert Johnson",
+            "patientId": "MD-78452",
+            "subject": "Test Results Question",
+            "preview": "I got my test results online but I'm not sure what the elevated LDL means...",
+            "date": "2025-04-24",
+            "time": "08:15",
+            "isRead": false,
+            "urgency": "medium"
+          }
+        ]
+      }
+    },
+    "recentActivity": [
+      {
+        "id": "act-123456", 
+        "type": "prescription",
+        "icon": "file-prescription",
+        "title": "Prescription signed",
+        "description": "Atorvastatin 20mg for Robert Johnson",
+        "time": "30 minutes ago",
+        "timestamp": "2025-04-24T10:00:00"
+      },
+      {
+        "id": "act-123457", 
+        "type": "lab",
+        "icon": "vial",
+        "title": "Lab results received",
+        "description": "Lipid panel for Margaret Williams",
+        "time": "2 hours ago",
+        "timestamp": "2025-04-24T08:30:00"
+      },
+      {
+        "id": "act-123458", 
+        "type": "message",
+        "icon": "comment-medical",
+        "title": "New message",
+        "description": "From David Kim about medication side effects",
+        "time": "Yesterday",
+        "timestamp": "2025-04-23T15:20:00"
+      }
+    ],
+    "patientCharts": {
+      "MD-78452": {
+        "basicInfo": {
+          "name": "Robert Johnson",
+          "age": 58,
+          "gender": "Male",
+          "patientId": "MD-78452",
+          "dob": "1967-03-15",
+          "phone": "(555) 123-4567",
+          "email": "robert.johnson@email.com",
+          "address": "123 Main Street, Anytown, USA",
+          "insurance": "Blue Shield PPO",
+          "insuranceId": "BSP-789456123"
+        },
+        "medicalInfo": {
+          "allergies": ["Penicillin (rash)", "Sulfa drugs"],
+          "medications": [
+            {
+              "name": "Atorvastatin",
+              "dosage": "20mg",
+              "frequency": "daily",
+              "startDate": "2024-12-10"
+            },
+            {
+              "name": "Lisinopril",
+              "dosage": "10mg",
+              "frequency": "daily",
+              "startDate": "2024-10-05"
+            }
+          ],
+          "conditions": [
+            {
+              "name": "Hypertension",
+              "diagnosisDate": "2024-10-05",
+              "status": "active"
+            },
+            {
+              "name": "Hyperlipidemia",
+              "diagnosisDate": "2024-12-10", 
+              "status": "active"
+            }
+          ],
+          "vitalHistory": [
+            {
+              "date": "2025-04-24",
+              "bp": "150/95",
+              "hr": 110,
+              "rr": 18,
+              "temp": 98.6,
+              "spo2": 97,
+              "weight": 195,
+              "height": 70
+            },
+            {
+              "date": "2025-01-15",
+              "bp": "142/90",
+              "hr": 84,
+              "rr": 16,
+              "temp": 98.2,
+              "spo2": 98,
+              "weight": 197,
+              "height": 70
+            }
+          ]
+        },
+        "visitHistory": [
+          {
+            "date": "2025-04-24",
+            "reason": "Chest Pain Evaluation",
+            "provider": "Dr. Sarah Smith",
+            "notes": "Patient presented with acute chest pain radiating to left arm, onset 2 hours ago. Pain described as pressure-like, 7/10 intensity.",
+            "diagnosis": "Pending",
+            "plan": "EKG, cardiac enzymes, chest X-ray"
+          },
+          {
+            "date": "2025-01-15",
+            "reason": "Hypertension Follow-up",
+            "provider": "Dr. Sarah Smith",
+            "notes": "Patient reports good medication compliance. Occasional headaches but improved since last visit.",
+            "diagnosis": "Hypertension, controlled",
+            "plan": "Continue current medications, follow up in 3 months"
+          }
+        ],
+        "labResults": [
+          {
+            "date": "2025-04-24",
+            "type": "Cardiac Enzymes",
+            "results": [
+              {"test": "Troponin I", "value": "0.04 ng/mL", "reference": "< 0.04 ng/mL", "flag": "high"},
+              {"test": "CK-MB", "value": "5.2 ng/mL", "reference": "< 5.0 ng/mL", "flag": "high"},
+              {"test": "Myoglobin", "value": "78 ng/mL", "reference": "< 70 ng/mL", "flag": "high"}
+            ]
+          },
+          {
+            "date": "2025-01-15",
+            "type": "Lipid Panel",
+            "results": [
+              {"test": "Total Cholesterol", "value": "210 mg/dL", "reference": "< 200 mg/dL", "flag": "high"},
+              {"test": "LDL", "value": "140 mg/dL", "reference": "< 130 mg/dL", "flag": "high"},
+              {"test": "HDL", "value": "45 mg/dL", "reference": "> 40 mg/dL", "flag": "normal"},
+              {"test": "Triglycerides", "value": "165 mg/dL", "reference": "< 150 mg/dL", "flag": "high"}
+            ]
+          }
+        ]
+      }
+    },
+    "menu": {
+      "main": [
+        {"id": "dashboard", "label": "Dashboard", "icon": "tachometer-alt", "active": true},
+        {"id": "schedule", "label": "Schedule", "icon": "calendar-check"},
+        {"id": "patients", "label": "Patients", "icon": "user-injured"},
+        {"id": "records", "label": "Records", "icon": "file-medical"},
+        {"id": "prescriptions", "label": "Prescriptions", "icon": "prescription-bottle-alt"},
+        {"id": "messages", "label": "Messages", "icon": "comment-medical"}
+      ],
+      "sidebar": [
+        {"id": "dashboard", "label": "Dashboard", "icon": "tachometer-alt", "active": true},
+        {"id": "appointments", "label": "Today's Appointments", "icon": "calendar-check", "badge": 8},
+        {"id": "patients", "label": "My Patients", "icon": "user-injured", "badge": 24},
+        {"id": "records", "label": "Medical Records", "icon": "file-medical"},
+        {"id": "prescriptions", "label": "Prescriptions", "icon": "prescription-bottle-alt", "badge": 3},
+        {"id": "labs", "label": "Lab Results", "icon": "flask", "badge": 5},
+        {"id": "messages", "label": "Messages", "icon": "comment-medical", "badge": 2},
+        {"id": "analytics", "label": "Analytics", "icon": "chart-line"},
+        {"id": "settings", "label": "Settings", "icon": "cog"}
+      ]
+    }
+  }
