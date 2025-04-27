@@ -935,8 +935,43 @@
             margin-bottom: 1.2rem;
             font-size: 0.9rem;
         }
-        
+
      /* Results Table */
+
+     .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .results-table th {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .results-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--medium-gray);
+            font-size: 0.85rem;
+        }
+        
+        .results-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .results-table tr:hover {
+            background: var(--light-gray);
+        }
+        
+        .reference-range {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
 
         
 
