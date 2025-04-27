@@ -530,6 +530,51 @@
             padding-bottom: 0.5rem;
         }
         
+        .test-tab {
+            padding: 0.7rem 1.2rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--light-text);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        
+        .test-tab.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary);
+        }
+
+        .test-tab:hover:not(.active) {
+            color: var(--primary);
+            border-bottom-color: var(--primary-light);
+        }
+        
+        .test-tab .badge {
+            margin-left: 0.4rem;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .test-section {
+            display: none;
+        }
+        
+        .test-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .test-search {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+ 
 
 
 
