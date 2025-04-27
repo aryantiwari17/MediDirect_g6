@@ -523,3 +523,66 @@
             color: var(--primary-dark);
             box-shadow: var(--shadow-sm);
         }
+         /* Appointment cards */
+         .appointments {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .section-title h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-right: auto;
+        }
+
+        .section-title a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title a i {
+            margin-left: 0.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section-title a:hover i {
+            transform: translateX(3px);
+        }
+
+        .appointment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .appointment-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .appointment-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
