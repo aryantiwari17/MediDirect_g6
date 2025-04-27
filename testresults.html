@@ -36,7 +36,6 @@
             --radius-lg: 16px;
         }
 
-        
         * {
             margin: 0;
             padding: 0;
@@ -65,6 +64,7 @@
             z-index: -1;
             opacity: 0.8;
         }
+
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -93,6 +93,47 @@
         .logo:hover {
             transform: translateY(-2px);
         }
+
+       .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--medium-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
         nav ul li a:hover, nav ul li a.active {
             color: var(--primary-dark);
             border-bottom: 2px solid var(--accent);
@@ -142,6 +183,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .user-avatar:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
@@ -193,6 +235,7 @@
             background: var(--medium-gray);
             margin: 0.5rem 0;
         }
+
         .hero {
             position: relative;
             overflow: hidden;
@@ -252,41 +295,41 @@
             animation-fill-mode: both;
         }
 
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .btn-group {
+                animation: fadeInUp 0.8s ease-out 0.4s;
+                animation-fill-mode: both;
             }
-        }
 
-        .btn-group {
-            animation: fadeInUp 0.8s ease-out 0.4s;
-            animation-fill-mode: both;
-        }
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: var(--accent);
+                color: var(--white);
+                padding: 0.8rem 1.8rem;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: var(--transition);
+                box-shadow: 0 4px 15px rgba(255, 126, 95, 0.3);
+                border: none;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+            }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.3);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
         .btn:hover {
             background: var(--accent-dark);
             transform: translateY(-2px);
@@ -317,6 +360,7 @@
             position: relative;
             z-index: 2;
         }
+
         .dashboard-grid {
             display: grid;
             grid-template-columns: 240px 1fr;
@@ -429,7 +473,7 @@
             border-radius: 50px;
             font-weight: 600;
         }
-        
+
         .main-content {
             background: var(--white);
             border-radius: var(--radius-md);
@@ -509,6 +553,7 @@
         color: var(--medium-text);
         font-weight: 500;
     }
+
         /* Test Results Specific Styles */
         .test-results-header {
             display: flex;
@@ -545,7 +590,7 @@
             color: var(--primary-dark);
             border-bottom-color: var(--primary);
         }
-
+        
         .test-tab:hover:not(.active) {
             color: var(--primary);
             border-bottom-color: var(--primary-light);
@@ -598,6 +643,7 @@
             transform: translateY(-50%);
             color: var(--light-text);
         }
+        
         .test-filters {
             display: flex;
             flex-wrap: wrap;
@@ -714,6 +760,7 @@
             gap: 0.8rem;
             margin-bottom: 1.2rem;
         }
+        
         .summary-item {
             background: var(--light-bg);
             padding: 0.8rem;
@@ -733,6 +780,7 @@
             color: var(--primary-dark);
             font-size: 0.95rem;
         }
+
         .abnormal-value {
             color: var(--danger);
         }
@@ -754,6 +802,7 @@
             border-left: 4px solid var(--accent);
             font-size: 0.85rem;
         }
+        
         .test-notes h5 {
             font-size: 0.8rem;
             color: var(--accent-dark);
@@ -815,6 +864,7 @@
             font-size: 0.9rem;
             margin-bottom: 0.8rem;
         }
+        
         .attachment-item {
             display: flex;
             align-items: center;
@@ -860,6 +910,7 @@
             cursor: pointer;
             font-size: 0.9rem;
         }
+        
         .test-actions {
             display: flex;
             gap: 0.8rem;
@@ -937,8 +988,7 @@
         }
 
      /* Results Table */
-
-     .results-table {
+        .results-table {
             width: 100%;
             border-collapse: collapse;
             margin: 1.5rem 0;
@@ -971,8 +1021,9 @@
             font-size: 0.8rem;
             color: var(--light-text);
         }
-                /* Responsive adjustments */
-                @media (max-width: 1200px) {
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
@@ -1092,6 +1143,7 @@
             </div>
             <span>Medidirect</span>
         </a>
+        
         <nav>
             <ul>
                 <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
@@ -1117,6 +1169,7 @@
             </div>
         </div>
     </header>
+    
     <div class="hero">
         <div class="hero-content">
             <h1>Your Test Results</h1>
@@ -1127,6 +1180,7 @@
             </div>
         </div>
     </div>
+    
     <div class="dashboard">
         <div class="dashboard-grid">
             <aside class="sidebar">
@@ -1137,6 +1191,7 @@
                         <p>Patient ID: MED123456</p>
                     </div>
                 </div>
+                
                 <ul class="sidebar-menu">
                     <li><a href="#"><i class="fas fa-user"></i> Dashboard</a></li>
                     <li><a href="#"><i class="fas fa-file-medical"></i> Appointments</a></li>
@@ -1149,6 +1204,7 @@
                     <li><a href="#"><i class="fas fa-cog"></i> Profile Settings</a></li>
                 </ul>
             </aside>
+            
             <main class="main-content">
                 <div class="quick-actions">
                     <h3>Quick Actions</h3>
@@ -1171,405 +1227,388 @@
                         </div>
                     </div>
                 </div>
-            
-            <div class="test-results-header">
-                <h2><i class="fas fa-flask"></i> Laboratory Results</h2>
-                <div class="test-actions">
-                    <button class="btn-sm"><i class="fas fa-plus"></i> New Request</button>
-                    <button class="btn-sm btn-sm-outline"><i class="fas fa-filter"></i> Filters</button>
-                    <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
-                </div>
-            </div>
-            <div class="test-tabs">
-                <div class="test-tab active">All Results <span class="badge">12</span></div>
-                <div class="test-tab">Blood Tests <span class="badge">8</span></div>
-                <div class="test-tab">Urine Tests <span class="badge">3</span></div>
-                <div class="test-tab">Imaging</div>
-                <div class="test-tab">Pathology</div>
-                <div class="test-tab">Pending</div>
-            </div>
-            
-            <div class="test-search">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search tests by name, date, or provider...">
-            </div>
-            
-            <div class="test-filters">
-                <div class="filter-group">
-                    <select>
-                        <option>All Time</option>
-                        <option>Last 7 Days</option>
-                        <option>Last 30 Days</option>
-                        <option>Last 6 Months</option>
-                        <option>Last Year</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <select>
-                        <option>All Status</option>
-                        <option>Completed</option>
-                        <option>Pending</option>
-                        <option>Abnormal</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <select>
-                        <option>All Providers</option>
-                        <option>City Medical Lab</option>
-                        <option>Central Hospital</option>
-                        <option>Diagnostic Center</option>
-                    </select>
-                </div>
-            </div>
-            <div class="test-section active">
-                <div class="test-item">
-                    <div class="test-header">
-                        <h3 class="test-title">Complete Blood Count (CBC)</h3>
-                        <span class="test-date">May 15, 2023</span>
-                    </div>
-                    
-                    <div class="test-provider">
-                        <div class="provider-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Provider">
-                        </div>
-                        <div class="provider-info">
-                            <h4>Dr. Sarah Johnson</h4>
-                            <p>City Medical Laboratory</p>
-                        </div>
-                    </div>
-                    
-                    <span class="test-status status-completed">Completed</span>
-                    <span class="test-status status-abnormal">Abnormal Values</span>
-                    
-                    <div class="test-summary">
-                        <div class="summary-item">
-                            <h4>Hemoglobin</h4>
-                            <p class="abnormal-value">10.2 g/dL</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>White Blood Cells</h4>
-                            <p>6.8 × 10³/µL</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>Platelets</h4>
-                            <p class="abnormal-value">450 × 10³/µL</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>Hematocrit</h4>
-                            <p class="abnormal-value">32%</p>
-                        </div>
-                    </div>
-                    
-                    <div class="test-tags">
-                        <span class="test-tag">Hematology</span>
-                        <span class="test-tag">Routine</span>
-                    </div>
-                    
-                    <table class="results-table">
-                        <thead>
-                            <tr>
-                                <th>Test</th>
-                                <th>Result</th>
-                                <th>Reference Range</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>White Blood Cells (WBC)</td>
-                                <td>6.8 × 10³/µL</td>
-                                <td class="reference-range">4.5 - 11.0 × 10³/µL</td>
-                                <td><span class="status-completed">Normal</span></td>
-                            </tr>
-                            <tr>
-                                <td>Red Blood Cells (RBC)</td>
-                                <td>3.5 × 10⁶/µL</td>
-                                <td class="reference-range">4.5 - 5.9 × 10⁶/µL</td>
-                                <td><span class="status-abnormal">Low</span></td>
-                            </tr>
-                            <tr>
-                                <td>Hemoglobin (HGB)</td>
-                                <td class="abnormal-value">10.2 g/dL</td>
-                                <td class="reference-range">13.5 - 17.5 g/dL</td>
-                                <td><span class="status-abnormal">Low</span></td>
-                            </tr>
-                            <tr>
-                                <td>Hematocrit (HCT)</td>
-                                <td class="abnormal-value">32%</td>
-                                <td class="reference-range">40% - 52%</td>
-                                <td><span class="status-abnormal">Low</span></td>
-                            </tr>
-                            <tr>
-                                <td>Platelets (PLT)</td>
-                                <td class="abnormal-value">450 × 10³/µL</td>
-                                <td class="reference-range">150 - 400 × 10³/µL</td>
-                                <td><span class="status-abnormal">High</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                    <div class="test-notes">
-                        <h5>Physician Notes</h5>
-                        <p>Patient shows signs of mild anemia. Recommend iron supplementation and follow-up test in 3 months. No signs of infection or inflammation based on WBC count.</p>
-                    </div>
-                    
-                    <div class="test-attachments">
-                        <h5>Attachments</h5>
-                        <div class="attachment-item">
-                            <div class="attachment-icon">
-                                <i class="fas fa-file-pdf"></i>
-                            </div>
-                            <div class="attachment-info">
-                                <h5>Full CBC Report.pdf</h5>
-                                <p>250 KB • May 15, 2023</p>
-                            </div>
-                            <div class="attachment-actions">
-                                <button><i class="fas fa-download"></i></button>
-                                <button><i class="fas fa-print"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="test-actions">
-                        <button class="btn-sm"><i class="fas fa-download"></i> Download</button>
-                        <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
-                        <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message Provider</button>
-                    </div>
-                </div>
-                
-                <div class="test-item">
-                    <div class="test-header">
-                        <h3 class="test-title">Lipid Panel</h3>
-                        <span class="test-date">April 28, 2023</span>
-                    </div>
-                    
-                    <div class="test-provider">
-                        <div class="provider-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Provider">
-                        </div>
-                        <div class="provider-info">
-                            <h4>Dr. Michael Chen</h4>
-                            <p>Central Hospital Laboratory</p>
-                        </div>
-                    </div>
-                    
-                    <span class="test-status status-completed">Completed</span>
-                    
-                    <div class="test-summary">
-                        <div class="summary-item">
-                            <h4>Total Cholesterol</h4>
-                            <p>185 mg/dL</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>HDL Cholesterol</h4>
-                            <p>42 mg/dL</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>LDL Cholesterol</h4>
-                            <p>110 mg/dL</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>Triglycerides</h4>
-                            <p>150 mg/dL</p>
-                        </div>
-                    </div>
-                    
-                    <div class="test-tags">
-                        <span class="test-tag">Cardiac</span>
-                        <span class="test-tag">Metabolic</span>
-                    </div>
-                    
-                    <table class="results-table">
-                        <thead>
-                            <tr>
-                                <th>Test</th>
-                                <th>Result</th>
-                                <th>Reference Range</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Total Cholesterol</td>
-                                <td>185 mg/dL</td>
-                                <td class="reference-range">< 200 mg/dL (Desirable)</td>
-                                <td><span class="status-completed">Normal</span></td>
-                            </tr>
-                            <tr>
-                                <td>HDL Cholesterol</td>
-                                <td>42 mg/dL</td>
-                                <td class="reference-range">> 40 mg/dL</td>
-                                <td><span class="status-completed">Normal</span></td>
-                            </tr>
-                            <tr>
-                                <td>LDL Cholesterol</td>
-                                <td>110 mg/dL</td>
-                                <td class="reference-range">< 130 mg/dL (Desirable)</td>
-                                <td><span class="status-completed">Normal</span></td>
-                            </tr>
-                            <tr>
-                                <td>Triglycerides</td>
-                                <td>150 mg/dL</td>
-                                <td class="reference-range">< 150 mg/dL (Normal)</td>
-                                <td><span class="status-completed">Normal</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                    <div class="test-notes">
-                        <h5>Physician Notes</h5>
-                        <p>Lipid profile within normal ranges. HDL could be improved with increased physical activity. Continue current dietary habits and monitor annually.</p>
-                    </div>
-                    
-                    <div class="test-actions">
-                        <button class="btn-sm"><i class="fas fa-download"></i> Download</button>
-                        <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
-                        <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message Provider</button>
-                    </div>
-                </div>
-                <div class="test-item">
-                    <div class="test-header">
-                        <h3 class="test-title">Thyroid Function Test</h3>
-                        <span class="test-date">March 10, 2023</span>
-                    </div>
-                    
-                    <div class="test-provider">
-                        <div class="provider-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Provider">
-                        </div>
-                        <div class="provider-info">
-                            <h4>Dr. Emily Rodriguez</h4>
-                            <p>Endocrine Specialty Lab</p>
-                        </div>
-                    </div>
-                    
-                    <span class="test-status status-completed">Completed</span>
-                    
-                    <div class="test-summary">
-                        <div class="summary-item">
-                            <h4>TSH</h4>
-                            <p>2.1 mIU/L</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>Free T4</h4>
-                            <p>1.1 ng/dL</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>Free T3</h4>
-                            <p>3.2 pg/mL</p>
-                        </div>
-                    </div>
-                    <div class="test-tags">
-                        <span class="test-tag">Endocrine</span>
-                        <span class="test-tag">Hormonal</span>
-                    </div>
-                    
-                    <div class="test-notes">
-                        <h5>Physician Notes</h5>
-                        <p>Thyroid function tests within normal limits. No evidence of hypo- or hyperthyroidism at this time.</p>
-                    </div>
-                    
-                    <div class="test-actions">
-                        <button class="btn-sm"><i class="fas fa-download"></i> Download</button>
-                        <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
-                        <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message Provider</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="test-section">
-                <div class="empty-state">
-                    <i class="fas fa-vial"></i>
-                    <h3>No Blood Tests Found</h3>
-                    <p>You don't have any blood test results yet. When you do, they'll appear here.</p>
-                    <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
-                </div>
-            </div>
-            
-            <div class="test-section">
-                <div class="empty-state">
-                    <i class="fas fa-flask"></i>
-                    <h3>No Urine Tests Found</h3>
-                    <p>You don't have any urine test results yet. When you do, they'll appear here.</p>
-                    <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
-                </div>
-            </div>
-            
-            <div class="test-section">
-                <div class="empty-state">
-                    <i class="fas fa-x-ray"></i>
-                    <h3>No Imaging Results Found</h3>
-                    <p>You don't have any imaging results yet. When you do, they'll appear here.</p>
-                    <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
-                </div>
-            </div>
-            
-            <div class="test-section">
-                <div class="empty-state">
-                    <i class="fas fa-microscope"></i>
-                    <h3>No Pathology Results Found</h3>
-                    <p>You don't have any pathology results yet. When you do, they'll appear here.</p>
-                    <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
-                </div>
-            </div>
-            
-            <div class="test-section">
-                <div class="empty-state">
-                    <i class="fas fa-hourglass-half"></i>
-                    <h3>No Pending Tests</h3>
-                    <p>You don't have any pending test results at this time.</p>
-                </div>
-            </div>
-        </main>
-    </div>
-</div>
 
-<script>
-    // Tab switching functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const tabs = document.querySelectorAll('.test-tab');
-        const sections = document.querySelectorAll('.test-section');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Remove active class from all tabs
-                tabs.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked tab
-                this.classList.add('active');
+                <div class="test-results-header">
+                    <h2><i class="fas fa-flask"></i> Laboratory Results</h2>
+                    <div class="test-actions">
+                        <button class="btn-sm"><i class="fas fa-plus"></i> New Request</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-filter"></i> Filters</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                    </div>
+                </div>
                 
-                // Hide all sections
-                sections.forEach(section => section.classList.remove('active'));
+                <div class="test-tabs">
+                    <div class="test-tab active">All Results <span class="badge">12</span></div>
+                    <div class="test-tab">Blood Tests <span class="badge">8</span></div>
+                    <div class="test-tab">Urine Tests <span class="badge">3</span></div>
+                    <div class="test-tab">Imaging</div>
+                    <div class="test-tab">Pathology</div>
+                    <div class="test-tab">Pending</div>
+                </div>
                 
-                // Show corresponding section
-                const tabIndex = Array.from(tabs).indexOf(this);
-                sections[tabIndex].classList.add('active');
+                <div class="test-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search tests by name, date, or provider...">
+                </div>
+                
+                <div class="test-filters">
+                    <div class="filter-group">
+                        <select>
+                            <option>All Time</option>
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                            <option>Last 6 Months</option>
+                            <option>Last Year</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select>
+                            <option>All Status</option>
+                            <option>Completed</option>
+                            <option>Pending</option>
+                            <option>Abnormal</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select>
+                            <option>All Providers</option>
+                            <option>City Medical Lab</option>
+                            <option>Central Hospital</option>
+                            <option>Diagnostic Center</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="test-section active">
+                    <div class="test-item">
+                        <div class="test-header">
+                            <h3 class="test-title">Complete Blood Count (CBC)</h3>
+                            <span class="test-date">May 15, 2023</span>
+                        </div>
+                        
+                        <div class="test-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Provider">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>City Medical Laboratory</p>
+                            </div>
+                        </div>
+                        
+                        <span class="test-status status-completed">Completed</span>
+                        <span class="test-status status-abnormal">Abnormal Values</span>
+                        
+                        <div class="test-summary">
+                            <div class="summary-item">
+                                <h4>Hemoglobin</h4>
+                                <p class="abnormal-value">10.2 g/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>White Blood Cells</h4>
+                                <p>6.8 × 10³/µL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Platelets</h4>
+                                <p class="abnormal-value">450 × 10³/µL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Hematocrit</h4>
+                                <p class="abnormal-value">32%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="test-tags">
+                            <span class="test-tag">Hematology</span>
+                            <span class="test-tag">Routine</span>
+                        </div>
+                        
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    <th>Reference Range</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>White Blood Cells (WBC)</td>
+                                    <td>6.8 × 10³/µL</td>
+                                    <td class="reference-range">4.5 - 11.0 × 10³/µL</td>
+                                    <td><span class="status-completed">Normal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Red Blood Cells (RBC)</td>
+                                    <td>3.5 × 10⁶/µL</td>
+                                    <td class="reference-range">4.5 - 5.9 × 10⁶/µL</td>
+                                    <td><span class="status-abnormal">Low</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Hemoglobin (HGB)</td>
+                                    <td class="abnormal-value">10.2 g/dL</td>
+                                    <td class="reference-range">13.5 - 17.5 g/dL</td>
+                                    <td><span class="status-abnormal">Low</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Hematocrit (HCT)</td>
+                                    <td class="abnormal-value">32%</td>
+                                    <td class="reference-range">40% - 52%</td>
+                                    <td><span class="status-abnormal">Low</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Platelets (PLT)</td>
+                                    <td class="abnormal-value">450 × 10³/µL</td>
+                                    <td class="reference-range">150 - 400 × 10³/µL</td>
+                                    <td><span class="status-abnormal">High</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="test-notes">
+                            <h5>Physician Notes</h5>
+                            <p>Patient shows signs of mild anemia. Recommend iron supplementation and follow-up test in 3 months. No signs of infection or inflammation based on WBC count.</p>
+                        </div>
+                        
+                        <div class="test-attachments">
+                            <h5>Attachments</h5>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>Full CBC Report.pdf</h5>
+                                    <p>250 KB • May 15, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-print"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="test-actions">
+                            <button class="btn-sm"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message Provider</button>
+                        </div>
+                    </div>
+                    
+                    <div class="test-item">
+                        <div class="test-header">
+                            <h3 class="test-title">Lipid Panel</h3>
+                            <span class="test-date">April 28, 2023</span>
+                        </div>
+                        
+                        <div class="test-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Provider">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>Central Hospital Laboratory</p>
+                            </div>
+                        </div>
+                        
+                        <span class="test-status status-completed">Completed</span>
+                        
+                        <div class="test-summary">
+                            <div class="summary-item">
+                                <h4>Total Cholesterol</h4>
+                                <p>185 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>HDL Cholesterol</h4>
+                                <p>42 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>LDL Cholesterol</h4>
+                                <p>110 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Triglycerides</h4>
+                                <p>150 mg/dL</p>
+                            </div>
+                        </div>
+                        
+                        <div class="test-tags">
+                            <span class="test-tag">Cardiac</span>
+                            <span class="test-tag">Metabolic</span>
+                        </div>
+                        
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    <th>Reference Range</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total Cholesterol</td>
+                                    <td>185 mg/dL</td>
+                                    <td class="reference-range">< 200 mg/dL (Desirable)</td>
+                                    <td><span class="status-completed">Normal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>HDL Cholesterol</td>
+                                    <td>42 mg/dL</td>
+                                    <td class="reference-range">> 40 mg/dL</td>
+                                    <td><span class="status-completed">Normal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>LDL Cholesterol</td>
+                                    <td>110 mg/dL</td>
+                                    <td class="reference-range">< 130 mg/dL (Desirable)</td>
+                                    <td><span class="status-completed">Normal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Triglycerides</td>
+                                    <td>150 mg/dL</td>
+                                    <td class="reference-range">< 150 mg/dL (Normal)</td>
+                                    <td><span class="status-completed">Normal</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="test-notes">
+                            <h5>Physician Notes</h5>
+                            <p>Lipid profile within normal ranges. HDL could be improved with increased physical activity. Continue current dietary habits and monitor annually.</p>
+                        </div>
+                        
+                        <div class="test-actions">
+                            <button class="btn-sm"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message Provider</button>
+                        </div>
+                    </div>
+                    
+                    <div class="test-item">
+                        <div class="test-header">
+                            <h3 class="test-title">Thyroid Function Test</h3>
+                            <span class="test-date">March 10, 2023</span>
+                        </div>
+                        
+                        <div class="test-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Provider">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Emily Rodriguez</h4>
+                                <p>Endocrine Specialty Lab</p>
+                            </div>
+                        </div>
+                        
+                        <span class="test-status status-completed">Completed</span>
+                        
+                        <div class="test-summary">
+                            <div class="summary-item">
+                                <h4>TSH</h4>
+                                <p>2.1 mIU/L</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Free T4</h4>
+                                <p>1.1 ng/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Free T3</h4>
+                                <p>3.2 pg/mL</p>
+                            </div>
+                        </div>
+                        
+                        <div class="test-tags">
+                            <span class="test-tag">Endocrine</span>
+                            <span class="test-tag">Hormonal</span>
+                        </div>
+                        
+                        <div class="test-notes">
+                            <h5>Physician Notes</h5>
+                            <p>Thyroid function tests within normal limits. No evidence of hypo- or hyperthyroidism at this time.</p>
+                        </div>
+                        
+                        <div class="test-actions">
+                            <button class="btn-sm"><i class="fas fa-download"></i> Download</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message Provider</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="test-section">
+                    <div class="empty-state">
+                        <i class="fas fa-vial"></i>
+                        <h3>No Blood Tests Found</h3>
+                        <p>You don't have any blood test results yet. When you do, they'll appear here.</p>
+                        <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
+                    </div>
+                </div>
+                
+                <div class="test-section">
+                    <div class="empty-state">
+                        <i class="fas fa-flask"></i>
+                        <h3>No Urine Tests Found</h3>
+                        <p>You don't have any urine test results yet. When you do, they'll appear here.</p>
+                        <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
+                    </div>
+                </div>
+                
+                <div class="test-section">
+                    <div class="empty-state">
+                        <i class="fas fa-x-ray"></i>
+                        <h3>No Imaging Results Found</h3>
+                        <p>You don't have any imaging results yet. When you do, they'll appear here.</p>
+                        <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
+                    </div>
+                </div>
+                
+                <div class="test-section">
+                    <div class="empty-state">
+                        <i class="fas fa-microscope"></i>
+                        <h3>No Pathology Results Found</h3>
+                        <p>You don't have any pathology results yet. When you do, they'll appear here.</p>
+                        <button class="btn-sm"><i class="fas fa-plus"></i> Request New Test</button>
+                    </div>
+                </div>
+                
+                <div class="test-section">
+                    <div class="empty-state">
+                        <i class="fas fa-hourglass-half"></i>
+                        <h3>No Pending Tests</h3>
+                        <p>You don't have any pending test results at this time.</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.test-tab');
+            const sections = document.querySelectorAll('.test-section');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Show corresponding section
+                    const tabIndex = Array.from(tabs).indexOf(this);
+                    sections[tabIndex].classList.add('active');
+                });
             });
+            
+            // Quick actions functionality could be added here
         });
-        
-        // Quick actions functionality could be added here
-    });
-</script>
+    </script>
 </body>
 </html>
-
-
-            
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-    
-
-
-
-
+//this was all
