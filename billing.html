@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medidirect | My Appointments</title>
+    <title>Medidirect | Billing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <style>
         :root {
             --primary: #008080;
@@ -35,6 +37,7 @@
             --radius-md: 12px;
             --radius-lg: 16px;
         }
+
         * {
             margin: 0;
             padding: 0;
@@ -50,8 +53,7 @@
             overflow-x: hidden;
         }
 
-               /* Gradient mesh background */
-               .bg-mesh {
+        .bg-mesh {
             position: fixed;
             top: 0;
             left: 0;
@@ -65,7 +67,6 @@
             opacity: 0.8;
         }
 
-        /* Header with glass morphism effect */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -80,6 +81,7 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 128, 128, 0.1);
         }
+
         .logo {
             display: flex;
             align-items: center;
@@ -133,6 +135,17 @@
             transition: var(--transition);
             border-bottom: 2px solid transparent;
         }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        nav ul li a i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
         .user-menu {
             display: flex;
             align-items: center;
@@ -198,7 +211,6 @@
             visibility: visible;
             top: 50px;
         }
-
         .user-dropdown a {
             display: flex;
             align-items: center;
@@ -225,127 +237,9 @@
             margin: 0.5rem 0;
         }
 
-                /* Hero section with animated gradient */
-                .hero {
-            position: relative;
-            overflow: hidden;
-            padding: 4rem 2rem 3rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%),
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 10px,
-                    rgba(255,255,255,0.05) 10px,
-                    rgba(255,255,255,0.05) 20px
-                );
-            animation: gradientMove 25s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes gradientMove {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s;
-            animation-fill-mode: both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .btn-group {
-            animation: fadeInUp 0.8s ease-out 0.4s;
-            animation-fill-mode: both;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.3);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 126, 95, 0.4);
-        }
-
-        .btn i {
-            margin-right: 0.6rem;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--white);
-            margin-left: 1rem;
-            box-shadow: none;
-            color: var(--white);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-2px);
-        }
-
-               /* Dashboard section */
-               .dashboard {
+        .dashboard {
             max-width: 1400px;
-            margin: -2rem auto 0;
+            margin: -3rem auto 0;
             padding: 0 2rem 4rem;
             position: relative;
             z-index: 2;
@@ -356,8 +250,8 @@
             grid-template-columns: 280px 1fr;
             gap: 2rem;
         }
-                /* Sidebar */
-                .sidebar {
+
+        .sidebar {
             background: var(--white);
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-md);
@@ -379,6 +273,7 @@
             padding-bottom: 1rem;
             border-bottom: 1px solid var(--medium-gray);
         }
+
         .sidebar-avatar {
             width: 60px;
             height: 60px;
@@ -462,12 +357,12 @@
             border-radius: 50px;
             font-weight: 600;
         }
-               /* Main content */
-               .main-content {
+
+        .main-content {
             background: var(--white);
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-md);
-            padding: 2rem;
+            padding: 3rem;
             transition: var(--transition);
         }
 
@@ -475,151 +370,172 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .content-header {
+        .billing-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .content-header h2 {
+        .billing-header h2 {
             font-size: 1.8rem;
             color: var(--primary-dark);
             display: flex;
             align-items: center;
         }
 
-        .content-header h2 i {
+        .billing-header h2 i {
             margin-right: 0.8rem;
             color: var(--primary);
         }
 
-        .date-selector {
-            display: flex;
-            align-items: center;
-            background: var(--light-gray);
-            border-radius: 50px;
-            padding: 0.3rem;
-        }
-
-        .date-selector button {
-            background: none;
-            border: none;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            color: var(--medium-text);
-            font-weight: 500;
-            border-radius: 50px;
-            transition: var(--transition);
-        }
-
-        .date-selector button.active {
-            background: var(--white);
-            color: var(--primary-dark);
-            box-shadow: var(--shadow-sm);
-        }
-               /* Appointment cards */
-               .appointments {
+        .billing-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin-bottom: 3rem;
         }
 
-        .section-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .section-title h3 {
-            font-size: 1.3rem;
-            color: var(--primary-dark);
-            margin-right: auto;
-        }
-
-        .section-title a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .section-title a i {
-            margin-left: 0.3rem;
-            transition: transform 0.3s ease;
-        }
-
-        .section-title a:hover i {
-            transform: translateX(3px);
-        }
-
-        .appointment-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .appointment-card {
+        .summary-card {
             background: var(--white);
             border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
             padding: 1.5rem;
-            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--medium-gray);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
-        .appointment-card::before {
+        .summary-card::after {
             content: "";
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary);
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
         }
 
-        .appointment-card.upcoming {
-            border-left: 4px solid var(--success);
-        }
-
-        .appointment-card.pending {
-            border-left: 4px solid var(--warning);
-        }
-
-        .appointment-card.completed {
-            border-left: 4px solid var(--light-text);
-        }
-
-        .appointment-card.cancelled {
-            border-left: 4px solid var(--danger);
-        }
-
-        .appointment-card:hover {
+        .summary-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
         }
 
-        .appointment-header {
+        .summary-card:hover::after {
+            height: 6px;
+        }
+
+        .summary-title {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .summary-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0.5rem 0;
+        }
+
+        .summary-due {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .summary-due span {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        .billing-filters {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .appointment-status {
-            font-size: 0.75rem;
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .filter-label {
+            font-size: 0.9rem;
+            color: var(--medium-text);
+            font-weight: 500;
+        }
+
+        .filter-select {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            background: var(--white);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+        }
+
+        .billing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .billing-table thead {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+        }
+
+        .billing-table th {
+            padding: 1rem;
+            text-align: left;
             font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .billing-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--medium-gray);
+            font-size: 0.9rem;
+        }
+
+        .billing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .billing-table tr:hover {
+            background: var(--light-gray);
+        }
+
+        .invoice-status {
+            display: inline-block;
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .status-upcoming {
+        .status-paid {
             background: rgba(56, 161, 105, 0.1);
             color: var(--success);
         }
@@ -629,48 +545,1175 @@
             color: var(--warning);
         }
 
-        .status-completed {
-            background: rgba(113, 128, 150, 0.1);
-            color: var(--light-text);
-        }
-
-        .status-cancelled {
+        .status-overdue {
             background: rgba(229, 62, 62, 0.1);
             color: var(--danger);
         }
 
-        .appointment-time {
+        .status-processing {
+            background: rgba(66, 153, 225, 0.1);
+            color: var(--info);
+        }
+
+        .invoice-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-xs {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            border-radius: 6px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-xs:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-xs i {
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
+        }
+
+        .btn-xs-outline {
+            background: transparent;
+            border: 1px solid var(--medium-gray);
+            color: var(--medium-text);
+        }
+
+        .btn-xs-outline:hover {
+            background: var(--light-gray);
+            color: var(--primary-dark);
+            border-color: var(--primary-light);
+        }
+
+        .billing-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .pagination-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            border: 1px solid var(--medium-gray);
+            color: var(--medium-text);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pagination-btn:hover, .pagination-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .pagination-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .payment-methods {
+            margin-top: 3rem;
+        }
+
+        .payment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .payment-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            border: 1px solid var(--medium-gray);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .payment-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .payment-card-type {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .payment-card-default {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .payment-card-details {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .payment-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .payment-card-number {
+            font-family: monospace;
+            letter-spacing: 1px;
+        }
+
+        .payment-card-expiry {
             font-size: 0.9rem;
             color: var(--light-text);
-            margin-bottom: 0.5rem;
+        }
+
+        .payment-card-actions {
             display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .add-payment-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+            cursor: pointer;
+            border: 2px dashed var(--medium-gray);
+            transition: var(--transition);
+        }
+
+        .add-payment-card:hover {
+            border-color: var(--primary);
+            background: var(--primary-lighter);
+        }
+
+        .add-payment-card i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .add-payment-card span {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Payment Modal */
+        .payment-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .payment-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .payment-modal-content {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .payment-modal.active .payment-modal-content {
+            transform: translateY(0);
+        }
+
+        .payment-modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .appointment-time i {
-            margin-right: 0.5rem;
+        .payment-modal-header h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
         }
 
-        .appointment-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-text);
+        .payment-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .payment-modal-close:hover {
+            color: var(--danger);
+            transform: rotate(90deg);
+        }
+
+        .payment-modal-body {
+            padding: 1.5rem;
+        }
+
+        .payment-modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--medium-gray);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .payment-amount {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .payment-amount h4 {
+            font-size: 1rem;
+            color: var(--light-text);
             margin-bottom: 0.5rem;
         }
 
-        .appointment-doctor {
+        .payment-amount p {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .payment-tabs {
             display: flex;
-            align-items: center;
+            border-bottom: 1px solid var(--medium-gray);
             margin-bottom: 1.5rem;
         }
 
-        .doctor-avatar {
-            width: 40px;
-            height: 40px;
+        .payment-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--medium-text);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
 
+        .payment-tab.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary);
+        }
 
+        .payment-tab-content {
+            display: none;
+        }
 
+        .payment-tab-content.active {
+            display: block;
+        }
 
+        .saved-cards {
+            margin-bottom: 1.5rem;
+        }
 
+        .saved-card {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
 
+        .saved-card:hover {
+            border-color: var(--primary);
+        }
 
+        .saved-card.selected {
+            border-color: var(--primary);
+            background: var(--primary-lighter);
+        }
+
+        .saved-card-radio {
+            margin-right: 1rem;
+        }
+
+        .saved-card-details {
+            flex: 1;
+        }
+
+        .saved-card-type {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .saved-card-number {
+            font-family: monospace;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            color: var(--medium-text);
+        }
+
+        .new-card-form .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .new-card-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-text);
+            font-size: 0.9rem;
+        }
+
+        .new-card-form .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .new-card-form .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+        }
+
+        .card-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.8rem 0.5rem;
+            }
+            
+            .billing-filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filter-group {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            
+            .filter-select {
+                width: 100%;
+            }
+            
+            .billing-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .card-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .billing-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .invoice-actions {
+                flex-direction: column;
+            }
+            
+            .btn-xs {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            Medidirect
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a href="home4.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-user-md"></i> Find a Doctor</a></li>
+                <li><a href="services.html"><i class="fas fa-procedures"></i> Services</a></li>
+                <li><a href="patientportal.html"><i class="fas fa-user-circle"></i> Patient Portal</a></li>
+                <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-menu">
+            <div class="notification-badge">3</div>
+            <div class="user-avatar">JD</div>
+            <div class="user-dropdown">
+                <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <div class="divider"></div>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="dashboard">
+        <div class="dashboard-grid">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-avatar">JD</div>
+                    <div class="sidebar-user">
+                        <h3>John Doe</h3>
+                        <p>Patient ID: MEDI-789456</p>
+                    </div>
+                </div>
+                
+                <ul class="sidebar-menu">
+                    <li><a href="patientportal.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="appointments.html"><i class="fas fa-calendar-check"></i> Appointments</a></li>
+                    <li><a href="prescriptions.html"><i class="fas fa-prescription-bottle-alt"></i> Prescriptions</a></li>
+                    <li><a href="medicalrecords.html"><i class="fas fa-file-medical"></i> Medical Records</a></li>
+                    <li><a href="billing.html" class="active"><i class="fas fa-file-invoice-dollar"></i> Billing</a></li>
+                    <li><a href="messages.html"><i class="fas fa-envelope"></i> Messages <span class="badge">5</span></a></li>
+                    <li><a href="profile.html"><i class="fas fa-user-cog"></i> Profile Settings</a></li>
+                </ul>
+            </aside>
+            
+            <main class="main-content">
+                <div class="billing-header">
+                    <h2><i class="fas fa-file-invoice-dollar"></i> Billing & Payments</h2>
+                    <button class="btn-xs"><i class="fas fa-plus"></i> Make Payment</button>
+                </div>
+                
+                <div class="billing-summary">
+                    <div class="summary-card">
+                        <div class="summary-title">Total Balance</div>
+                        <div class="summary-amount">$1,245.00</div>
+                        <div class="summary-due">Includes all outstanding charges</div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-title">Due Now</div>
+                        <div class="summary-amount">$245.00</div>
+                        <div class="summary-due">Due by <span>Jun 15, 2023</span></div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-title">Pending Insurance</div>
+                        <div class="summary-amount">$800.00</div>
+                        <div class="summary-due">Estimated insurance payment</div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-title">Last Payment</div>
+                        <div class="summary-amount">$150.00</div>
+                        <div class="summary-due">Paid on May 28, 2023</div>
+                    </div>
+                </div>
+                
+                <div class="billing-filters">
+                    <div class="filter-group">
+                        <span class="filter-label">Status:</span>
+                        <select class="filter-select">
+                            <option>All Invoices</option>
+                            <option>Paid</option>
+                            <option>Pending</option>
+                            <option>Overdue</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Date Range:</span>
+                        <select class="filter-select">
+                            <option>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                            <option>This Year</option>
+                            <option>Custom Range</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <table class="billing-table">
+                    <thead>
+                        <tr>
+                            <th>Invoice #</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>INV-78945</td>
+                            <td>Jun 05, 2023</td>
+                            <td>Annual Physical Exam</td>
+                            <td>$245.00</td>
+                            <td><span class="invoice-status status-pending">Pending</span></td>
+                            <td>
+                                <div class="invoice-actions">
+                                    <button class="btn-xs"><i class="fas fa-dollar-sign"></i> Pay</button>
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-download"></i> PDF</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>INV-78944</td>
+                            <td>May 28, 2023</td>
+                            <td>Blood Work Panel</td>
+                            <td>$150.00</td>
+                            <td><span class="invoice-status status-paid">Paid</span></td>
+                            <td>
+                                <div class="invoice-actions">
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-eye"></i> View</button>
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-download"></i> PDF</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>INV-78932</td>
+                            <td>Apr 15, 2023</td>
+                            <td>Consultation - Dr. Smith</td>
+                            <td>$120.00</td>
+                            <td><span class="invoice-status status-paid">Paid</span></td>
+                            <td>
+                                <div class="invoice-actions">
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-eye"></i> View</button>
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-download"></i> PDF</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>INV-78921</td>
+                            <td>Mar 22, 2023</td>
+                            <td>X-Ray - Left Arm</td>
+                            <td>$350.00</td>
+                            <td><span class="invoice-status status-processing">Processing</span></td>
+                            <td>
+                                <div class="invoice-actions">
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-eye"></i> View</button>
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-download"></i> PDF</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>INV-78910</td>
+                            <td>Feb 10, 2023</td>
+                            <td>Physical Therapy Session</td>
+                            <td>$380.00</td>
+                            <td><span class="invoice-status status-paid">Paid</span></td>
+                            <td>
+                                <div class="invoice-actions">
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-eye"></i> View</button>
+                                    <button class="btn-xs btn-xs-outline"><i class="fas fa-download"></i> PDF</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="billing-pagination">
+                    <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                
+                <div class="payment-methods">
+                    <h3><i class="fas fa-credit-card"></i> Payment Methods</h3>
+                    <p>Manage your saved payment methods for faster checkouts.</p>
+                    
+                    <div class="payment-cards">
+                        <div class="payment-card">
+                            <div class="payment-card-header">
+                                <span class="payment-card-type">VISA</span>
+                                <span class="payment-card-default">DEFAULT</span>
+                            </div>
+                            <div class="payment-card-details">
+                                <div class="payment-card-icon">
+                                    <i class="far fa-credit-card"></i>
+                                </div>
+                                <div>
+                                    <div class="payment-card-number">•••• •••• •••• 4242</div>
+                                    <div class="payment-card-expiry">Expires 05/2025</div>
+                                </div>
+                            </div>
+                            <div class="payment-card-actions">
+                                <button class="btn-xs btn-xs-outline"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="btn-xs btn-xs-outline"><i class="fas fa-trash-alt"></i> Remove</button>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-card">
+                            <div class="payment-card-header">
+                                <span class="payment-card-type">MASTERCARD</span>
+                            </div>
+                            <div class="payment-card-details">
+                                <div class="payment-card-icon">
+                                    <i class="far fa-credit-card"></i>
+                                </div>
+                                <div>
+                                    <div class="payment-card-number">•••• •••• •••• 5555</div>
+                                    <div class="payment-card-expiry">Expires 11/2024</div>
+                                </div>
+                            </div>
+                            <div class="payment-card-actions">
+                                <button class="btn-xs btn-xs-outline"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="btn-xs btn-xs-outline"><i class="fas fa-trash-alt"></i> Remove</button>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-card add-payment-card">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Add Payment Method</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- Payment Modal -->
+    <div class="payment-modal">
+        <div class="payment-modal-content">
+            <div class="payment-modal-header">
+                <h3>Make a Payment</h3>
+                <button class="payment-modal-close">&times;</button>
+            </div>
+            
+            <div class="payment-modal-body">
+                <div class="payment-amount">
+                    <h4>Payment Amount</h4>
+                    <p>$245.00</p>
+                </div>
+                
+                <div class="payment-tabs">
+                    <div class="payment-tab active" data-tab="saved">Saved Cards</div>
+                    <div class="payment-tab" data-tab="new">New Card</div>
+                    <div class="payment-tab" data-tab="bank">Bank Transfer</div>
+                </div>
+                
+                <div class="payment-tab-content active" id="saved-tab">
+                    <div class="saved-cards">
+                        <div class="saved-card selected">
+                            <div class="saved-card-radio">
+                                <input type="radio" name="payment-method" checked>
+                            </div>
+                            <div class="saved-card-details">
+                                <div class="saved-card-type">VISA ending in 4242</div>
+                                <div class="saved-card-number">Expires 05/2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="saved-card">
+                            <div class="saved-card-radio">
+                                <input type="radio" name="payment-method">
+                            </div>
+                            <div class="saved-card-details">
+                                <div class="saved-card-type">MASTERCARD ending in 5555</div>
+                                <div class="saved-card-number">Expires 11/2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-tab-content" id="new-tab">
+                    <form class="new-card-form">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" class="form-control" placeholder="John Doe">
+                        </div>
+                        
+                        <div class="card-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Expiration Date</label>
+                                <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-cvv">CVV</label>
+                                <input type="text" id="card-cvv" class="form-control" placeholder="123">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="checkbox" id="save-card">
+                            <label for="save-card">Save this card for future payments</label>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="payment-tab-content" id="bank-tab">
+                    <p>To pay via bank transfer, please use the following details:</p>
+                    <p><strong>Bank Name:</strong> Medidirect Bank</p>
+                    <p><strong>Account Number:</strong> 1234567890</p>
+                    <p><strong>Routing Number:</strong> 987654321</p>
+                    <p><strong>Reference:</strong> Your Patient ID (MEDI-789456)</p>
+                    <p>Please email the transfer receipt to billing@medidirect.com</p>
+                </div>
+            </div>
+            
+            <div class="payment-modal-footer">
+                <button class="btn-xs btn-xs-outline">Cancel</button>
+                <button class="btn-xs">Confirm Payment</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle payment modal
+        const paymentModal = document.querySelector('.payment-modal');
+        const openPaymentBtn = document.querySelector('.billing-header .btn-xs');
+        const closePaymentBtn = document.querySelector('.payment-modal-close');
+        
+        openPaymentBtn.addEventListener('click', () => {
+            paymentModal.classList.add('active');
+        });
+        
+        closePaymentBtn.addEventListener('click', () => {
+            paymentModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        paymentModal.addEventListener('click', (e) => {
+            if (e.target === paymentModal) {
+                paymentModal.classList.remove('active');
+            }
+        });
+        
+        // Payment tabs functionality
+        const paymentTabs = document.querySelectorAll('.payment-tab');
+        
+        paymentTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                paymentTabs.forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.payment-tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Select saved card
+        const savedCards = document.querySelectorAll('.saved-card');
+        
+        savedCards.forEach(card => {
+            card.addEventListener('click', () => {
+                savedCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                card.querySelector('input').checked = true;
+            });
+        });
+        
+        //PDF Generation
+document.querySelectorAll('.btn-xs-outline .fa-download').forEach(icon => {
+    icon.closest('button').addEventListener('click', async function() {
+        const { PDFDocument, rgb, StandardFonts } = PDFLib;
+        
+        // Create a new PDF document
+        const pdfDoc = await PDFDocument.create();
+        const page = pdfDoc.addPage([595, 842]); // A4 size (595 x 842 points)
+        
+        // Get invoice data
+        const invoiceRow = this.closest('tr');
+        const invoiceNumber = invoiceRow.querySelector('td:nth-child(1)').textContent;
+        const invoiceDate = invoiceRow.querySelector('td:nth-child(2)').textContent;
+        const invoiceDesc = invoiceRow.querySelector('td:nth-child(3)').textContent;
+        const invoiceAmount = invoiceRow.querySelector('td:nth-child(4)').textContent;
+        const invoiceStatus = invoiceRow.querySelector('.invoice-status').textContent;
+        
+        // Register fonts
+        const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+        const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+        const helveticaOblique = await pdfDoc.embedFont(StandardFonts.HelveticaOblique);
+        
+        // Set up page dimensions
+        const { width, height } = page.getSize();
+        const margin = 50;
+        const contentWidth = width - margin * 2;
+        
+        // Add header with logo and info
+        const logoText = 'MEDIDIRECT';
+        const logoSize = 24;
+        
+        page.drawText(logoText, {
+            x: margin,
+            y: height - margin - 30,
+            size: logoSize,
+            font: helveticaBold,
+            color: rgb(0, 0.5, 0.5),
+        });
+        
+        page.drawText('123 Medical Drive, Suite 100', {
+            x: margin,
+            y: height - margin - 55,
+            size: 10,
+            font: helveticaFont,
+            color: rgb(0.3, 0.3, 0.3),
+        });
+        
+        page.drawText('Healthcare City, HC 12345', {
+            x: margin,
+            y: height - margin - 70,
+            size: 10,
+            font: helveticaFont,
+            color: rgb(0.3, 0.3, 0.3),
+        });
+        
+        page.drawText('Phone: (123) 456-7890 | Email: billing@medidirect.com', {
+            x: margin,
+            y: height - margin - 85,
+            size: 10,
+            font: helveticaFont,
+            color: rgb(0.3, 0.3, 0.3),
+        });
+        
+        // Add invoice title
+        page.drawText('INVOICE', {
+            x: width - margin - 100,
+            y: height - margin - 30,
+            size: 24,
+            font: helveticaBold,
+            color: rgb(0, 0, 0),
+        });
+        
+        // Replace the existing invoice information boxes code with this:
+
+// Add invoice information boxes
+const infoBoxY = height - margin - 120;
+
+// Define box dimensions
+const boxWidth = 150;  // Reduced from 180
+const boxHeight = 50;  // Reduced from 60
+const boxSpacing = 20; // Space between boxes
+
+// Invoice number box
+page.drawRectangle({
+    x: margin,
+    y: infoBoxY - 20,
+    width: boxWidth,
+    height: boxHeight,
+    borderColor: rgb(0.8, 0.8, 0.8),
+    borderWidth: 1,
+});
+
+page.drawText('Invoice Number:', {
+    x: margin + 10,
+    y: infoBoxY,
+    size: 10,
+    font: helveticaBold,
+});
+
+page.drawText(invoiceNumber, {
+    x: margin + 10,
+    y: infoBoxY - 15,
+    size: 12,  // Reduced from 14
+    font: helveticaFont,
+});
+
+// Invoice date box
+page.drawRectangle({
+    x: margin + boxWidth + boxSpacing,
+    y: infoBoxY - 20,
+    width: boxWidth,
+    height: boxHeight,
+    borderColor: rgb(0.8, 0.8, 0.8),
+    borderWidth: 1,
+});
+
+page.drawText('Invoice Date:', {
+    x: margin + boxWidth + boxSpacing + 10,
+    y: infoBoxY,
+    size: 10,
+    font: helveticaBold,
+});
+
+page.drawText(invoiceDate, {
+    x: margin + boxWidth + boxSpacing + 10,
+    y: infoBoxY - 15,
+    size: 12,
+    font: helveticaFont,
+});
+
+// Status box
+page.drawRectangle({
+    x: margin + (boxWidth + boxSpacing) * 2,
+    y: infoBoxY - 20,
+    width: boxWidth - 30,  // Make status box narrower
+    height: boxHeight,
+    borderColor: rgb(0.8, 0.8, 0.8),
+    borderWidth: 1,
+});
+
+page.drawText('Status:', {
+    x: margin + (boxWidth + boxSpacing) * 2 + 10,
+    y: infoBoxY,
+    size: 10,
+    font: helveticaBold,
+});
+
+// Color status based on status type
+let statusColor = rgb(0, 0, 0);
+if (invoiceStatus === 'Paid') statusColor = rgb(0, 0.5, 0);
+if (invoiceStatus === 'Pending') statusColor = rgb(0.8, 0.5, 0);
+if (invoiceStatus === 'Overdue') statusColor = rgb(0.8, 0, 0);
+
+page.drawText(invoiceStatus, {
+    x: margin + (boxWidth + boxSpacing) * 2 + 10,
+    y: infoBoxY - 15,
+    size: 12,
+    font: helveticaFont,
+    color: statusColor,
+});
+        // Add billing information section
+        const billingY = infoBoxY - 100;
+        
+        page.drawText('BILL TO:', {
+            x: margin,
+            y: billingY,
+            size: 12,
+            font: helveticaBold,
+        });
+        
+        page.drawText('John Doe', {
+            x: margin,
+            y: billingY - 20,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        page.drawText('123 Patient Street', {
+            x: margin,
+            y: billingY - 35,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        page.drawText('Healthcare City, HC 12345', {
+            x: margin,
+            y: billingY - 50,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        page.drawText('Patient ID: MEDI-789456', {
+            x: margin,
+            y: billingY - 65,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        // Add invoice items table header
+        const tableY = billingY - 100;
+        
+        page.drawText('DESCRIPTION', {
+            x: margin,
+            y: tableY,
+            size: 10,
+            font: helveticaBold,
+        });
+        
+        page.drawText('AMOUNT', {
+            x: width - margin - 100,
+            y: tableY,
+            size: 10,
+            font: helveticaBold,
+        });
+        
+        // Draw table header line
+        page.drawLine({
+            start: { x: margin, y: tableY - 10 },
+            end: { x: width - margin, y: tableY - 10 },
+            thickness: 1,
+            color: rgb(0, 0, 0),
+        });
+        
+        // Add invoice item
+        page.drawText(invoiceDesc, {
+            x: margin,
+            y: tableY - 30,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        page.drawText(invoiceAmount, {
+            x: width - margin - 100,
+            y: tableY - 30,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        // Draw table footer line
+        page.drawLine({
+            start: { x: margin, y: tableY - 40 },
+            end: { x: width - margin, y: tableY - 40 },
+            thickness: 1,
+            color: rgb(0, 0, 0),
+        });
+        
+        // Add total amount
+        page.drawText('TOTAL', {
+            x: width - margin - 150,
+            y: tableY - 70,
+            size: 12,
+            font: helveticaBold,
+        });
+        
+        page.drawText(invoiceAmount, {
+            x: width - margin - 100,
+            y: tableY - 70,
+            size: 12,
+            font: helveticaBold,
+        });
+        
+        // Add payment instructions
+        const instructionsY = tableY - 120;
+        
+        page.drawText('PAYMENT INSTRUCTIONS:', {
+            x: margin,
+            y: instructionsY,
+            size: 10,
+            font: helveticaBold,
+        });
+        
+        page.drawText('Please make checks payable to Medidirect Healthcare.', {
+            x: margin,
+            y: instructionsY - 20,
+            size: 10,
+            font: helveticaFont,
+        });
+        
+        page.drawText('For online payments, visit our patient portal at portal.medidirect.com', {
+            x: margin,
+            y: instructionsY - 35,
+            size: 10,
+            font: helveticaFont,
+        });
+        
+        page.drawText('Questions? Call our billing department at (123) 456-7890', {
+            x: margin,
+            y: instructionsY - 50,
+            size: 10,
+            font: helveticaFont,
+        });
+        
+        // Add footer
+        page.drawText('Thank you for choosing Medidirect for your healthcare needs', {
+            x: margin,
+            y: 50,
+            size: 10,
+            font: helveticaOblique,
+            color: rgb(0.5, 0.5, 0.5),
+        });
+        
+        // Add page number
+        page.drawText('Page 1 of 1', {
+            x: width - margin - 50,
+            y: 50,
+            size: 10,
+            font: helveticaFont,
+            color: rgb(0.5, 0.5, 0.5),
+        });
+        
+        const pdfBytes = await pdfDoc.save();
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        saveAs(blob, Medidirect-Invoice-${invoiceNumber}.pdf);
+    });
+});
+    </script>
+</body>
+</html>
