@@ -1331,7 +1331,403 @@
                                 </div>
                             </div>
                         </div>
-                   
+                <!-- Upcoming Appointments -->
+                <div class="appointments">
+                    <div class="section-title">
+                        <h3><i class="far fa-calendar-alt"></i> Today's Appointments</h3>
+                        <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    
+                    <div class="appointment-cards">
+                        <!-- Current Appointment -->
+                        <div class="appointment-card urgency-high">
+                            <div class="appointment-header">
+                                <span class="appointment-status status-upcoming">In Progress</span>
+                                <span class="appointment-time"><i class="far fa-clock"></i> 10:30 AM (Current)</span>
+                            </div>
+                            <h3 class="appointment-title">Chest Pain Evaluation</h3>
+                            
+                            <div class="appointment-doctor">
+                                <div class="doctor-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Patient">
+                                </div>
+                                <div class="doctor-info">
+                                    <h4>Robert Johnson</h4>
+                                    <p>Patient ID: MD-78452 | Age: 58</p>
+                                </div>
+                            </div>
+                            
+                            <div class="patient-notes">
+                                <p><strong>Chief Complaint:</strong> Acute chest pain radiating to left arm, onset 2 hours ago</p>
+                                <p><strong>Vitals:</strong> BP 150/95, HR 110, Temp 98.6°F</p>
+                            </div>
+                            
+                            <div class="appointment-actions">
+                                <button class="btn-sm"><i class="fas fa-file-medical"></i> Open Chart</button>
+                                <button class="btn-sm"><i class="fas fa-prescription-bottle-alt"></i> New Rx</button>
+                                <button class="btn-sm btn-sm-outline"><i class="fas fa-notes-medical"></i> Add Note</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Appointment -->
+                        <div class="appointment-card urgency-medium">
+                            <div class="appointment-header">
+                                <span class="appointment-status status-upcoming">Next</span>
+                                <span class="appointment-time"><i class="far fa-clock"></i> 11:15 AM</span>
+                            </div>
+                            <h3 class="appointment-title">Hypertension Follow-up</h3>
+                            
+                            <div class="appointment-doctor">
+                                <div class="doctor-avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Patient">
+                                </div>
+                                <div class="doctor-info">
+                                    <h4>Margaret Williams</h4>
+                                    <p>Patient ID: MD-45218 | Age: 72</p>
+                                </div>
+                            </div>
+                            
+                            <div class="patient-notes">
+                                <p><strong>Last Visit:</strong> 3 months ago - BP 140/88</p>
+                                <p><strong>Current Meds:</strong> Lisinopril 10mg daily</p>
+                            </div>
+                            
+                            <div class="appointment-actions">
+                                <button class="btn-sm"><i class="fas fa-file-medical"></i> Open Chart</button>
+                                <button class="btn-sm btn-sm-outline"><i class="fas fa-eye"></i> Preview</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Later Appointment -->
+                        <div class="appointment-card urgency-low">
+                            <div class="appointment-header">
+                                <span class="appointment-status status-upcoming">Confirmed</span>
+                                <span class="appointment-time"><i class="far fa-clock"></i> 2:00 PM</span>
+                            </div>
+                            <h3 class="appointment-title">Annual Physical</h3>
+                            
+                            <div class="appointment-doctor">
+                                <div class="doctor-avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Patient">
+                                </div>
+                                <div class="doctor-info">
+                                    <h4>David Kim</h4>
+                                    <p>Patient ID: MD-96325 | Age: 45</p>
+                                </div>
+                            </div>
+                            
+                            <div class="patient-notes">
+                                <p><strong>Pre-visit Labs:</strong> Completed (View Results)</p>
+                                <p><strong>Health Concerns:</strong> Family history of CAD</p>
+                            </div>
+                            
+                            <div class="appointment-actions">
+                                <button class="btn-sm"><i class="fas fa-file-medical"></i> Open Chart</button>
+                                <button class="btn-sm btn-sm-outline"><i class="fas fa-eye"></i> Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pending Tasks -->
+                <div class="health-data">
+                    <div class="section-title">
+                        <h3><i class="fas fa-tasks"></i> Pending Tasks</h3>
+                        <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    
+                    <div class="data-cards">
+                        <div class="data-card">
+                            <div class="data-header">
+                                <div class="data-icon" style="background: rgba(245, 101, 101, 0.1); color: var(--danger);">
+                                    <i class="fas fa-prescription-bottle-alt"></i>
+                                </div>
+                                <h3 class="data-title">Prescriptions to Sign</h3>
+                            </div>
+                            <p class="data-value">2 <span class="prescription-badge">URGENT</span></p>
+                            <div class="data-trend">
+                                <i class="fas fa-exclamation-circle" style="color: var(--danger);"></i>
+                                <span>Require immediate attention</span>
+                            </div>
+                        </div>
+                        
+                        <div class="data-card">
+                            <div class="data-header">
+                                <div class="data-icon" style="background: rgba(72, 187, 120, 0.1); color: var(--success);">
+                                    <i class="fas fa-file-medical-alt"></i>
+                                </div>
+                                <h3 class="data-title">Lab Results to Review</h3>
+                            </div>
+                            <p class="data-value">5</p>
+                            <div class="data-trend trend-neutral">
+                                <i class="fas fa-clock" style="color: var(--warning);"></i>
+                                <span>2 new since yesterday</span>
+                            </div>
+                        </div>
+                        
+                        <div class="data-card">
+                            <div class="data-header">
+                                <div class="data-icon" style="background: rgba(66, 153, 225, 0.1); color: var(--info);">
+                                    <i class="fas fa-comment-medical"></i>
+                                </div>
+                                <h3 class="data-title">Patient Messages</h3>
+                            </div>
+                            <p class="data-value">3</p>
+                            <div class="data-trend">
+                                <i class="fas fa-reply" style="color: var(--accent);"></i>
+                                <span>Awaiting your response</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <div class="section-title">
+                        <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                        <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <div class="activity-icon" style="background: rgba(56, 178, 172, 0.1); color: var(--accent);">
+                                <i class="fas fa-file-prescription"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4 class="activity-title">Prescription signed</h4>
+                                <p class="activity-desc">Atorvastatin 20mg for Robert Johnson</p>
+                                <p class="activity-time">30 minutes ago</p>
+                            </div>
+                        </li>
+                        
+                        <li class="activity-item">
+                            <div class="activity-icon" style="background: rgba(237, 137, 54, 0.1); color: var(--warning);">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4 class="activity-title">Lab results received</h4>
+                                <p class="activity-desc">Lipid panel for Margaret Williams</p>
+                                <p class="activity-time">2 hours ago</p>
+                            </div>
+                        </li>
+                        
+                        <li class="activity-item">
+                            <div class="activity-icon" style="background: rgba(101, 163, 245, 0.1); color: var(--info);">
+                                <i class="fas fa-comment-medical"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4 class="activity-title">New message</h4>
+                                <p class="activity-desc">From David Kim about medication side effects</p>
+                                <p class="activity-time">Yesterday</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- Modal for Patient Chart -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Patient Chart - Robert Johnson</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Patient Information</label>
+                    <input type="text" class="form-control" value="Robert Johnson | 58yo Male | Patient ID: MD-78452" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label>Current Medications</label>
+                    <input type="text" class="form-control" value="Atorvastatin 20mg daily, Lisinopril 10mg daily" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label>Allergies</label>
+                    <input type="text" class="form-control" value="Penicillin (rash), Sulfa drugs" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label>Current Visit Notes</label>
+                    <textarea class="form-control" rows="5" placeholder="Document your examination findings and assessment..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Plan</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter treatment plan..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-sm btn-sm-outline"><i class="fas fa-save"></i> Save Draft</button>
+                <button class="btn-sm"><i class="fas fa-check-circle"></i> Complete Note</button>
+                <button class="btn-sm" style="background: var(--accent);"><i class="fas fa-prescription-bottle-alt"></i> New Prescription</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            // Check if user is logged in
+            const currentDoctor = JSON.parse(localStorage.getItem('currentDoctor') || sessionStorage.getItem('currentDoctor') || 'null');
+            if (!currentDoctor && !window.location.href.includes('index.html')) {
+                window.location.href = 'index.html';
+                return;
+            }
+        
+            // Modal functionality
+            const modal = document.querySelector('.modal');
+            if (modal) {
+                const modalClose = document.querySelector('.modal-close');
+                const appointmentCards = document.querySelectorAll('.appointment-card');
+                
+                appointmentCards.forEach(card => {
+                    card.addEventListener('click', function(e) {
+                        if (!e.target.closest('.btn-sm')) {
+                            modal.classList.add('active');
+                        }
+                    });
+                });
+        
+                if (modalClose) {
+                    modalClose.addEventListener('click', function() {
+                        modal.classList.remove('active');
+                    });
+                }
+        
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                    }
+                });
+            }
+        
+            // Date selector functionality
+            const dateButtons = document.querySelectorAll('.date-selector button');
+            dateButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    dateButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        
+            if (currentDoctor && document.querySelector('.user-name')) {
+                document.querySelector('.user-name').textContent = currentDoctor.name;
+            }
+        
+            // Load appointments from JSON and setup View All toggle
+            await loadAppointmentsFromJSON();
+            setupViewAllFunctionality();
+        });
+        
+        function slugify(text) {
+            return text.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        }
+        
+        async function loadAppointmentsFromJSON() {
+            try {
+                const response = await fetch('data2.json');
+                const data = await response.json();
+                const appointments = data.appointments.today;
+        
+                const container = document.querySelector('.appointment-cards');
+                container.innerHTML = ''; // Clear existing
+        
+                appointments.forEach(appt => {
+                    const card = document.createElement('div');
+                    card.className = appointment-card urgency-${appt.urgency};
+                    card.innerHTML = `
+                        <div class="appointment-header">
+                            <span class="appointment-status status-upcoming">${appt.statusLabel}</span>
+                            <span class="appointment-time"><i class="far fa-clock"></i> ${appt.time}</span>
+                        </div>
+                        <h3 class="appointment-title">${appt.title}</h3>
+                        <div class="appointment-doctor">
+                            <div class="doctor-avatar">
+                                <img src="${appt.patient.avatar}" alt="Patient">
+                            </div>
+                            <div class="doctor-info">
+                                <h4>${appt.patient.name}</h4>
+                                <p>Patient ID: ${appt.patient.id} | Age: ${appt.patient.age}</p>
+                            </div>
+                        </div>
+                        <div class="patient-notes">
+                            ${
+                                appt.notes.chiefComplaint ? `
+                                    <p><strong>Chief Complaint:</strong> ${appt.notes.chiefComplaint}</p>
+                                    <p><strong>Vitals:</strong> ${appt.notes.vitals}</p>
+                                ` : appt.notes.lastVisit ? `
+                                    <p><strong>Last Visit:</strong> ${appt.notes.lastVisit}</p>
+                                    <p><strong>Current Meds:</strong> ${appt.notes.currentMeds}</p>
+                                ` : `
+                                    <p><strong>Pre-visit Labs:</strong> ${appt.notes.preVisitLabs}</p>
+                                    <p><strong>Health Concerns:</strong> ${appt.notes.healthConcerns}</p>
+                                `
+                            }
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-sm"><i class="fas fa-file-medical"></i> Open Chart</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-eye"></i> Preview</button>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+        
+                // Default view
+                updateAppointments(false);
+            } catch (error) {
+                console.error('Error loading appointments:', error);
+            }
+        }
+        
+        function setupViewAllFunctionality() {
+            const section = document.querySelector('.appointments');
+            if (!section) return;
+        
+            const titleElement = section.querySelector('.section-title');
+            if (!titleElement) return;
+        
+            const toggleLink = document.createElement('a');
+            toggleLink.href = '#';
+            toggleLink.setAttribute('data-expanded', 'false');
+            toggleLink.id = 'view-all-today-s-appointments';
+            toggleLink.innerHTML = 'View All <i class="fas fa-chevron-right"></i>';
+        
+            toggleLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('data-expanded') === 'true';
+                updateAppointments(!isExpanded);
+            });
+        
+            // Remove existing link and add new one
+            titleElement.querySelectorAll('a').forEach(a => a.remove());
+            titleElement.appendChild(toggleLink);
+        }
+        
+        function updateToggleLink(linkElement, isExpanded) {
+            if (!linkElement) return;
+            linkElement.setAttribute('data-expanded', isExpanded);
+            linkElement.innerHTML = isExpanded
+                ? 'Show Less <i class="fas fa-chevron-up"></i>'
+                : 'View All <i class="fas fa-chevron-right"></i>';
+        }
+        
+        function updateAppointments(showAll = false) {
+            const container = document.querySelector('.appointment-cards');
+            const items = container.querySelectorAll('.appointment-card');
+            items.forEach((item, index) => {
+                item.style.display = (!showAll && index >= 3) ? 'none' : '';
+            });
+        
+            const link = document.getElementById('view-all-today-s-appointments');
+            updateToggleLink(link, showAll);
+        }
+        </script>
+        
+        
+</body>
+</html>                   
 
 
 
