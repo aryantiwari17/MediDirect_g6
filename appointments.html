@@ -1431,3 +1431,33 @@
             </div>
         </div>
     </div>
+    <script>
+        // Set minimum date for appointment date picker (today)
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+            const yyyy = today.getFullYear();
+            const minDate = yyyy + '-' + mm + '-' + dd;
+            
+            document.getElementById('appointment-date').min = minDate;
+            
+            // Show/hide schedule appointment form
+            const showScheduleFormBtn = document.getElementById('show-schedule-form');
+            const showScheduleFormHeroBtn = document.getElementById('show-schedule-form-hero');
+            const scheduleAppointment = document.getElementById('new-appointment');
+            const cancelAppointmentBtn = document.getElementById('cancel-appointment');
+            
+            function toggleScheduleForm() {
+                scheduleAppointment.classList.toggle('active');
+                if (scheduleAppointment.classList.contains('active')) {
+                    scheduleAppointment.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            showScheduleFormBtn.addEventListener('click', toggleScheduleForm);
+            showScheduleFormHeroBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                toggleScheduleForm();
+            });
+            cancelAppointmentBtn.addEventListener('click', toggleScheduleForm);
