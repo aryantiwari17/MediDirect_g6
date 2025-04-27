@@ -545,6 +545,57 @@
             font-size: 0.75rem;
             font-weight: 500;
         }
+        /* Records Specific Styles */
+        .records-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .records-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .records-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--medium-gray);
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .records-tab {
+            padding: 0.7rem 1.2rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--light-text);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        
+        .records-tab.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary);
+        }
+        
+        .records-tab:hover:not(.active) {
+            color: var(--primary);
+            border-bottom-color: var(--primary-light);
+        }
+        
+        .records-tab .badge {
+            margin-left: 0.4rem;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
 
 
 
