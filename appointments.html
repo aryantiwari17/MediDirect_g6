@@ -1409,3 +1409,25 @@
             </main>
         </div>
     </div>
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Appointment Scheduled</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Your appointment has been successfully scheduled!</p>
+                <div class="appointment-details">
+                    <p><strong>Date:</strong> <span id="modal-date">Friday, June 10, 2023</span></p>
+                    <p><strong>Time:</strong> <span id="modal-time">2:00 PM - 2:30 PM</span></p>
+                    <p><strong>Doctor:</strong> <span id="modal-doctor">Dr. Sarah Smith</span></p>
+                    <p><strong>Location:</strong> <span id="modal-location">Main Clinic - Room 205</span></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm-outline modal-close">Close</button>
+                <button class="btn btn-sm" id="add-to-calendar"><i class="far fa-calendar-plus"></i> Add to Calendar</button>
+            </div>
+        </div>
+    </div>
