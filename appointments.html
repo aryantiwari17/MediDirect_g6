@@ -35,6 +35,7 @@
             --radius-md: 12px;
             --radius-lg: 16px;
         }
+
         * {
             margin: 0;
             padding: 0;
@@ -49,8 +50,9 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
-         /* Gradient mesh background */
-         .bg-mesh {
+
+        /* Gradient mesh background */
+        .bg-mesh {
             position: fixed;
             top: 0;
             left: 0;
@@ -63,6 +65,7 @@
             z-index: -1;
             opacity: 0.8;
         }
+
         /* Header with glass morphism effect */
         header {
             background: rgba(255, 255, 255, 0.95);
@@ -110,6 +113,7 @@
         .logo:hover .logo-icon {
             transform: rotate(10deg);
         }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -163,6 +167,7 @@
             font-size: 0.7rem;
             font-weight: 600;
         }
+
         .user-avatar {
             width: 44px;
             height: 44px;
@@ -232,6 +237,7 @@
             background: var(--medium-gray);
             margin: 0.5rem 0;
         }
+
         /* Hero section with animated gradient */
         .hero {
             position: relative;
@@ -273,6 +279,7 @@
             max-width: 900px;
             margin: 0 auto;
         }
+
         .hero h1 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -301,7 +308,8 @@
                 transform: translateY(0);
             }
         }
-        btn-group {
+
+        .btn-group {
             animation: fadeInUp 0.8s ease-out 0.4s;
             animation-fill-mode: both;
         }
@@ -347,8 +355,9 @@
             background: rgba(255,255,255,0.1);
             transform: translateY(-2px);
         }
-         /* Dashboard section */
-         .dashboard {
+
+        /* Dashboard section */
+        .dashboard {
             max-width: 1400px;
             margin: -2rem auto 0;
             padding: 0 2rem 4rem;
@@ -361,8 +370,9 @@
             grid-template-columns: 280px 1fr;
             gap: 2rem;
         }
-         /* Sidebar */
-         .sidebar {
+
+        /* Sidebar */
+        .sidebar {
             background: var(--white);
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-md);
@@ -414,6 +424,7 @@
             font-size: 0.85rem;
             color: var(--light-text);
         }
+
         .sidebar-menu {
             list-style: none;
         }
@@ -467,6 +478,7 @@
             border-radius: 50px;
             font-weight: 600;
         }
+
         /* Main content */
         .main-content {
             background: var(--white);
@@ -523,8 +535,9 @@
             color: var(--primary-dark);
             box-shadow: var(--shadow-sm);
         }
-         /* Appointment cards */
-         .appointments {
+
+        /* Appointment cards */
+        .appointments {
             margin-bottom: 3rem;
         }
 
@@ -586,6 +599,7 @@
             height: 100%;
             background: var(--primary);
         }
+
         .appointment-card.upcoming {
             border-left: 4px solid var(--success);
         }
@@ -667,6 +681,7 @@
             align-items: center;
             margin-bottom: 1.5rem;
         }
+
         .doctor-avatar {
             width: 40px;
             height: 40px;
@@ -746,6 +761,7 @@
         .btn-sm-danger:hover {
             background: #c53030;
         }
+
         /* Filter tabs */
         .filter-tabs {
             display: flex;
@@ -770,8 +786,9 @@
         .filter-tab:hover:not(.active) {
             color: var(--medium-text);
         }
-         /* New appointment button */
-         .new-appointment-btn {
+
+        /* New appointment button */
+        .new-appointment-btn {
             margin-bottom: 2rem;
         }
 
@@ -825,6 +842,7 @@
             font-size: 1.3rem;
             color: var(--primary-dark);
         }
+
         .modal-close {
             background: none;
             border: none;
@@ -850,6 +868,7 @@
             justify-content: flex-end;
             gap: 1rem;
         }
+
         /* Form elements */
         .form-group {
             margin-bottom: 1.5rem;
@@ -876,8 +895,9 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
         }
-         /* New styles for appointment scheduling */
-         .schedule-appointment {
+
+        /* New styles for appointment scheduling */
+        .schedule-appointment {
             display: none;
             background: var(--white);
             border-radius: var(--radius-md);
@@ -921,6 +941,7 @@
             cursor: pointer;
             transition: var(--transition);
         }
+        
         .time-slot:hover {
             background: var(--primary-lighter);
             border-color: var(--primary);
@@ -971,6 +992,7 @@
             object-fit: cover;
             margin-bottom: 0.5rem;
         }
+
         /* Responsive adjustments */
         @media (max-width: 1200px) {
             .dashboard-grid {
@@ -1042,6 +1064,7 @@
                 grid-template-columns: 1fr;
             }
         }
+
         @media (max-width: 480px) {
             .filter-tabs {
                 overflow-x: auto;
@@ -1087,53 +1110,76 @@
             to { transform: rotate(360deg); }
         }
     </style>
-    </head>
-    <body>
-        <div class="bg-mesh"></div>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            Medidirect
+        </a>
         
-        <header>
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-heartbeat"></i>
+        <nav>
+            <ul>
+                <li><a href="home4.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-user-md"></i> Find a Doctor</a></li>
+                <li><a href="services.html"><i class="fas fa-procedures"></i> Services</a></li>
+                <li><a href="patient-portal.html"><i class="fas fa-user-circle"></i> Patient Portal</a></li>
+                <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-menu">
+            <div class="notification-badge">3</div>
+            <div class="user-avatar">JD</div>
+            <div class="user-dropdown">
+                <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <div class="divider"></div>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>My Appointments</h1>
+            <p>View, manage, and schedule your medical appointments all in one place.</p>
+            <div class="btn-group">
+                <a href="#new-appointment" class="btn" id="show-schedule-form-hero"><i class="fas fa-plus"></i> New Appointment</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-question-circle"></i> Help</a>
+            </div>
+        </div>
+    </section>
+    
+    <div class="dashboard">
+        <div class="dashboard-grid">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-avatar"><p>JD</p></div>
+                    <div class="sidebar-user">
+                        <h3>John Doe</h3>
+                        <p>Patient ID: MD-789456</p>
+                    </div>
                 </div>
-                Medidirect
-            </a>
-            
-            <nav>
-                <ul>
-                    <li><a href="home4.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-user-md"></i> Find a Doctor</a></li>
-                    <li><a href="services.html"><i class="fas fa-procedures"></i> Services</a></li>
-                    <li><a href="patient-portal.html"><i class="fas fa-user-circle"></i> Patient Portal</a></li>
-                    <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                
+                <ul class="sidebar-menu">
+                    <li><a href="patient-portal.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="appointments.html" class="active"><i class="far fa-calendar-check"></i> Appointments <span class="badge">2</span></a></li>
+                    <li><a href="#"><i class="fas fa-file-medical"></i> Medical Records</a></li>
+                    <li><a href="#"><i class="fas fa-prescription-bottle-alt"></i> Medications <span class="badge">5</span></a></li>
+                    <li><a href="#"><i class="fas fa-flask"></i> Test Results <span class="badge">3</span></a></li>
+                    <li><a href="#"><i class="fas fa-comment-medical"></i> Messages <span class="badge">1</span></a></li>
+                    <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Billing</a></li>
+                    <li><a href="#"><i class="fas fa-user-cog"></i> Profile Settings</a></li>
                 </ul>
-            </nav>
-            <div class="user-menu">
-                <div class="notification-badge">3</div>
-                <div class="user-avatar">JD</div>
-                <div class="user-dropdown">
-                    <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
-                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
-                    <div class="divider"></div>
-                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                </div>
-            </div>
-        </header>
-        
-        <section class="hero">
-            <div class="hero-content">
-                <h1>My Appointments</h1>
-                <p>View, manage, and schedule your medical appointments all in one place.</p>
-                <div class="btn-group">
-                    <a href="#new-appointment" class="btn" id="show-schedule-form-hero"><i class="fas fa-plus"></i> New Appointment</a>
-                    <a href="#" class="btn btn-outline"><i class="fas fa-question-circle"></i> Help</a>
-                </div>
-            </div>
-        </section>
-        
-        <div class="dashboard">
-            <div class="dashboard-grid">
-                 <!-- Main Content -->
+            </aside>
+            
+            <!-- Main Content -->
             <main class="main-content">
                 <div class="content-header">
                     <h2><i class="far fa-calendar-check"></i> My Appointments</h2>
@@ -1143,8 +1189,9 @@
                         <button>Past</button>
                     </div>
                 </div>
-                 <!-- New Appointment Scheduling Section -->
-                 <div id="new-appointment" class="schedule-appointment">
+                
+                <!-- New Appointment Scheduling Section -->
+                <div id="new-appointment" class="schedule-appointment">
                     <h3><i class="fas fa-plus-circle"></i> Schedule New Appointment</h3>
                     
                     <form id="appointment-form">
@@ -1174,6 +1221,7 @@
                                 </select>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label>Select Date</label>
                             <input type="date" id="appointment
@@ -1183,39 +1231,40 @@
                         <div class="form-group">
                             <label>Select Time Slot</label>
                             <div class="time-slots">
-                                 <!-- Time slots will be dynamically generated by JavaScript -->
-                                 <div class="time-slot">9:00 AM</div>
-                                 <div class="time-slot">10:00 AM</div>
-                                 <div class="time-slot">11:00 AM</div>
-                                 <div class="time-slot">1:00 PM</div>
-                                 <div class="time-slot">2:00 PM</div>
-                                 <div class="time-slot">3:00 PM</div>
-                                 <div class="time-slot unavailable">4:00 PM</div>
-                                 <div class="time-slot">5:00 PM</div>
-                             </div>
-                         </div>
-                         
-                         <div class="form-group">
-                             <label>Select Doctor</label>
-                             <div class="doctor-selection">
-                                 <div class="doctor-option">
-                                     <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Dr. Smith">
-                                     <h4>Dr. Sarah Smith</h4>
-                                     <p>Primary Care</p>
-                                 </div>
-                                 <div class="doctor-option selected">
-                                     <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Dr. Johnson">
-                                     <h4>Dr. Michael Johnson</h4>
-                                     <p>Cardiology</p>
-                                 </div>
-                                 <div class="doctor-option">
-                                     <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Lee">
-                                     <h4>Dr. Jennifer Lee</h4>
-                                     <p>Dermatology</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div class="form-group">
+                                <!-- Time slots will be dynamically generated by JavaScript -->
+                                <div class="time-slot">9:00 AM</div>
+                                <div class="time-slot">10:00 AM</div>
+                                <div class="time-slot">11:00 AM</div>
+                                <div class="time-slot">1:00 PM</div>
+                                <div class="time-slot">2:00 PM</div>
+                                <div class="time-slot">3:00 PM</div>
+                                <div class="time-slot unavailable">4:00 PM</div>
+                                <div class="time-slot">5:00 PM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Select Doctor</label>
+                            <div class="doctor-selection">
+                                <div class="doctor-option">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Dr. Smith">
+                                    <h4>Dr. Sarah Smith</h4>
+                                    <p>Primary Care</p>
+                                </div>
+                                <div class="doctor-option selected">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Dr. Johnson">
+                                    <h4>Dr. Michael Johnson</h4>
+                                    <p>Cardiology</p>
+                                </div>
+                                <div class="doctor-option">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Lee">
+                                    <h4>Dr. Jennifer Lee</h4>
+                                    <p>Dermatology</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="appointment-notes">Notes (Optional)</label>
                             <textarea id="appointment-notes" class="form-control" rows="3" placeholder="Any specific concerns or details you'd like to share with your doctor..."></textarea>
                         </div>
@@ -1231,6 +1280,7 @@
                 <div class="new-appointment-btn">
                     <button class="btn" id="show-schedule-form"><i class="fas fa-plus"></i> Schedule New Appointment</button>
                 </div>
+                
                 <!-- Filter Tabs -->
                 <div class="filter-tabs">
                     <div class="filter-tab active">All Appointments</div>
@@ -1245,6 +1295,7 @@
                         <h3>Upcoming Appointments</h3>
                         <a href="#">View All <i class="fas fa-chevron-right"></i></a>
                     </div>
+                    
                     <div class="appointment-cards">
                         <!-- Upcoming Appointment 1 -->
                         <div class="appointment-card upcoming">
@@ -1269,6 +1320,7 @@
                                 <button class="btn-sm btn-sm-outline"><i class="fas fa-calendar-alt"></i> Reschedule</button>
                             </div>
                         </div>
+                        
                         <!-- Upcoming Appointment 2 -->
                         <div class="appointment-card upcoming">
                             <div class="appointment-header">
@@ -1327,6 +1379,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="appointments">
                     <div class="section-title">
                         <h3>Past Appointments</h3>
@@ -1381,8 +1434,9 @@
                                 <button class="btn-sm btn-sm-outline"><i class="fas fa-redo"></i> Book Again</button>
                             </div>
                         </div>
-                         <!-- Cancelled Appointment -->
-                         <div class="appointment-card cancelled">
+                        
+                        <!-- Cancelled Appointment -->
+                        <div class="appointment-card cancelled">
                             <div class="appointment-header">
                                 <div class="appointment-time"><i class="far fa-clock"></i> Tue, Apr 5, 2023 - 10:00 AM</div>
                                 <div class="appointment-status status-cancelled">Cancelled</div>
@@ -1409,6 +1463,7 @@
             </main>
         </div>
     </div>
+    
     <!-- Confirmation Modal -->
     <div class="modal" id="confirmation-modal">
         <div class="modal-content">
@@ -1431,6 +1486,7 @@
             </div>
         </div>
     </div>
+    
     <script>
         // Set minimum date for appointment date picker (today)
         document.addEventListener('DOMContentLoaded', function() {
@@ -1461,6 +1517,7 @@
                 toggleScheduleForm();
             });
             cancelAppointmentBtn.addEventListener('click', toggleScheduleForm);
+            
             // Time slot selection
             const timeSlots = document.querySelectorAll('.time-slot:not(.unavailable)');
             timeSlots.forEach(slot => {
@@ -1494,8 +1551,9 @@
                 const time = selectedTimeSlot ? selectedTimeSlot.textContent : '';
                 const selectedDoctor = document.querySelector('.doctor-option.selected h4').textContent;
                 const notes = document.getElementById('appointment-notes').value;
-                  // In a real app, you would send this data to the server
-                  console.log('Appointment scheduled:', { type, specialty, date, time, doctor: selectedDoctor, notes });
+                
+                // In a real app, you would send this data to the server
+                console.log('Appointment scheduled:', { type, specialty, date, time, doctor: selectedDoctor, notes });
                 
                 // Update modal with appointment details
                 const formattedDate = new Date(date).toLocaleDateString('en-US', { 
@@ -1524,8 +1582,9 @@
                     confirmationModal.classList.remove('active');
                 });
             });
-             // Add to calendar functionality
-             document.getElementById('add-to-calendar').addEventListener('click', function() {
+            
+            // Add to calendar functionality
+            document.getElementById('add-to-calendar').addEventListener('click', function() {
                 alert('Added to your calendar!');
                 confirmationModal.classList.remove('active');
             });
@@ -1539,11 +1598,14 @@
                     // In a real app, you would filter the appointments here
                 });
             });
+            
+            // Date selector functionality
             const dateSelectorBtns = document.querySelectorAll('.date-selector button');
             dateSelectorBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelector('.date-selector button.active').classList.remove('active');
                     this.classList.add('active');
+                    // In a real app, you would filter the appointments by date range here
                 });
             });
         });
