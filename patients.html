@@ -1579,4 +1579,56 @@
     <div class="back-to-top">
     <i class="fas fa-arrow-up"></i>
     </div>
-    
+    <script>
+        // Tab functionality for patient guide
+        const tabs = document.querySelectorAll('.guide-tab');
+        const tabContents = document.querySelectorAll('.guide-content');
+        
+        tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+        // Remove active class from all tabs and contents
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding content
+        tab.classList.add('active');
+        const tabId = tab.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+        });
+        });
+        
+        // FAQ accordion functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+        const item = question.parentNode;
+        item.classList.toggle('active');
+        
+        // Close other open items
+        faqQuestions.forEach(q => {
+            if (q !== question) {
+                q.parentNode.classList.remove('active');
+            }
+        });
+        });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+        } else {
+        backToTopButton.classList.remove('visible');
+        }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+        });
+        });
+        
