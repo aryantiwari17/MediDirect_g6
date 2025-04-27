@@ -43,3 +43,74 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+        /* Header Styles - Same as services page */
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-contact a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 20px;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .top-contact a:hover {
+            opacity: 0.9;
+        }
+
+        .top-contact i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        .top-social a {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .top-social a:hover {
+            transform: translateY(-2px);
+            opacity: 0.8;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
