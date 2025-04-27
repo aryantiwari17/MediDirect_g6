@@ -1494,3 +1494,34 @@
                 const time = selectedTimeSlot ? selectedTimeSlot.textContent : '';
                 const selectedDoctor = document.querySelector('.doctor-option.selected h4').textContent;
                 const notes = document.getElementById('appointment-notes').value;
+                  // In a real app, you would send this data to the server
+                  console.log('Appointment scheduled:', { type, specialty, date, time, doctor: selectedDoctor, notes });
+                
+                // Update modal with appointment details
+                const formattedDate = new Date(date).toLocaleDateString('en-US', { 
+                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+                });
+                
+                document.getElementById('modal-date').textContent = formattedDate;
+                document.getElementById('modal-time').textContent = time + ' - ' + 
+                    (parseInt(time.split(':')[0]) + 1) + ':' + time.split(':')[1].split(' ')[0] + ' ' + time.split(' ')[1];
+                document.getElementById('modal-doctor').textContent = selectedDoctor;
+                
+                // Show confirmation modal
+                confirmationModal.classList.add('active');
+                
+                // Reset form
+                this.reset();
+                document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+                document.querySelectorAll('.doctor-option').forEach(o => o.classList.remove('selected'));
+                toggleScheduleForm();
+            });
+            
+            // Close modal
+            const modalCloseBtns = document.querySelectorAll('.modal-close');
+            modalCloseBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    confirmationModal.classList.remove('active');
+                });
+            });
+            
