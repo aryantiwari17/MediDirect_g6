@@ -876,3 +876,49 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
         }
+         /* New styles for appointment scheduling */
+         .schedule-appointment {
+            display: none;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .schedule-appointment.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        
+        .time-slot {
+            padding: 0.8rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
