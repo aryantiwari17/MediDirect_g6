@@ -3,10 +3,10 @@
       {
         "patient": {
           "id": "MD-789456",
-          "name": "Aryan Tiwari",
+          "name": "John Doe",
           "password": "password123",
           "avatar": "JD",
-          "email": "aryantiwari745@gmail.com",
+          "email": "johndoe@gmail.com",
           "phone": "+1 (555) 123-4567",
           "address": "123 Main St, Anytown, USA",
           "bloodType": "A+",
