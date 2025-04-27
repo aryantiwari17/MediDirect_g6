@@ -1077,4 +1077,57 @@
             to { opacity: 1; }
         }
 
+         /* Health Summary Card */
+    .health-summary {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .summary-card {
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        background: var(--light-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .summary-card h4 {
+        font-size: 0.9rem;
+        color: var(--light-text);
+        margin-bottom: 0.5rem;
+    }
+    
+    .summary-card .value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 0.3rem;
+    }
+    
+    .summary-card .trend {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .trend-up {
+        color: var(--danger);
+    }
+    
+    .trend-down {
+        color: var(--success);
+    }
+    
+    .trend-neutral {
+        color: var(--light-text);
+    }
+
 
