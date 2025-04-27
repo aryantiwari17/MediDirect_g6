@@ -1452,3 +1452,84 @@
         </div>
     </div>
 </div>
+<script>
+    let patientData = {};
+    
+    // Add this to patientportal.js to fix data handling
+    document.addEventListener('DOMContentLoaded', function () {
+        // Check if user is logged in and load their data
+        const currentPatient = JSON.parse(localStorage.getItem('currentPatient') || sessionStorage.getItem('currentPatient') || null);
+        
+        if (currentPatient) {
+            console.log("Found logged in patient data:", currentPatient);
+            patientData = currentPatient; 
+            // Use the logged-in patient's data
+            updateAllData();
+        } else {
+            console.log("No logged in patient data found, fetching from server");
+            // Check if we have embedded data first
+            if (document.getElementById('patient-data')) {
+                try {
+                    patientData = JSON.parse(document.getElementById('patient-data').textContent);
+                    updateAllData();
+                } catch (e) {
+                    console.error('Error parsing embedded data:', e);
+                    fetchData(); // Fallback to fetch
+                }
+            } else {
+                fetchData(); // No embedded data, fetch from server
+            }
+        }
+        
+        setupModal();
+        setupDateSelector();
+        
+        // Add event listener for "View All" appointments
+        const viewAllLink = document.getElementById('view-all-appointments');
+        if (viewAllLink) {
+            viewAllLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                updateAppointments(true);
+            });
+        }
+    });
+    // Fixed fetchData function
+    async function fetchData() {
+        try {
+            const response = await fetch('data.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const data = await response.json();
+            
+            // Check if we're logging in as one specific patient
+            const patientEmail = localStorage.getItem('currentPatientEmail') || sessionStorage.getItem('currentPatientEmail');
+            
+            if (patientEmail && data.patients) {
+                // Find the specific patient
+                const matchedPatient = data.patients.find(p => p.patient.email === patientEmail);
+                if (matchedPatient) {
+                    patientData = matchedPatient;
+                } else {
+                    // If no match, just use the first patient
+                    patientData = data.patients[0];
+                }
+            } else {
+                // No specific patient requested, use the first one
+                patientData = data.patients ? data.patients[0] : data;
+            }
+            
+            updateAllData();
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Find a suitable element to display the error
+            const mainContent = document.querySelector('.main-content') || document.querySelector('main') || document.body;
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.innerHTML = '<p>Unable to load patient data. Please try refreshing the page.</p>';
+            errorDiv.style.color = 'red';
+            errorDiv.style.padding = '20px';
+            errorDiv.style.textAlign = 'center';
+            mainContent.appendChild(errorDiv);
+        }
+    }
+    
