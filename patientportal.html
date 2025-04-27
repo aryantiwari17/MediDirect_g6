@@ -1721,4 +1721,251 @@
         if (existingShowLessLink) {
             existingShowLessLink.remove();
         }
+        // Create the appropriate link based on current state
+        const toggleLink = document.createElement('a');
+            toggleLink.href = '#';
+            
+            if (showAll) {
+                toggleLink.id = 'show-less-appointments';
+                toggleLink.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                toggleLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    updateAppointments(false);
+                });
+            } else {
+                toggleLink.id = 'view-all-appointments';
+                toggleLink.innerHTML = 'View All <i class="fas fa-chevron-right"></i>';
+                toggleLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    updateAppointments(true);
+                });
+            }
+            
+            // Only show toggle if we have more than 3 appointments
+            if (patientData.appointments && patientData.appointments.length > 3) {
+                sectionTitle.appendChild(toggleLink);
+            }
+        }
         
+        function updateHealthMetrics() {
+            if (!patientData.healthMetrics) return;
+            
+            // Find the metrics container or create it
+            let container = document.querySelector('.data-cards');
+            
+            // If container doesn't exist, try to find the parent and create it
+            if (!container) {
+                const parentElement = document.querySelector('.health-metrics') || 
+                                     document.querySelector('.health-section');
+                
+                if (parentElement) {
+                    container = document.createElement('div');
+                    container.className = 'data-cards';
+                    parentElement.appendChild(container);
+                    console.log('Created .data-cards container');
+                } else {
+                    console.error('Could not find a suitable parent for health metrics container');
+                    return;
+                }
+            }
+            
+            container.innerHTML = '';
+        
+            const icons = {
+                heartRate: 'heartbeat',
+                weight: 'weight',
+                bloodPressure: 'tint'
+            };
+            const trendArrows = {
+                up: 'arrow-up',
+                down: 'arrow-down',
+                neutral: 'equals'
+            };
+            const trendClasses = {
+                up: 'trend-up',
+                down: 'trend-down',
+                neutral: 'trend-neutral'
+            };
+        
+            patientData.healthMetrics.forEach(metric => {
+                const card = document.createElement('div');
+                card.className = 'data-card';
+                card.innerHTML = `
+                    <div class="data-header">
+                        <div class="data-icon"><i class="fas fa-${icons[metric.type] || 'chart-line'}"></i></div>
+                        <h4 class="data-title">${formatMetricTitle(metric.type)}</h4>
+                    </div>
+                    <p class="data-value">${metric.value} <span style="font-size: 1rem; font-weight: normal;">${metric.unit}</span></p>
+                    <div class="data-trend ${trendClasses[metric.trend] || ''}">
+                        <i class="fas fa-${trendArrows[metric.trend] || 'minus'}"></i> <span>${metric.trendValue}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        function updateActivity() {
+            if (!patientData.activity) return;
+            
+            // Find or create the activity list container
+            let container = document.querySelector('.activity-list');
+            
+            // If container doesn't exist, try to find the parent and create it
+            if (!container) {
+                const parentElement = document.querySelector('.activity') || 
+                                     document.querySelector('.activity-section');
+                
+                if (parentElement) {
+                    container = document.createElement('ul');
+                    container.className = 'activity-list';
+                    parentElement.appendChild(container);
+                    console.log('Created .activity-list container');
+                } else {
+                    console.error('Could not find a suitable parent for activity list container');
+                    return;
+                }
+            }
+            
+            container.innerHTML = '';
+        
+            patientData.activity.forEach(activity => {
+                const item = document.createElement('li');
+                item.className = 'activity-item';
+                item.innerHTML = `
+                    <div class="activity-icon"><i class="fas fa-${activity.icon || 'circle-info'}"></i></div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">${activity.title}</h4>
+                        <p class="activity-desc">${activity.description}</p>
+                        <p class="activity-time">${formatTimeAgo(new Date(activity.timestamp))}</p>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+        
+        function showAppointmentModal(appt) {
+            const modal = document.querySelector('.modal');
+            if (!modal) {
+                console.error('Modal element not found');
+                return;
+            }
+            
+            const modalContent = modal.querySelector('.modal-content');
+            if (!modalContent) {
+                console.error('Modal content element not found');
+                return;
+            }
+        
+            const apptDate = new Date(`${appt.date}T${appt.time}`);
+            const dateString = apptDate.toLocaleDateString('en-US', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            const timeString = formatTime(appt.time);
+        
+            const titleElement = modalContent.querySelector('h3');
+            if (titleElement) titleElement.textContent = appt.title;
+            
+            const formControls = modalContent.querySelectorAll('.form-control');
+            if (formControls.length >= 4) {
+                formControls[0].value = appt.title;
+                formControls[1].value = `${appt.provider.name} - ${appt.provider.specialty}`;
+                formControls[2].value = `${dateString} at ${timeString}`;
+                formControls[3].value = appt.location;
+            }
+            
+            const textareaElement = modalContent.querySelector('textarea');
+            if (textareaElement) textareaElement.value = appt.reason;
+        
+            const footer = modal.querySelector('.modal-footer');
+            if (footer) {
+                footer.innerHTML = '';
+        
+                if (appt.status === 'upcoming') {
+                    footer.innerHTML = `
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-calendar-alt"></i> Reschedule</button>
+                        ${appt.isVirtual ? '<button class="btn-sm"><i class="fas fa-video"></i> Join Telehealth</button>' : ''}
+                    `;
+                } else if (appt.status === 'completed') {
+                    footer.innerHTML = `
+                        <button class="btn-sm"><i class="fas fa-file-medical"></i> View Summary</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message</button>
+                    `;
+                }
+            }
+        
+            modal.classList.add('active');
+        }
+        
+        function formatTime(timeString) {
+            const [hours, minutes] = timeString.split(':');
+            const hour = parseInt(hours);
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            const hour12 = hour % 12 || 12;
+            return `${hour12}:${minutes} ${ampm}`;
+        }
+        
+        function formatMetricTitle(type) {
+            const titles = {
+                heartRate: 'Heart Rate',
+                weight: 'Weight',
+                bloodPressure: 'Blood Pressure'
+            };
+            return titles[type] || type;
+        }
+        
+        function formatTimeAgo(date) {
+            const seconds = Math.floor((new Date() - date) / 1000);
+            let interval = Math.floor(seconds / 31536000);
+            if (interval >= 1) return interval + " year" + (interval === 1 ? "" : "s") + " ago";
+            interval = Math.floor(seconds / 2592000);
+            if (interval >= 1) return interval + " month" + (interval === 1 ? "" : "s") + " ago";
+            interval = Math.floor(seconds / 86400);
+            if (interval >= 1) return interval + " day" + (interval === 1 ? "" : "s") + " ago";
+            interval = Math.floor(seconds / 3600);
+            if (interval >= 1) return interval + " hour" + (interval === 1 ? "" : "s") + " ago";
+            interval = Math.floor(seconds / 60);
+            if (interval >= 1) return interval + " minute" + (interval === 1 ? "" : "s") + " ago";
+            return "just now";
+        }
+        
+        function setupModal() {
+            const modal = document.querySelector('.modal');
+            if (!modal) {
+                console.error('Modal element not found');
+                return;
+            }
+            
+            const modalClose = document.querySelector('.modal-close');
+            if (modalClose) {
+                modalClose.addEventListener('click', () => modal.classList.remove('active'));
+            }
+            
+            modal.addEventListener('click', e => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        }
+        
+        function setupDateSelector() {
+            const buttons = document.querySelectorAll('.date-selector button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    // Filtering logic goes here
+                });
+            });
+        }
+        
+        // Function to check if elements exist and create them if they don't
+        function ensureElementsExist() {
+            // Debug the HTML structure
+            console.log('HTML Structure Debug:');
+            console.log('- .appointments exists:', !!document.querySelector('.appointments'));
+            console.log('- .health-metrics exists:', !!document.querySelector('.health-metrics'));
+            console.log('- .health-section exists:', !!document.querySelector('.health-section'));
+            console.log('- .activity exists:', !!document.querySelector('.activity'));
+            console.log('- .activity-section exists:', !!document.querySelector('.activity-section'));
+        }
+            </script>
+</body>
+</html>
