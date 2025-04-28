@@ -1670,4 +1670,20 @@ page.drawText(invoiceStatus, {
             font: helveticaOblique,
             color: rgb(0.5, 0.5, 0.5),
         });
+        // Add page number
+        page.drawText('Page 1 of 1', {
+            x: width - margin - 50,
+            y: 50,
+            size: 10,
+            font: helveticaFont,
+            color: rgb(0.5, 0.5, 0.5),
+        });
         
+        const pdfBytes = await pdfDoc.save();
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        saveAs(blob, Medidirect-Invoice-${invoiceNumber}.pdf);
+    });
+});
+    </script>
+</body>
+</html>
