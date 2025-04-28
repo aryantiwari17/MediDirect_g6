@@ -1433,4 +1433,241 @@ document.querySelectorAll('.btn-xs-outline .fa-download').forEach(icon => {
             font: helveticaFont,
             color: rgb(0.3, 0.3, 0.3),
         });
+        // Add invoice title
+        page.drawText('INVOICE', {
+            x: width - margin - 100,
+            y: height - margin - 30,
+            size: 24,
+            font: helveticaBold,
+            color: rgb(0, 0, 0),
+        });
+        
+        // Replace the existing invoice information boxes code with this:
+
+// Add invoice information boxes
+const infoBoxY = height - margin - 120;
+
+// Define box dimensions
+const boxWidth = 150;  // Reduced from 180
+const boxHeight = 50;  // Reduced from 60
+const boxSpacing = 20; // Space between boxes
+
+// Invoice number box
+page.drawRectangle({
+    x: margin,
+    y: infoBoxY - 20,
+    width: boxWidth,
+    height: boxHeight,
+    borderColor: rgb(0.8, 0.8, 0.8),
+    borderWidth: 1,
+});
+
+page.drawText('Invoice Number:', {
+    x: margin + 10,
+    y: infoBoxY,
+    size: 10,
+    font: helveticaBold,
+});
+
+page.drawText(invoiceNumber, {
+    x: margin + 10,
+    y: infoBoxY - 15,
+    size: 12,  // Reduced from 14
+    font: helveticaFont,
+});
+
+// Invoice date box
+page.drawRectangle({
+    x: margin + boxWidth + boxSpacing,
+    y: infoBoxY - 20,
+    width: boxWidth,
+    height: boxHeight,
+    borderColor: rgb(0.8, 0.8, 0.8),
+    borderWidth: 1,
+});
+
+page.drawText('Invoice Date:', {
+    x: margin + boxWidth + boxSpacing + 10,
+    y: infoBoxY,
+    size: 10,
+    font: helveticaBold,
+});
+
+page.drawText(invoiceDate, {
+    x: margin + boxWidth + boxSpacing + 10,
+    y: infoBoxY - 15,
+    size: 12,
+    font: helveticaFont,
+});
+
+// Status box
+page.drawRectangle({
+    x: margin + (boxWidth + boxSpacing) * 2,
+    y: infoBoxY - 20,
+    width: boxWidth - 30,  // Make status box narrower
+    height: boxHeight,
+    borderColor: rgb(0.8, 0.8, 0.8),
+    borderWidth: 1,
+});
+
+page.drawText('Status:', {
+    x: margin + (boxWidth + boxSpacing) * 2 + 10,
+    y: infoBoxY,
+    size: 10,
+    font: helveticaBold,
+});
+
+// Color status based on status type
+let statusColor = rgb(0, 0, 0);
+if (invoiceStatus === 'Paid') statusColor = rgb(0, 0.5, 0);
+if (invoiceStatus === 'Pending') statusColor = rgb(0.8, 0.5, 0);
+if (invoiceStatus === 'Overdue') statusColor = rgb(0.8, 0, 0);
+
+page.drawText(invoiceStatus, {
+    x: margin + (boxWidth + boxSpacing) * 2 + 10,
+    y: infoBoxY - 15,
+    size: 12,
+    font: helveticaFont,
+    color: statusColor,
+});
+        // Add billing information section
+        const billingY = infoBoxY - 100;
+        
+        page.drawText('BILL TO:', {
+            x: margin,
+            y: billingY,
+            size: 12,
+            font: helveticaBold,
+        });
+        
+        page.drawText('John Doe', {
+            x: margin,
+            y: billingY - 20,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        page.drawText('123 Patient Street', {
+            x: margin,
+            y: billingY - 35,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        page.drawText('Healthcare City, HC 12345', {
+            x: margin,
+            y: billingY - 50,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        page.drawText('Patient ID: MEDI-789456', {
+            x: margin,
+            y: billingY - 65,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        // Add invoice items table header
+        const tableY = billingY - 100;
+        
+        page.drawText('DESCRIPTION', {
+            x: margin,
+            y: tableY,
+            size: 10,
+            font: helveticaBold,
+        });
+        
+        page.drawText('AMOUNT', {
+            x: width - margin - 100,
+            y: tableY,
+            size: 10,
+            font: helveticaBold,
+        });
+        
+        // Draw table header line
+        page.drawLine({
+            start: { x: margin, y: tableY - 10 },
+            end: { x: width - margin, y: tableY - 10 },
+            thickness: 1,
+            color: rgb(0, 0, 0),
+        });
+        
+        // Add invoice item
+        page.drawText(invoiceDesc, {
+            x: margin,
+            y: tableY - 30,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        page.drawText(invoiceAmount, {
+            x: width - margin - 100,
+            y: tableY - 30,
+            size: 12,
+            font: helveticaFont,
+        });
+        
+        // Draw table footer line
+        page.drawLine({
+            start: { x: margin, y: tableY - 40 },
+            end: { x: width - margin, y: tableY - 40 },
+            thickness: 1,
+            color: rgb(0, 0, 0),
+        });
+        
+        // Add total amount
+        page.drawText('TOTAL', {
+            x: width - margin - 150,
+            y: tableY - 70,
+            size: 12,
+            font: helveticaBold,
+        });
+        
+        page.drawText(invoiceAmount, {
+            x: width - margin - 100,
+            y: tableY - 70,
+            size: 12,
+            font: helveticaBold,
+        });
+        
+        // Add payment instructions
+        const instructionsY = tableY - 120;
+        
+        page.drawText('PAYMENT INSTRUCTIONS:', {
+            x: margin,
+            y: instructionsY,
+            size: 10,
+            font: helveticaBold,
+        });
+        
+        page.drawText('Please make checks payable to Medidirect Healthcare.', {
+            x: margin,
+            y: instructionsY - 20,
+            size: 10,
+            font: helveticaFont,
+        });
+        
+        page.drawText('For online payments, visit our patient portal at portal.medidirect.com', {
+            x: margin,
+            y: instructionsY - 35,
+            size: 10,
+            font: helveticaFont,
+        });
+        
+        page.drawText('Questions? Call our billing department at (123) 456-7890', {
+            x: margin,
+            y: instructionsY - 50,
+            size: 10,
+            font: helveticaFont,
+        });
+        
+        // Add footer
+        page.drawText('Thank you for choosing Medidirect for your healthcare needs', {
+            x: margin,
+            y: 50,
+            size: 10,
+            font: helveticaOblique,
+            color: rgb(0.5, 0.5, 0.5),
+        });
         
