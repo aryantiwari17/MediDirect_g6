@@ -1711,7 +1711,7 @@ page.drawText(invoiceStatus, {
         
         const pdfBytes = await pdfDoc.save();
         const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-        saveAs(blob, Medidirect-Invoice-${invoiceNumber}.pdf);
+        saveAs(blob,` Medidirect-Invoice-${invoiceNumber}.pdf`);
     });
 });
     </script>
