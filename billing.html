@@ -1323,3 +1323,114 @@
             </div>
         </div>
     </div>
+    <script>
+        // Toggle payment modal
+        const paymentModal = document.querySelector('.payment-modal');
+        const openPaymentBtn = document.querySelector('.billing-header .btn-xs');
+        const closePaymentBtn = document.querySelector('.payment-modal-close');
+        
+        openPaymentBtn.addEventListener('click', () => {
+            paymentModal.classList.add('active');
+        });
+        
+        closePaymentBtn.addEventListener('click', () => {
+            paymentModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside
+        paymentModal.addEventListener('click', (e) => {
+            if (e.target === paymentModal) {
+                paymentModal.classList.remove('active');
+            }
+        });
+        
+        // Payment tabs functionality
+        const paymentTabs = document.querySelectorAll('.payment-tab');
+        
+        paymentTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                paymentTabs.forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.payment-tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Select saved card
+        const savedCards = document.querySelectorAll('.saved-card');
+        
+        savedCards.forEach(card => {
+            card.addEventListener('click', () => {
+                savedCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                card.querySelector('input').checked = true;
+            });
+        });
+        
+        //PDF Generation
+document.querySelectorAll('.btn-xs-outline .fa-download').forEach(icon => {
+    icon.closest('button').addEventListener('click', async function() {
+        const { PDFDocument, rgb, StandardFonts } = PDFLib;
+        
+        // Create a new PDF document
+        const pdfDoc = await PDFDocument.create();
+        const page = pdfDoc.addPage([595, 842]); // A4 size (595 x 842 points)
+        
+        // Get invoice data
+        const invoiceRow = this.closest('tr');
+        const invoiceNumber = invoiceRow.querySelector('td:nth-child(1)').textContent;
+        const invoiceDate = invoiceRow.querySelector('td:nth-child(2)').textContent;
+        const invoiceDesc = invoiceRow.querySelector('td:nth-child(3)').textContent;
+        const invoiceAmount = invoiceRow.querySelector('td:nth-child(4)').textContent;
+        const invoiceStatus = invoiceRow.querySelector('.invoice-status').textContent;
+        
+        // Register fonts
+        const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+        const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+        const helveticaOblique = await pdfDoc.embedFont(StandardFonts.HelveticaOblique);
+        
+        // Set up page dimensions
+        const { width, height } = page.getSize();
+        const margin = 50;
+        const contentWidth = width - margin * 2;
+        
+        // Add header with logo and info
+        const logoText = 'MEDIDIRECT';
+        const logoSize = 24;
+        
+        page.drawText(logoText, {
+            x: margin,
+            y: height - margin - 30,
+            size: logoSize,
+            font: helveticaBold,
+            color: rgb(0, 0.5, 0.5),
+        });
+        
+        page.drawText('123 Medical Drive, Suite 100', {
+            x: margin,
+            y: height - margin - 55,
+            size: 10,
+            font: helveticaFont,
+            color: rgb(0.3, 0.3, 0.3),
+        });
+        
+        page.drawText('Healthcare City, HC 12345', {
+            x: margin,
+            y: height - margin - 70,
+            size: 10,
+            font: helveticaFont,
+            color: rgb(0.3, 0.3, 0.3),
+        });
+        
+        page.drawText('Phone: (123) 456-7890 | Email: billing@medidirect.com', {
+            x: margin,
+            y: height - margin - 85,
+            size: 10,
+            font: helveticaFont,
+            color: rgb(0.3, 0.3, 0.3),
+        });
+        
