@@ -1233,3 +1233,46 @@
             </main>
         </div>
     </div>
+    <!-- Payment Modal -->
+    <div class="payment-modal">
+        <div class="payment-modal-content">
+            <div class="payment-modal-header">
+                <h3>Make a Payment</h3>
+                <button class="payment-modal-close">&times;</button>
+            </div>
+            
+            <div class="payment-modal-body">
+                <div class="payment-amount">
+                    <h4>Payment Amount</h4>
+                    <p>$245.00</p>
+                </div>
+                
+                <div class="payment-tabs">
+                    <div class="payment-tab active" data-tab="saved">Saved Cards</div>
+                    <div class="payment-tab" data-tab="new">New Card</div>
+                    <div class="payment-tab" data-tab="bank">Bank Transfer</div>
+                </div>
+                
+                <div class="payment-tab-content active" id="saved-tab">
+                    <div class="saved-cards">
+                        <div class="saved-card selected">
+                            <div class="saved-card-radio">
+                                <input type="radio" name="payment-method" checked>
+                            </div>
+                            <div class="saved-card-details">
+                                <div class="saved-card-type">VISA ending in 4242</div>
+                                <div class="saved-card-number">Expires 05/2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="saved-card">
+                            <div class="saved-card-radio">
+                                <input type="radio" name="payment-method">
+                            </div>
+                            <div class="saved-card-details">
+                                <div class="saved-card-type">MASTERCARD ending in 5555</div>
+                                <div class="saved-card-number">Expires 11/2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
