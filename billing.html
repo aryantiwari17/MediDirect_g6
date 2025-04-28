@@ -1094,6 +1094,29 @@
                         <div class="summary-due">Paid on May 28, 2023</div>
                     </div>
                 </div>
+                
+                <div class="billing-filters">
+                    <div class="filter-group">
+                        <span class="filter-label">Status:</span>
+                        <select class="filter-select">
+                            <option>All Invoices</option>
+                            <option>Paid</option>
+                            <option>Pending</option>
+                            <option>Overdue</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Date Range:</span>
+                        <select class="filter-select">
+                            <option>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                            <option>This Year</option>
+                            <option>Custom Range</option>
+                        </select>
+                    </div>
+                </div>
+                
                 <table class="billing-table">
                     <thead>
                         <tr>
@@ -1173,6 +1196,7 @@
                         </tr>
                     </tbody>
                 </table>
+                
                 <div class="billing-pagination">
                     <button class="pagination-btn disabled"><i class="fas fa-chevron-left"></i></button>
                     <button class="pagination-btn active">1</button>
@@ -1205,6 +1229,7 @@
                                 <button class="btn-xs btn-xs-outline"><i class="fas fa-trash-alt"></i> Remove</button>
                             </div>
                         </div>
+                        
                         <div class="payment-card">
                             <div class="payment-card-header">
                                 <span class="payment-card-type">MASTERCARD</span>
@@ -1233,6 +1258,7 @@
             </main>
         </div>
     </div>
+    
     <!-- Payment Modal -->
     <div class="payment-modal">
         <div class="payment-modal-content">
@@ -1276,6 +1302,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="payment-tab-content" id="new-tab">
                     <form class="new-card-form">
                         <div class="form-group">
@@ -1323,6 +1350,7 @@
             </div>
         </div>
     </div>
+    
     <script>
         // Toggle payment modal
         const paymentModal = document.querySelector('.payment-modal');
@@ -1433,6 +1461,7 @@ document.querySelectorAll('.btn-xs-outline .fa-download').forEach(icon => {
             font: helveticaFont,
             color: rgb(0.3, 0.3, 0.3),
         });
+        
         // Add invoice title
         page.drawText('INVOICE', {
             x: width - margin - 100,
@@ -1670,6 +1699,7 @@ page.drawText(invoiceStatus, {
             font: helveticaOblique,
             color: rgb(0.5, 0.5, 0.5),
         });
+        
         // Add page number
         page.drawText('Page 1 of 1', {
             x: width - margin - 50,
