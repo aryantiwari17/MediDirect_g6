@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidirect | Patient Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #008080;
+            --primary-dark: #006666;
+            --primary-darker: #004d4d;
+            --primary-light: #4cbaba;
+            --primary-lighter: #e0f2f2;
+            --secondary: #4a6fa5;
+            --accent: #ff7e5f;
+            --accent-dark: #e56b4d;
+            --white: #ffffff;
+            --light-bg: #f8fbfb;
+            --light-gray: #f0f4f8;
+            --medium-gray: #e1e8ed;
+            --dark-text: #2d3748;
+            --medium-text: #4a5568;
+            --light-text: #718096;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+            --info: #4299e1;
+            --shadow-sm: 0 1px 3px rgba(0, 128, 128, 0.12);
+            --shadow-md: 0 4px 6px rgba(0, 128, 128, 0.15);
+            --shadow-lg: 0 10px 25px rgba(0, 128, 128, 0.2);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        /* Gradient mesh background */
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 75% 25%, var(--primary-lighter) 0%, transparent 30%),
+                radial-gradient(circle at 25% 75%, rgba(255, 126, 95, 0.05) 0%, transparent 30%),
+                linear-gradient(to bottom right, var(--light-bg), var(--light-bg));
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* Header with glass morphism effect */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 128, 128, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--medium-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        nav ul li a i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--danger);
+            color: var(--white);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .user-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            margin-left: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-avatar:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            width: 220px;
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .user-menu:hover .user-dropdown {
+            opacity: 1;
+            visibility: visible;
+            top: 50px;
+        }
+
+        .user-dropdown a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            color: var(--medium-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .user-dropdown a:hover {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+        }
+
+        .user-dropdown a i {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .user-dropdown .divider {
+            height: 1px;
+            background: var(--medium-gray);
+            margin: 0.5rem 0;
+        }
+        /* Hero section with animated gradient */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255,255,255,0.05) 10px,
+                    rgba(255,255,255,0.05) 20px
+                );
+            animation: gradientMove 25s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientMove {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .btn-group {
+            animation: fadeInUp 0.8s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 126, 95, 0.4);
+        }
+
+        .btn i {
+            margin-right: 0.6rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            margin-left: 1rem;
+            box-shadow: none;
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+        /* Dashboard section */
+        .dashboard {
+            max-width: 1400px;
+            margin: -3rem auto 0;
+            padding: 0 2rem 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 6rem;
+            transition: var(--transition);
+        }
+
+        .sidebar:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .sidebar-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: var(--transition);
+        }
+
+        .sidebar:hover .sidebar-avatar {
+            transform: rotate(15deg);
+        }
+
+        .sidebar-user h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark-text);
+        }
+
+        .sidebar-user p {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            color: var(--medium-text);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .sidebar-menu a.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+        }
+
+        .sidebar-menu a i {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-menu .badge {
+            margin-left: auto;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        /* Main content */
+        .main-content {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .main-content:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .content-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .content-header h2 i {
+            margin-right: 0.8rem;
+            color: var(--primary);
+        }
+
+        .date-selector {
+            display: flex;
+            align-items: center;
+            background: var(--light-gray);
+            border-radius: 50px;
+            padding: 0.3rem;
+        }
+
+        .date-selector button {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: var(--medium-text);
+            font-weight: 500;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .date-selector button.active {
+            background: var(--white);
+            color: var(--primary-dark);
+            box-shadow: var(--shadow-sm);
+        }
+        /* Stats cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: var(--light-bg);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .stat-card:hover::after {
+            height: 6px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1);
+        }
+
+        .stat-info h3 {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .stat-info p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        /* Appointment cards */
+        .appointments {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .section-title h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-right: auto;
+        }
+
+        .section-title a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title a i {
+            margin-left: 0.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section-title a:hover i {
+            transform: translateX(3px);
+        }
+
+        .appointment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .appointment-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .appointment-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .appointment-card.upcoming {
+            border-left: 4px solid var(--success);
+        }
+
+        .appointment-card.pending {
+            border-left: 4px solid var(--warning);
+        }
+
+        .appointment-card.completed {
+            border-left: 4px solid var(--light-text);
+        }
+
+        .appointment-card.cancelled {
+            border-left: 4px solid var(--danger);
+        }
+
+        .appointment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .appointment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .appointment-status {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-upcoming {
+            background: rgba(56, 161, 105, 0.1);
+            color: var(--success);
+        }
+
+        .status-pending {
+            background: rgba(214, 158, 46, 0.1);
+            color: var(--warning);
+        }
+
+        .status-completed {
+            background: rgba(113, 128, 150, 0.1);
+            color: var(--light-text);
+        }
+
+        .status-cancelled {
+            background: rgba(229, 62, 62, 0.1);
+            color: var(--danger);
+        }
+
+        .appointment-time {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .appointment-time i {
+            margin-right: 0.5rem;
+        }
+
+        .appointment-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .appointment-doctor {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .doctor-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            overflow: hidden;
+        }
+
+        .doctor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doctor-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .doctor-info p {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        .appointment-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-sm:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm i {
+            margin-right: 0.4rem;
+        }
+
+        .btn-sm-outline {
+            background: transparent;
+            border: 1px solid var(--medium-gray);
+            color: var(--medium-text);
+        }
+
+        .btn-sm-outline:hover {
+            background: var(--light-gray);
+            color: var(--primary-dark);
+            border-color: var(--primary-light);
+        }
+
+        .btn-sm-danger {
+            background: var(--danger);
+        }
+
+        .btn-sm-danger:hover {
+            background: #c53030;
+        }
+
+        /* Health data section */
+        .health-data {
+            margin-bottom: 3rem;
+        }
+
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .data-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .data-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .data-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-sm);
+            background: var(--primary-lighter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .data-card:hover .data-icon {
+            transform: rotate(15deg);
+        }
+
+        .data-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .data-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0.5rem 0;
+        }
+
+        .data-trend {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .trend-up {
+            color: var(--success);
+        }
+
+        .trend-down {
+            color: var(--danger);
+        }
+
+        .trend-neutral {
+            color: var(--info);
+        }
+
+        .data-trend i {
+            margin-right: 0.3rem;
+        }
+
+        /* Health chart */
+        .health-chart {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--medium-gray);
+        }
+
+        .chart-container {
+            height: 300px;
+            margin-top: 1rem;
+            position: relative;
+        }
+        /* Recent activity */
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-lighter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--medium-gray);
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+         /* Form elements */
+         .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+        }
+         /* Responsive adjustments */
+         @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.8rem 0.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 1rem 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .date-selector {
+                margin-top: 1rem;
+            }
+
+            .appointment-cards,
+            .data-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+         /* Loading spinner */
+         .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            Medidirect
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a href="home4.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-user-md"></i> Find a Doctor</a></li>
+                <li><a href="services.html"><i class="fas fa-procedures"></i> Services</a></li>
+                <li><a href="#" class="active"><i class="fas fa-user-circle"></i> Patient Portal</a></li>
+                <li><a href="coantact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-menu">
+            <div class="notification-badge">3</div>
+            <div class="user-avatar">JD</div>
+            <div class="user-dropdown">
+                <a href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <div class="divider"></div>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Health, Simplified</h1>
+            <p>Access your complete medical profile, connect with healthcare providers, and take control of your wellness journey—all in one secure platform.</p>
+            <div class="btn-group">
+                <a href="#" class="btn btn-outline">Learn About Features</a>
+            </div>
+        </div>
+    </section>
+    
+    <div class="dashboard">
+        <div class="dashboard-grid">
+             <!-- Sidebar Navigation -->
+             <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-avatar">JD</div>
+                    <div class="sidebar-user">
+                        <h3>John Doe</h3>
+                        <p>Patient ID: MD-789456</p>
+                    </div>
+                </div>
+                
+                <ul class="sidebar-menu">
+                    <li><a href="patient-portal.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="appointments.html" class="active"><i class="far fa-calendar-check"></i> Appointments <span class="badge">2</span></a></li>
+                    <li><a href="medicalrecords.html"><i class="fas fa-file-medical"></i> Medical Records</a></li>
+                    <li><a href="#"><i class="fas fa-prescription-bottle-alt"></i> Medications <span class="badge">5</span></a></li>
+                    <li><a href="testresults.html"><i class="fas fa-flask"></i> Test Results <span class="badge">3</span></a></li>
+                    <li><a href="#"><i class="fas fa-comment-medical"></i> Messages <span class="badge">1</span></a></li>
+                    <li><a href="billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a></li>
+                    <li><a href="#"><i class="fas fa-user-cog"></i> Profile Settings</a></li>
+                </ul>
+            </aside>
+             <!-- Main Content -->
+             <main class="main-content">
+                <div class="content-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Patient Dashboard</h2>
+                    <div class="date-selector">
+                        <button class="active">Today</button>
+                        <button>Week</button>
+                        <button>Month</button> 
+                        <button>Year</button>
+                    </div>
+                </div>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Upcoming Appointments</h3>
+                            <p>2</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Medications</h3>
+                            <p>5</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-medical-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Recent Test Results</h3>
+                            <p>3</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-comment-medical"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Unread Messages</h3>
+                            <p>1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="appointments">
+                    <div class="section-title">
+                        <h3>Recent Appointments</h3>
+                        <a href="#" id="view-all-appointments">View All<i class="fas fa-chevron-right"></i></a>
+                    </div>
+                
+                </div>
+              
+          <!-- Health Data Section -->
+          <div class="health-data">
+            <div class="section-title">
+                <h3>Health Metrics</h3>
+                <a href="#">View History <i class="fas fa-chevron-right"></i></a>
+            </div>
+            
+            <div class="data-cards">
+                <div class="data-card">
+                    <div class="data-header">
+                        <div class="data-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4 class="data-title">Heart Rate</h4>
+                    </div>
+                    <p class="data-value">72 <span style="font-size: 1rem; font-weight: normal;">bpm</span></p>
+                    <div class="data-trend trend-down">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>2% lower than last week</span>
+                    </div>
+                </div>
+                
+                <div class="data-card">
+                    <div class="data-header">
+                        <div class="data-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <h4 class="data-title">Weight</h4>
+                    </div>
+                    <p class="data-value">175 <span style="font-size: 1rem; font-weight: normal;">lbs</span></p>
+                    <div class="data-trend trend-up">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>1.5% increase</span>
+                    </div>
+                </div>
+                
+                <div class="data-card">
+                    <div class="data-header">
+                        <div class="data-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h4 class="data-title">Blood Pressure</h4>
+                    </div>
+                    <p class="data-value">122/78 <span style="font-size: 1rem; font-weight: normal;">mmHg</span></p>
+                    <div class="data-trend trend-neutral">
+                        <i class="fas fa-equals"></i>
+                        <span>Stable</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <!-- Recent Activity -->
+          <div class="recent-activity">
+            <div class="section-title">
+                <h3>Recent Activity</h3>
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+            </div>
+            
+            <ul class="activity-list">
+                <li class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-file-prescription"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">New prescription added</h4>
+                        <p class="activity-desc">Lisinopril 10mg by Dr. Sarah Johnson</p>
+                        <p class="activity-time">2 hours ago</p>
+                    </div>
+                </li>
+                
+                <li class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">Lab results available</h4>
+                        <p class="activity-desc">Complete Blood Count (CBC) test results</p>
+                        <p class="activity-time">Yesterday</p>
+                    </div>
+                </li>
+                
+                <li class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-comment-medical"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">New message from Dr. Chen</h4>
+                        <p class="activity-desc">Follow-up on your recent consultation</p>
+                        <p class="activity-time">2 days ago</p>
+                    </div>
+                </li>
+                
+                <li class="activity-item">
+                    <div class="activity-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">Appointment confirmed</h4>
+                        <p class="activity-desc">Annual physical on June 10 at 9:30 AM</p>
+                        <p class="activity-time">3 days ago</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+</div>
+</div>
+<!-- Modal for Appointment Details -->
+<div class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Appointment Details</h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Appointment Type</label>
+                <input type="text" class="form-control" value="Annual Physical Examination" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label>Provider</label>
+                <input type="text" class="form-control" value="Dr. Sarah Johnson - Primary Care Physician" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label>Date & Time</label>
+                <input type="text" class="form-control" value="June 10, 2023 at 9:30 AM" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label>Location</label>
+                <input type="text" class="form-control" value="Main Hospital - Suite 205" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label>Reason for Visit</label>
+                <textarea class="form-control" rows="3" readonly>Annual checkup and routine blood work. Discuss cholesterol levels and exercise regimen.</textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-sm btn-sm-outline">Reschedule</button>
+            <button class="btn-sm">Join Telehealth</button>
+        </div>
+    </div>
+</div>
+<script>
+    let patientData = {};
+    
+    // Add this to patientportal.js to fix data handling
+    document.addEventListener('DOMContentLoaded', function () {
+        // Check if user is logged in and load their data
+        const currentPatient = JSON.parse(localStorage.getItem('currentPatient') || sessionStorage.getItem('currentPatient') || null);
+        
+        if (currentPatient) {
+            console.log("Found logged in patient data:", currentPatient);
+            patientData = currentPatient; 
+            // Use the logged-in patient's data
+            updateAllData();
+        } else {
+            console.log("No logged in patient data found, fetching from server");
+            // Check if we have embedded data first
+            if (document.getElementById('patient-data')) {
+                try {
+                    patientData = JSON.parse(document.getElementById('patient-data').textContent);
+                    updateAllData();
+                } catch (e) {
+                    console.error('Error parsing embedded data:', e);
+                    fetchData(); // Fallback to fetch
+                }
+            } else {
+                fetchData(); // No embedded data, fetch from server
+            }
+        }
+        
+        setupModal();
+        setupDateSelector();
+        
+        // Add event listener for "View All" appointments
+        const viewAllLink = document.getElementById('view-all-appointments');
+        if (viewAllLink) {
+            viewAllLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                updateAppointments(true);
+            });
+        }
+    });
+    // Fixed fetchData function
+    async function fetchData() {
+        try {
+            const response = await fetch('data.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const data = await response.json();
+            
+            // Check if we're logging in as one specific patient
+            const patientEmail = localStorage.getItem('currentPatientEmail') || sessionStorage.getItem('currentPatientEmail');
+            
+            if (patientEmail && data.patients) {
+                // Find the specific patient
+                const matchedPatient = data.patients.find(p => p.patient.email === patientEmail);
+                if (matchedPatient) {
+                    patientData = matchedPatient;
+                } else {
+                    // If no match, just use the first patient
+                    patientData = data.patients[0];
+                }
+            } else {
+                // No specific patient requested, use the first one
+                patientData = data.patients ? data.patients[0] : data;
+            }
+            
+            updateAllData();
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Find a suitable element to display the error
+            const mainContent = document.querySelector('.main-content') || document.querySelector('main') || document.body;
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.innerHTML = '<p>Unable to load patient data. Please try refreshing the page.</p>';
+            errorDiv.style.color = 'red';
+            errorDiv.style.padding = '20px';
+            errorDiv.style.textAlign = 'center';
+            mainContent.appendChild(errorDiv);
+        }
+    }
+     // Function to update user avatars
+     function updateUserAvatars() {
+            const patient = patientData.patient;
+            if (!patient) return;
+            
+            // Get user initials for avatars
+            const nameParts = patient.name.split(' ');
+            let initials = '';
+            if (nameParts.length >= 2) {
+                initials = nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0);
+            } else {
+                initials = nameParts[0].charAt(0);
+            }
+            initials = initials.toUpperCase();
+            
+            // Update header user avatar
+            const headerAvatar = document.querySelector('.user-avatar');
+            if (headerAvatar) {
+                headerAvatar.textContent = initials;
+                
+                // If patient has a profile image, use it instead of initials
+                if (patient.profileImage) {
+                    headerAvatar.innerHTML = `<img src="${patient.profileImage}" alt="${patient.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+                }
+            }
+            
+            // Update sidebar avatar
+            const sidebarAvatar = document.querySelector('.sidebar-avatar');
+            if (sidebarAvatar) {
+                sidebarAvatar.textContent = initials;
+                
+                // If patient has a profile image, use it instead of initials
+                if (patient.profileImage) {
+                    sidebarAvatar.innerHTML = `<img src="${patient.profileImage}" alt="${patient.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+                }
+            }
+        }
+        
+        // Helper function to update all data sections
+        function updateAllData() {
+            ensureElementsExist();
+            updatePatientInfo();
+            updateStatsCards();
+            updateAppointments(false); // Show only 3 by default
+            updateHealthMetrics();
+            updateActivity();
+        }
+        
+        function updatePatientInfo() {
+            console.log("Updating patient info with data:", patientData);
+            
+            // Check if patientData has the correct structure
+            const patient = patientData?.patient || patientData;
+            if (!patient) {
+                console.error("No valid patient data found");
+                return;
+            }
+            
+            const nameElement = document.querySelector('.sidebar-user h3');
+            const idElement = document.querySelector('.sidebar-user p');
+            
+            if (nameElement) nameElement.textContent = patient.name || "Patient Name";
+            if (idElement) idElement.textContent = `Patient ID: ${patient.id || "Unknown"}`;
+            
+            // Update the avatars
+            updateUserAvatars();
+        }
+        function updateStatsCards() {
+            const stats = patientData.stats;
+            if (!stats) return;
+            
+            const statCards = document.querySelectorAll('.stat-card');
+            if (statCards.length === 0) return;
+            
+            // Safely update each stat card if it exists
+            if (statCards[0] && statCards[0].querySelector('p'))
+                statCards[0].querySelector('p').textContent = stats.upcomingAppointments;
+            if (statCards[1] && statCards[1].querySelector('p'))
+                statCards[1].querySelector('p').textContent = stats.activeMedications;
+            if (statCards[2] && statCards[2].querySelector('p'))
+                statCards[2].querySelector('p').textContent = stats.recentTestResults;
+            if (statCards[3] && statCards[3].querySelector('p'))
+                statCards[3].querySelector('p').textContent = stats.unreadMessages;
+        }
+        
+        function updateAppointments(showAll = false) {
+            if (!patientData.appointments) return;
+            
+            let container = document.querySelector('.appointment-cards');
+            
+            if (!container) {
+                const parentElement = document.querySelector('.appointments');
+                
+                if (parentElement) {
+                    container = document.createElement('div');
+                    container.className = 'appointment-cards';
+                    parentElement.appendChild(container);
+                } else {
+                    console.error('Could not find a suitable parent for appointments container');
+                    return;
+                }
+            }
+            
+            container.innerHTML = '';
+              // Show only first 3 appointments or all based on showAll parameter
+              const appointmentsToShow = showAll ? patientData.appointments : patientData.appointments.slice(0, 3);
+        
+        appointmentsToShow.forEach(appt => {
+            const apptDate = new Date(`${appt.date}T${appt.time}`);
+            const isToday = new Date().toDateString() === apptDate.toDateString();
+            const timeString = isToday
+                ? `Today, ${formatTime(appt.time)}`
+                : `${apptDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, ${formatTime(appt.time)}`;
+    
+            const statusText = {
+                upcoming: 'Upcoming',
+                completed: 'Completed',
+                pending: 'Pending',
+                cancelled: 'Cancelled'
+            };
+    
+            const providerAvatar = appt.provider.avatar
+                ? `<img src="${appt.provider.avatar}" alt="${appt.provider.name}">`
+                : `<i class="fas fa-hospital"></i>`;
+    
+            let buttons = '';
+            if (appt.status === 'upcoming') {
+                buttons = `
+                    <button class="btn-sm"><i class="fas fa-video"></i> Join Telehealth</button>
+                    <button class="btn-sm btn-sm-outline"><i class="fas fa-calendar-alt"></i> Reschedule</button>
+                `;
+            } else if (appt.status === 'completed') {
+                buttons = `
+                    <button class="btn-sm"><i class="fas fa-file-medical"></i> View Summary</button>
+                    <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message</button>
+                `;
+            } else if (appt.status === 'pending') {
+                buttons = `
+                    <button class="btn-sm"><i class="fas fa-check-circle"></i> Confirm</button>
+                    <button class="btn-sm btn-sm-outline"><i class="fas fa-times-circle"></i> Cancel</button>
+                `;
+            }
+    
+            const apptCard = document.createElement('div');
+            apptCard.className = `appointment-card ${appt.status}`;
+            apptCard.innerHTML = `
+                <div class="appointment-header">
+                    <span class="appointment-status status-${appt.status}">${statusText[appt.status]}</span>
+                    <span class="appointment-time"><i class="far fa-clock"></i> ${timeString}</span>
+                </div>
+                <h4 class="appointment-title">${appt.title}</h4>
+                <div class="appointment-doctor">
+                    <div class="doctor-avatar">${providerAvatar}</div>
+                    <div class="doctor-info">
+                        <h4>${appt.provider.name}</h4>
+                        <p>${appt.provider.specialty}</p>
+                    </div>
+                </div>
+                <div class="appointment-actions">${buttons}</div>
+            `;
+    
+            apptCard.addEventListener('click', function (e) {
+                if (!e.target.closest('.btn-sm')) {
+                    showAppointmentModal(appt);
+                }
+            });
+    
+            container.appendChild(apptCard);
+        });
+        
+        // Update the view all/show less link
+        updateAppointmentToggleLink(showAll);
+    }
+    
+    // Fixed toggle link function
+    function updateAppointmentToggleLink(showAll) {
+        const sectionTitle = document.querySelector('.appointments .section-title');
+        if (!sectionTitle) return;
+        
+        // Remove any existing toggle links (both view all and show less)
+        const existingViewAllLink = document.getElementById('view-all-appointments');
+        if (existingViewAllLink) {
+            existingViewAllLink.remove();
+        }
+        
+        const existingShowLessLink = document.getElementById('show-less-appointments');
+        if (existingShowLessLink) {
+            existingShowLessLink.remove();
+        }
+        // Create the appropriate link based on current state
+        const toggleLink = document.createElement('a');
+            toggleLink.href = '#';
+            
+            if (showAll) {
+                toggleLink.id = 'show-less-appointments';
+                toggleLink.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                toggleLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    updateAppointments(false);
+                });
+            } else {
+                toggleLink.id = 'view-all-appointments';
+                toggleLink.innerHTML = 'View All <i class="fas fa-chevron-right"></i>';
+                toggleLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    updateAppointments(true);
+                });
+            }
+            
+            // Only show toggle if we have more than 3 appointments
+            if (patientData.appointments && patientData.appointments.length > 3) {
+                sectionTitle.appendChild(toggleLink);
+            }
+        }
+        
+        function updateHealthMetrics() {
+            if (!patientData.healthMetrics) return;
+            
+            // Find the metrics container or create it
+            let container = document.querySelector('.data-cards');
+            
+            // If container doesn't exist, try to find the parent and create it
+            if (!container) {
+                const parentElement = document.querySelector('.health-metrics') || 
+                                     document.querySelector('.health-section');
+                
+                if (parentElement) {
+                    container = document.createElement('div');
+                    container.className = 'data-cards';
+                    parentElement.appendChild(container);
+                    console.log('Created .data-cards container');
+                } else {
+                    console.error('Could not find a suitable parent for health metrics container');
+                    return;
+                }
+            }
+            
+            container.innerHTML = '';
+        
+            const icons = {
+                heartRate: 'heartbeat',
+                weight: 'weight',
+                bloodPressure: 'tint'
+            };
+            const trendArrows = {
+                up: 'arrow-up',
+                down: 'arrow-down',
+                neutral: 'equals'
+            };
+            const trendClasses = {
+                up: 'trend-up',
+                down: 'trend-down',
+                neutral: 'trend-neutral'
+            };
+        
+            patientData.healthMetrics.forEach(metric => {
+                const card = document.createElement('div');
+                card.className = 'data-card';
+                card.innerHTML = `
+                    <div class="data-header">
+                        <div class="data-icon"><i class="fas fa-${icons[metric.type] || 'chart-line'}"></i></div>
+                        <h4 class="data-title">${formatMetricTitle(metric.type)}</h4>
+                    </div>
+                    <p class="data-value">${metric.value} <span style="font-size: 1rem; font-weight: normal;">${metric.unit}</span></p>
+                    <div class="data-trend ${trendClasses[metric.trend] || ''}">
+                        <i class="fas fa-${trendArrows[metric.trend] || 'minus'}"></i> <span>${metric.trendValue}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        
+        function updateActivity() {
+            if (!patientData.activity) return;
+            
+            // Find or create the activity list container
+            let container = document.querySelector('.activity-list');
+            
+            // If container doesn't exist, try to find the parent and create it
+            if (!container) {
+                const parentElement = document.querySelector('.activity') || 
+                                     document.querySelector('.activity-section');
+                
+                if (parentElement) {
+                    container = document.createElement('ul');
+                    container.className = 'activity-list';
+                    parentElement.appendChild(container);
+                    console.log('Created .activity-list container');
+                } else {
+                    console.error('Could not find a suitable parent for activity list container');
+                    return;
+                }
+            }
+            
+            container.innerHTML = '';
+        
+            patientData.activity.forEach(activity => {
+                const item = document.createElement('li');
+                item.className = 'activity-item';
+                item.innerHTML = `
+                    <div class="activity-icon"><i class="fas fa-${activity.icon || 'circle-info'}"></i></div>
+                    <div class="activity-content">
+                        <h4 class="activity-title">${activity.title}</h4>
+                        <p class="activity-desc">${activity.description}</p>
+                        <p class="activity-time">${formatTimeAgo(new Date(activity.timestamp))}</p>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+        
+        function showAppointmentModal(appt) {
+            const modal = document.querySelector('.modal');
+            if (!modal) {
+                console.error('Modal element not found');
+                return;
+            }
+            
+            const modalContent = modal.querySelector('.modal-content');
+            if (!modalContent) {
+                console.error('Modal content element not found');
+                return;
+            }
+        
+            const apptDate = new Date(`${appt.date}T${appt.time}`);
+            const dateString = apptDate.toLocaleDateString('en-US', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            const timeString = formatTime(appt.time);
+        
+            const titleElement = modalContent.querySelector('h3');
+            if (titleElement) titleElement.textContent = appt.title;
+            
+            const formControls = modalContent.querySelectorAll('.form-control');
+            if (formControls.length >= 4) {
+                formControls[0].value = appt.title;
+                formControls[1].value = `${appt.provider.name} - ${appt.provider.specialty}`;
+                formControls[2].value = `${dateString} at ${timeString}`;
+                formControls[3].value = appt.location;
+            }
+            
+            const textareaElement = modalContent.querySelector('textarea');
+            if (textareaElement) textareaElement.value = appt.reason;
+        
+            const footer = modal.querySelector('.modal-footer');
+            if (footer) {
+                footer.innerHTML = '';
+        
+                if (appt.status === 'upcoming') {
+                    footer.innerHTML = `
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-calendar-alt"></i> Reschedule</button>
+                        ${appt.isVirtual ? '<button class="btn-sm"><i class="fas fa-video"></i> Join Telehealth</button>' : ''}
+                    `;
+                } else if (appt.status === 'completed') {
+                    footer.innerHTML = `
+                        <button class="btn-sm"><i class="fas fa-file-medical"></i> View Summary</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-comment-medical"></i> Message</button>
+                    `;
+                }
+            }
+        
+            modal.classList.add('active');
+        }
+        
+        function formatTime(timeString) {
+            const [hours, minutes] = timeString.split(':');
+            const hour = parseInt(hours);
+            const ampm = hour >= 12 ? 'PM' : 'AM';
+            const hour12 = hour % 12 || 12;
+            return `${hour12}:${minutes} ${ampm}`;
+        }
+        
+        function formatMetricTitle(type) {
+            const titles = {
+                heartRate: 'Heart Rate',
+                weight: 'Weight',
+                bloodPressure: 'Blood Pressure'
+            };
+            return titles[type] || type;
+        }
+        
+        function formatTimeAgo(date) {
+            const seconds = Math.floor((new Date() - date) / 1000);
+            let interval = Math.floor(seconds / 31536000);
+            if (interval >= 1) return interval + " year" + (interval === 1 ? "" : "s") + " ago";
+            interval = Math.floor(seconds / 2592000);
+            if (interval >= 1) return interval + " month" + (interval === 1 ? "" : "s") + " ago";
+            interval = Math.floor(seconds / 86400);
+            if (interval >= 1) return interval + " day" + (interval === 1 ? "" : "s") + " ago";
+            interval = Math.floor(seconds / 3600);
+            if (interval >= 1) return interval + " hour" + (interval === 1 ? "" : "s") + " ago";
+            interval = Math.floor(seconds / 60);
+            if (interval >= 1) return interval + " minute" + (interval === 1 ? "" : "s") + " ago";
+            return "just now";
+        }
+        
+        function setupModal() {
+            const modal = document.querySelector('.modal');
+            if (!modal) {
+                console.error('Modal element not found');
+                return;
+            }
+            
+            const modalClose = document.querySelector('.modal-close');
+            if (modalClose) {
+                modalClose.addEventListener('click', () => modal.classList.remove('active'));
+            }
+            
+            modal.addEventListener('click', e => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        }
+        
+        function setupDateSelector() {
+            const buttons = document.querySelectorAll('.date-selector button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    // Filtering logic goes here
+                });
+            });
+        }
+        
+        // Function to check if elements exist and create them if they don't
+        function ensureElementsExist() {
+            // Debug the HTML structure
+            console.log('HTML Structure Debug:');
+            console.log('- .appointments exists:', !!document.querySelector('.appointments'));
+            console.log('- .health-metrics exists:', !!document.querySelector('.health-metrics'));
+            console.log('- .health-section exists:', !!document.querySelector('.health-section'));
+            console.log('- .activity exists:', !!document.querySelector('.activity'));
+            console.log('- .activity-section exists:', !!document.querySelector('.activity-section'));
+        }
+            </script>
+</body>
+</html>

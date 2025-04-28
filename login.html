@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediDirect Hospital - Login Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --doctor-blue: #1a73e8;
+            --patient-green: #34a853;
+            --light-bg: #f8f9fa;
+            --dark-text: #202124;
+            --light-text: #5f6368;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+                
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--dark-text);
+        }
+        
+        .login-container {
+            display: flex;
+            width: 900px;
+            height: 550px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .welcome-section {
+            flex: 1;
+            background: #008080;
+            color: white;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+        
+        .welcome-section::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -50px;
+            right: -50px;
+            z-index: -1;
+        }
+        
+        .logo {
+            width: 80px;
+            margin-bottom: 30px;
+        }
+        
+        .welcome-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .welcome-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .features {
+            margin-top: auto;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .login-section {
+            flex: 1;
+            background: white;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .login-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+        
+        .login-subtitle {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--light-text);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tab.active {
+            color: var(--doctor-blue);
+        }
+        
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--doctor-blue);
+        }
+        
+        .tab.patient.active {
+            color: var(--patient-green);
+        }
+        
+        .tab.patient.active::after {
+            background: var(--patient-green);
+        }
+        
+        .form-container {
+            flex-grow: 1;
+            position: relative;
+        }
+        
+        .login-form {
+            position: absolute;
+            width: 100%;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .login-form.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-text);
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        .input-group input:focus {
+            border-color: var(--doctor-blue);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+            outline: none;
+        }
+        
+        .patient-form .input-group input:focus {
+            border-color: var(--patient-green);
+            box-shadow: 0 0 0 2px rgba(52, 168, 83, 0.2);
+        }
+        
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+        
+        .remember-me input {
+            margin-right: 8px;
+        }
+        
+        .forgot-password a {
+            color: var(--doctor-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .patient-form .forgot-password a {
+            color: var(--patient-green);
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: var(--doctor-blue);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .login-btn:hover {
+            background: #0d5bba;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 115, 232, 0.3);
+        }
+        
+        .patient-form .login-btn {
+            background: var(--patient-green);
+        }
+        
+        .patient-form .login-btn:hover {
+            background: #2d8a47;
+            box-shadow: 0 5px 15px rgba(52, 168, 83, 0.3);
+        }
+        
+        .register-link {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .register-link a {
+            color: var(--doctor-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .patient-form .register-link a {
+            color: var(--patient-green);
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 950px) {
+            .login-container {
+                width: 90%;
+                height: auto;
+                flex-direction: column;
+            }
+            
+            .welcome-section {
+                padding: 30px;
+                border-radius: 20px 20px 0 0;
+            }
+            
+            .login-section {
+                padding: 30px;
+                border-radius: 0 0 20px 20px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .login-container {
+                width: 95%;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .login-title {
+                font-size: 1.5rem;
+            }
+            
+            .tabs {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="welcome-section">
+            <img src="https://github.com/user-attachments/assets/c02c456b-8611-4a38-a9bc-32492ef8a74c" alt="Hospital Logo" class="logo">
+            <h1 class="welcome-title">Welcome to MediDirect</h1>
+            <p class="welcome-text">Our hospital management system provides seamless access to medical records, appointments, and healthcare services for both patients and medical professionals.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Easy appointment scheduling</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-file-medical"></i>
+                    <span>Secure medical records</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <span>HIPAA compliant security</span>
+                </div>
+            </div>
+        </div>
+        <div class="login-section">
+            <div class="login-header">
+                <h2 class="login-title">Login to Your Account</h2>
+                <p class="login-subtitle">Access your personalized healthcare portal</p>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab patient active" onclick="switchTab('patient')">Patient</div>
+                <div class="tab doctor" onclick="switchTab('doctor')">Doctor</div>
+            </div>
+
+                <div class="form-container">
+                    <!-- Patient Login Form -->
+                    <form class="login-form patient-form active" id="patient-form">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="patient-id" placeholder="Patient ID or Email" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="patient-password" placeholder="Password" required>
+                        </div>
+                    <div class="options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="patient-remember">
+                            <label for="patient-remember">Remember me</label>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="login-btn" onclick="login('patient')">
+                        Login as Patient
+                    </button>
+                    
+                    <div class="register-link">
+                        New patient? <a href="sign.html">Create an account</a>
+                    </div>
+                </form>
+                                <!-- Doctor Login Form -->
+                                <form class="login-form doctor-form" id="doctor-form">
+                                    <div class="input-group">
+                                        <i class="fas fa-user-md"></i>
+                                        <input type="text" id="doctor-id" placeholder="Doctor ID or Email" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <i class="fas fa-lock"></i>
+                                        <input type="password" id="doctor-password" placeholder="Password" required>
+                                    </div>
+                                    
+                                    <div class="options">
+                                        <div class="remember-me">
+                                            <input type="checkbox" id="doctor-remember">
+                                            <label for="doctor-remember">Remember me</label>
+                                        </div>
+                                        <div class="forgot-password">
+                                            <a href="#">Forgot password?</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="button" class="login-btn" onclick="login('doctor')">
+                                        Login as Doctor
+                                    </button>
+                                    
+                                    <div class="register-link">
+                                        Medical professional? <a href="sign.html">Request access</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <script>
+// Function to switch between Patient and Doctor tabs
+// Switch between patient and doctor tabs
+function switchTab(userType) {
+    // Update tab styling
+    document.querySelector('.tab.patient').classList.toggle('active', userType === 'patient');
+    document.querySelector('.tab.doctor').classList.toggle('active', userType === 'doctor');
+
+    // Show relevant form
+    document.getElementById('patient-form').classList.toggle('active', userType === 'patient');
+    document.getElementById('doctor-form').classList.toggle('active', userType === 'doctor');
+}
+
+// Login function
+// Login function - Update the patient login part
+async function login(userType) {
+    let emailInput, passwordInput, rememberInput, loginBtn, storageKey, dataFile;
+
+    if (userType === 'patient') {
+        emailInput = document.getElementById('patient-id');
+        passwordInput = document.getElementById('patient-password');
+        rememberInput = document.getElementById('patient-remember');
+        loginBtn = document.querySelector('#patient-form .login-btn');
+        storageKey = 'currentPatient';
+        dataFile = 'data.json'; // Patient data file
+    } else {
+        emailInput = document.getElementById('doctor-id');
+        passwordInput = document.getElementById('doctor-password');
+        rememberInput = document.getElementById('doctor-remember');
+        loginBtn = document.querySelector('#doctor-form .login-btn');
+        storageKey = 'currentDoctor';
+        dataFile = 'data2.json'; // Doctor data file
+    }
+
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    const rememberMe = rememberInput.checked;
+
+    loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+    loginBtn.disabled = true;
+
+    try {
+        const response = await fetch(dataFile);
+        const data = await response.json();
+
+        // Doctor login
+        if (userType === 'doctor' && data.user) {
+            if (data.user.email === email && data.user.password === password) {
+                // Save doctor session
+                if (rememberMe) {
+                    localStorage.setItem(storageKey, JSON.stringify(data.user));
+                } else {
+                    sessionStorage.setItem(storageKey, JSON.stringify(data.user));
+                }
+                
+                alert(`Login successful as ${userType}!`);
+                window.location.href = "doctorportal.html";
+                return;
+            }
+        } 
+        // Patient login
+        else if (userType === 'patient' && data.patients) {
+            // Find patient by email and password
+            const foundPatientIndex = data.patients.findIndex(p => 
+                p.patient.email === email && p.patient.password === password
+            );
+            
+            if (foundPatientIndex !== -1) {
+                // Save the complete patient data object, not just the patient info
+                const patientData = data.patients[foundPatientIndex];
+                
+                if (rememberMe) {
+                    localStorage.setItem(storageKey, JSON.stringify(patientData));
+                } else {
+                    sessionStorage.setItem(storageKey, JSON.stringify(patientData));
+                }
+                
+                alert(`Login successful as ${userType}!`);
+                window.location.href = "patientportal.html";
+                return;
+            }
+        }
+        
+        // If we reach here, login failed
+        alert('Invalid credentials. Please try again.');
+        loginBtn.innerHTML = `Login as ${userType.charAt(0).toUpperCase() + userType.slice(1)}`;
+        loginBtn.disabled = false;
+        
+    } catch (error) {
+        console.error('Login error:', error);
+        alert('An error occurred. Please try again later.');
+        loginBtn.innerHTML = `Login as ${userType.charAt(0).toUpperCase() + userType.slice(1)}`;
+        loginBtn.disabled = false;
+    }
+}
+    </script>
+    </body>
+    </html>
+                        
+                    
+        
+        

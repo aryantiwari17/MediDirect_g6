@@ -1,0 +1,798 @@
+<!-- this is signup pagr -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediDirect Hospital - Registration Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --doctor-blue: #1a73e8;
+            --patient-green: #34a853;
+            --light-bg: #f8f9fa;
+            --dark-text: #202124;
+            --light-text: #5f6368;
+            --error-red: #d93025;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--dark-text);
+        }
+        
+        .registration-container {
+            display: flex;
+            width: 950px;
+            min-height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .welcome-section {
+            flex: 1;
+            background: #008080;
+            color: white;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+        
+        .welcome-section::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -50px;
+            right: -50px;
+            z-index: -1;
+        }
+        
+        .logo {
+            width: 80px;
+            margin-bottom: 30px;
+        }
+        
+        .welcome-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .welcome-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .features {
+            margin-top: auto;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .registration-section {
+            flex: 1;
+            background: white;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-y: auto;
+            max-height: 600px;
+        }
+        
+        .registration-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .registration-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+        
+        .registration-subtitle {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+            padding-top: 10px;
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--light-text);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tab.active {
+            color: var(--doctor-blue);
+        }
+        
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--doctor-blue);
+        }
+        
+        .tab.patient.active {
+            color: var(--patient-green);
+        }
+        
+        .tab.patient.active::after {
+            background: var(--patient-green);
+        }
+        
+        .form-container {
+            flex-grow: 1;
+            position: relative;
+        }
+        
+        .registration-form {
+            position: absolute;
+            width: 100%;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .registration-form.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-text);
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--doctor-blue);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+            outline: none;
+        }
+        .patient-form .input-group input:focus, 
+        .patient-form .input-group select:focus {
+            border-color: var(--patient-green);
+            box-shadow: 0 0 0 2px rgba(52, 168, 83, 0.2);
+        }
+        
+        .name-fields {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .name-fields .input-group {
+            flex: 1;
+        }
+        
+        .name-fields .input-group input {
+            padding-left: 15px;
+        }
+        
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .input-group.error input, .input-group.error select {
+            border-color: var(--error-red);
+        }
+        
+        .input-group.error .error-message {
+            display: block;
+        }
+        
+        .register-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: var(--doctor-blue);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .register-btn:hover {
+            background: #0d5bba;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 115, 232, 0.3);
+        }
+        
+        .patient-form .register-btn {
+            background: var(--patient-green);
+        }
+        
+        .patient-form .register-btn:hover {
+            background: #2d8a47;
+            box-shadow: 0 5px 15px rgba(52, 168, 83, 0.3);
+        }
+        
+        .login-link {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .login-link a {
+            color: var(--doctor-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .patient-form .login-link a {
+            color: var(--patient-green);
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .password-strength {
+            margin-top: 5px;
+            height: 5px;
+            background: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .strength-meter {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s, background 0.3s;
+        }
+        
+        @media (max-width: 1000px) {
+            .registration-container {
+                width: 90%;
+                flex-direction: column;
+            }
+            
+            .welcome-section {
+                padding: 30px;
+                border-radius: 20px 20px 0 0;
+            }
+            
+            .registration-section {
+                padding: 30px;
+                border-radius: 0 0 20px 20px;
+                max-height: 500px;
+            }
+        }
+        @media (max-width: 500px) {
+            .registration-container {
+                width: 95%;
+            }
+            
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .registration-title {
+                font-size: 1.5rem;
+            }
+            
+            .tabs {
+                margin-bottom: 20px;
+            }
+            
+            .name-fields {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <div class="welcome-section">
+            <img src="https://github.com/user-attachments/assets/c02c456b-8611-4a38-a9bc-32492ef8a74c" alt="Hospital Logo" class="logo">
+            <h1 class="welcome-title">Join MediDirect Today</h1>
+            <p class="welcome-text">Register for our hospital management system to access medical records, schedule appointments, and receive personalized healthcare services.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure patient data protection</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <span>24/7 access to your health records</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-comments"></i>
+                    <span>Direct communication with doctors</span>
+                </div>
+            </div>
+        </div>
+        <div class="registration-section">
+            <div class="registration-header">
+                <h2 class="registration-title">Create Your Account</h2>
+                <p class="registration-subtitle">Get started with your healthcare journey</p>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab patient active" onclick="switchTab('patient')">Patient</div>
+                <div class="tab doctor" onclick="switchTab('doctor')">Doctor</div>
+            </div>
+            <div class="form-container">
+                <!-- Patient Registration Form -->
+                <form class="registration-form patient-form active" id="patient-registration-form">
+                    <div class="name-fields">
+                        <div class="input-group">
+                            <input type="text" id="patient-first-name" placeholder="First Name" required>
+                            <div class="error-message" id="patient-first-name-error">Please enter your first name</div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="patient-last-name" placeholder="Last Name" required>
+                            <div class="error-message" id="patient-last-name-error">Please enter your last name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="patient-email" placeholder="Email Address" required>
+                        <div class="error-message" id="patient-email-error">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="patient-phone" placeholder="Phone Number" required>
+                        <div class="error-message" id="patient-phone-error">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-calendar-alt"></i>
+                        <input type="date" id="patient-dob" placeholder="Date of Birth" required>
+                        <div class="error-message" id="patient-dob-error">Please enter your date of birth</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="patient-password" placeholder="Password" required oninput="checkPasswordStrength('patient')">
+                        <div class="error-message" id="patient-password-error">Password must be at least 8 characters</div>
+                        <div class="password-strength">
+                            <div class="strength-meter" id="patient-strength-meter"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="patient-confirm-password" placeholder="Confirm Password" required>
+                        <div class="error-message" id="patient-confirm-password-error">Passwords do not match</div>
+                    </div>
+                    
+                    <button type="button" class="register-btn" onclick="validateForm('patient')">
+                        Register as Patient
+                    </button>
+                    
+                    <div class="login-link">
+                        Already have an account? <a href="login.html">Login here</a>
+                    </div>
+                </form>
+
+                <form class="registration-form doctor-form" id="doctor-registration-form">
+                    <div class="name-fields">
+                        <div class="input-group">
+                            <input type="text" id="doctor-first-name" placeholder="First Name" required>
+                            <div class="error-message" id="doctor-first-name-error">Please enter your first name</div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="doctor-last-name" placeholder="Last Name" required>
+                            <div class="error-message" id="doctor-last-name-error">Please enter your last name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="doctor-email" placeholder="Email Address" required>
+                        <div class="error-message" id="doctor-email-error">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="doctor-phone" placeholder="Phone Number" required>
+                        <div class="error-message" id="doctor-phone-error">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-briefcase-medical"></i>
+                        <select id="doctor-specialization" required>
+                            <option value="">Select Specialization</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                            <option value="pediatrics">Pediatrics</option>
+                            <option value="orthopedics">Orthopedics</option>
+                            <option value="dermatology">Dermatology</option>
+                        </select>
+                        <div class="error-message" id="doctor-specialization-error">Please select your specialization</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" id="doctor-license" placeholder="Medical License Number" required>
+                        <div class="error-message" id="doctor-license-error">Please enter your license number</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="doctor-password" placeholder="Password" required oninput="checkPasswordStrength('doctor')">
+                        <div class="error-message" id="doctor-password-error">Password must be at least 8 characters</div>
+                        <div class="password-strength">
+                            <div class="strength-meter" id="doctor-strength-meter"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="doctor-confirm-password" placeholder="Confirm Password" required>
+                        <div class="error-message" id="doctor-confirm-password-error">Passwords do not match</div>
+                    </div>
+                    
+                    <button type="button" class="register-btn" onclick="validateForm('doctor')">
+                        Register as Doctor
+                    </button>
+                    
+                    <div class="login-link">
+                        Already have an account? <a href="login.html">Login here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function switchTab(userType) {
+            // Update tabs
+            document.querySelector('.tab.patient').classList.toggle('active', userType === 'patient');
+            document.querySelector('.tab.doctor').classList.toggle('active', userType === 'doctor');
+            
+            // Update forms
+            document.getElementById('patient-registration-form').classList.toggle('active', userType === 'patient');
+            document.getElementById('doctor-registration-form').classList.toggle('active', userType === 'doctor');
+            
+            // Scroll to top when switching tabs
+            document.querySelector('.registration-section').scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        function validateForm(userType) {
+            let isValid = true;
+            const formPrefix = userType;
+            
+            // Validate name fields
+            if (!validateRequiredField(`${formPrefix}-first-name`, `${formPrefix}-first-name-error`)) {
+                isValid = false;
+            }
+            
+            if (!validateRequiredField(`${formPrefix}-last-name`, `${formPrefix}-last-name-error`)) {
+                isValid = false;
+            }
+            
+            // Validate email
+            if (!validateEmailField(`${formPrefix}-email`, `${formPrefix}-email-error`)) {
+                isValid = false;
+            }
+            
+            // Validate phone
+            if (!validatePhoneField(`${formPrefix}-phone`, `${formPrefix}-phone-error`)) {
+                isValid = false;
+            }
+            
+            // Validate special fields
+            if (userType === 'patient') {
+                if (!validateRequiredField(`${formPrefix}-dob`, `${formPrefix}-dob-error`)) {
+                    isValid = false;
+                }
+            } else {
+                if (!validateRequiredField(`${formPrefix}-specialization`, `${formPrefix}-specialization-error`)) {
+                    isValid = false;
+                }
+                if (!validateRequiredField(`${formPrefix}-license`, `${formPrefix}-license-error`)) {
+                    isValid = false;
+                }
+            }
+             // Validate password
+             if (!validatePasswordField(`${formPrefix}-password`, `${formPrefix}-password-error`)) {
+                isValid = false;
+            }
+            
+            // Validate confirm password
+            if (!validateConfirmPassword(`${formPrefix}-password`, `${formPrefix}-confirm-password`, 
+                                        `${formPrefix}-confirm-password-error`)) {
+                isValid = false;
+            }
+            
+            if (isValid) {
+                registerUser(userType);
+            }
+        }
+        function validateRequiredField(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            
+            if (!field.value.trim()) {
+                field.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            field.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        
+        function validateEmailField(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(field.value.trim())) {
+                field.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            field.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        function validatePhoneField(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+            
+            if (!phoneRegex.test(field.value.trim())) {
+                field.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            field.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        
+        function validatePasswordField(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            
+            if (field.value.length < 8) {
+                field.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            field.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        
+        function validateConfirmPassword(passwordId, confirmPasswordId, errorId) {
+            const password = document.getElementById(passwordId);
+            const confirmPassword = document.getElementById(confirmPasswordId);
+            const error = document.getElementById(errorId);
+            
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.parentElement.classList.add('error');
+                error.style.display = 'block';
+                return false;
+            }
+            
+            confirmPassword.parentElement.classList.remove('error');
+            error.style.display = 'none';
+            return true;
+        }
+        
+        function checkPasswordStrength(userType) {
+            const password = document.getElementById(`${userType}-password`).value;
+            const strengthMeter = document.getElementById(`${userType}-strength-meter`);
+            let strength = 0;
+            
+            // Check password length
+            if (password.length >= 8) strength += 1;
+            if (password.length >= 12) strength += 1;
+            
+            // Check for mixed case
+            if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength += 1;
+            
+            // Check for numbers
+            if (/\d/.test(password)) strength += 1;
+            
+            // Check for special chars
+            if (/[^a-zA-Z0-9]/.test(password)) strength += 1;
+            
+            // Update strength meter
+            let width = 0;
+            let color = '#d93025'; // red
+            
+            if (strength > 0) {
+                width = strength * 20;
+                if (strength <= 2) {
+                    color = '#d93025'; // red
+                } else if (strength <= 4) {
+                    color = '#f4b400'; // yellow
+                } else {
+                    color = '#0f9d58'; // green
+                }
+            }
+            strengthMeter.style.width = `${width}%`;
+            strengthMeter.style.backgroundColor = color;
+        }
+        
+        function registerUser(userType) {
+            const btn = document.querySelector(`#${userType}-registration-form .register-btn`);
+            const originalText = btn.innerHTML;
+            
+            // Show loading state
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Collect form data
+                const formData = {
+                    firstName: document.getElementById(`${userType}-first-name`).value,
+                    lastName: document.getElementById(`${userType}-last-name`).value,
+                    email: document.getElementById(`${userType}-email`).value,
+                    phone: document.getElementById(`${userType}-phone`).value,
+                    password: document.getElementById(`${userType}-password`).value
+                };
+                
+                // Add user-specific fields
+                if (userType === 'patient') {
+                    formData.dob = document.getElementById('patient-dob').value;
+                } else {
+                    formData.specialization = document.getElementById('doctor-specialization').value;
+                    formData.license = document.getElementById('doctor-license').value;
+                }
+                
+                console.log('Form data:', formData);
+                
+                // Reset form
+                document.getElementById(`${userType}-registration-form`).reset();
+                
+                // Reset password strength meter
+                document.getElementById(`${userType}-strength-meter`).style.width = '0%';
+                
+                // Show success message
+                alert(`${userType.charAt(0).toUpperCase() + userType.slice(1)} registration successful!`);
+                
+                // Reset button
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+                // Optionally redirect to login or dashboard
+                // window.location.href = 'login.html';
+            }, 2000);
+        }
+        
+        // Add event listeners for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add input event listeners for real-time validation
+            ['patient', 'doctor'].forEach(userType => {
+                const form = document.getElementById(`${userType}-registration-form`);
+                if (form) {
+                    form.querySelectorAll('input').forEach(input => {
+                        input.addEventListener('blur', function() {
+                            const fieldId = this.id;
+                            const errorId = `${fieldId}-error`;
+                            
+                            if (fieldId.includes('email')) {
+                                validateEmailField(fieldId, errorId);
+                            } else if (fieldId.includes('phone')) {
+                                validatePhoneField(fieldId, errorId);
+                            } else if (fieldId.includes('confirm-password')) {
+                                const passwordFieldId = fieldId.replace('confirm-', '');
+                                validateConfirmPassword(passwordFieldId, fieldId, errorId);
+                            } else if (!fieldId.includes('password') && !fieldId.includes('dob') && 
+                                      !fieldId.includes('specialization') && !fieldId.includes('license')) {
+                                validateRequiredField(fieldId, errorId);
+                            }
+                        });
+                    });
+                    
+                    // Special handling for select elements
+                    const select = form.querySelector('select');
+                    if (select) {
+                        select.addEventListener('change', function() {
+                            validateRequiredField(this.id, `${this.id}-error`);
+                        });
+                    }
+                }
+            });
+            
+            // Allow form submission with Enter key
+            document.querySelectorAll('.registration-form').forEach(form => {
+                form.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const userType = form.classList.contains('patient-form') ? 'patient' : 'doctor';
+                        validateForm(userType);
+                    }
+                });
+            });
+        });
+    </script>
+        

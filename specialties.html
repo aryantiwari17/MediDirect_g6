@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Specialties | MediDirect - The Medicity | India's Premier Multi-Speciality Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern CSS Reset */
+        :root {
+            --primary: #008080;
+            --primary-dark: #006666;
+            --primary-light: rgba(0, 128, 128, 0.1);
+            --secondary: #e74c3c;
+            --secondary-dark: #c0392b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+                /* Header Styles */
+                .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-contact a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 20px;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .top-contact a:hover {
+            opacity: 0.9;
+        }
+
+        .top-contact i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        .top-social a {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .top-social a:hover {
+            transform: translateY(-2px);
+            opacity: 0.8;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+                /* Page Header */
+                .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            padding: 150px 0 100px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--white), transparent);
+            z-index: 1;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .stats-ribbon {
+            background-color: var(--white);
+            color: var(--dark);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 40px auto 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0 20px;
+            margin: 10px 0;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+                /* Specialties Section */
+                .specialties-section {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .specialty-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .filter-group label {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .filter-group select {
+            padding: 10px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            background-color: var(--white);
+            cursor: pointer;
+        }
+
+        .alphabet-filter {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .alphabet-filter span {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .alphabet-filter a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            margin: 0 2px;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .alphabet-filter a:hover,
+        .alphabet-filter a.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .specialty-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 128, 128, 0.1);
+        }
+        
+        /* Updated Specialty Cards CSS */
+        .specialty-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 128, 128, 0.1);
+            display: flex; /* Add flex display */
+            flex-direction: column; /* Stack children vertically */
+            height: 100%; /* Make all cards same height */
+        }
+
+        .specialty-content {
+            padding: 30px;
+            position: relative;
+            flex: 1; /* Allow content to grow and fill space */
+            display: flex; /* Add flex to content */
+            flex-direction: column; /* Stack content vertically */
+        }
+
+        .specialty-features {
+            margin-bottom: 25px;
+            flex: 1; /* Allow features to grow and push button down */
+        }
+
+        .btn-block {
+            margin-top: auto; /* Push button to bottom */
+            align-self: flex-start; /* Align button to left */
+            width: auto; /* Remove full width */
+            padding: 10px 20px; /* Adjust padding */
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 128, 128, 0.2);
+            border-color: rgba(0, 128, 128, 0.3);
+        }
+
+        .specialty-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .specialty-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .specialty-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .specialty-card:hover .specialty-img img {
+            transform: scale(1.05);
+        }
+
+        .specialty-content {
+            padding: 30px;
+            position: relative;
+        }
+
+        .specialty-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .specialty-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+
+        .specialty-expert {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-size: 0.9rem;
+            background: var(--light);
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .specialty-expert i {
+            color: var(--secondary);
+            margin-right: 8px;
+        }
+
+        .specialty-features {
+            margin-bottom: 25px;
+        }
+
+        .specialty-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--dark);
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--light-gray);
+        }
+
+        .specialty-features li:last-child {
+            border-bottom: none;
+        }
+
+        .specialty-features i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Remove filter options and logos */
+        .specialty-filters {
+            display: none; /* Hide the entire filter section */
+        }
+        
+        .specialty-icon {
+            display: none; /* Hide the specialty icons */
+        }
+        /* Make emergency button match appointment button */
+        .btn-emergency {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            background-color: #e74c3c; /* Red color for emergency */
+            color: var(--white);
+        }
+
+        .btn-emergency:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-emergency i {
+            margin-right: 8px;
+        }
+
+        /* Adjust specialties grid to show 4 boxes */
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Ensure even number of boxes (4 boxes) */
+        @media (min-width: 1100px) {
+            .specialties-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .view-all {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .usp-box {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .usp-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .usp-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .usp-box h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .usp-box p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+                /* Testimonials Section */
+                .testimonials-section {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+
+        .testimonials-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 30px;
+            padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .testimonial-card {
+            min-width: 350px;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            scroll-snap-align: start;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-rating {
+            color: #ffc107;
+            margin-top: 5px;
+        }
+                /* CTA Section */
+                .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+            /* Footer */
+            footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .footer-cta {
+            background-color: var(--dark);
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .footer-cta h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .footer-cta .btn {
+            min-width: 200px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: #adb5bd;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact i {
+            margin-right: 12px;
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        .accreditations {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .accreditations img {
+            height: 60px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .accreditations img:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--white);
+        }
+               /* Back to Top Button */
+               .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+               /* Responsive Styles */
+               @media (max-width: 1024px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-contact {
+                margin-bottom: 10px;
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav {
+                margin: 20px 0;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 15px;
+            }
+
+            .auth-buttons {
+                margin: 20px 0 0;
+            }
+
+            .page-header {
+                padding: 120px 0 80px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .specialty-filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .alphabet-filter {
+                margin-top: 15px;
+            }
+
+            .testimonial-card {
+                min-width: 280px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item {
+                width: 50%;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Top Bar -->
+   <div class="top-bar">
+    <div class="container">
+        <div class="top-contact">
+            <a href="tel:+911244141414"><i class="fas fa-phone"></i> +91 124 4141414</a>
+            <a href="mailto:info@MediDirect.org"><i class="fas fa-envelope"></i> info@MediDirect.org</a>
+        </div>
+        <div class="top-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+  <!-- Main Header -->
+  <header>
+    <div class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://github.com/user-attachments/assets/c02c456b-8611-4a38-a9bc-32492ef8a74c" alt="MediDirect Logo">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="home4.html">Home</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="specialties.html" class="active">Specialities</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="patients-visitors.html">Patients & Visitors</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="coantact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline btn-small" id="login-btn"><i class="fas fa-user"></i> Login</a>
+                    <a href="sign.html" class="btn btn-primary btn-small" id="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+        <h1>World-Class Medical Specialties</h1>
+        <p>MediDirect brings together the brightest minds in medicine to provide holistic healthcare of international standards across 62+ specialties.</p>
+        <a href="doctors.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Consultation</a>
+        
+        <div class="stats-ribbon">
+            <div class="stat-item">
+                <div class="stat-number">62+</div>
+                <div class="stat-label">Specialties</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">400+</div>
+                <div class="stat-label">Super Specialists</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1.8M+</div>
+                <div class="stat-label">Patients Treated</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">JCI</div>
+                <div class="stat-label">Accredited</div>
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- Specialties Section -->
+  <section class="specialties-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>An Ecosystem for Clinical Excellence</h2>
+            <p>Our team of specialists provides personalized care using the latest medical technologies and treatment protocols.</p>
+        </div>
+        
+        <div class="specialties-grid">
+              <!-- Cardiac Care - Improved Card -->
+              <div class="specialty-card">
+                <div class="specialty-badge">JCI Accredited</div>
+                <div class="specialty-img">
+                    <img src="https://github.com/user-attachments/assets/0bf86c62-dcc1-4f38-b1ae-6e68dc4aea09" alt="Cardiac Care">
+                </div>
+                <div class="specialty-content">
+                    <h3>Cardiac Care</h3>
+                    <p>Comprehensive heart care including preventive cardiology, interventional procedures, and cardiac surgery with world-class success rates.</p>
+                    
+                    <div class="specialty-expert">
+                        <i class="fas fa-user-md"></i> 28 Super Specialists
+                    </div>
+                    
+                    <ul class="specialty-features">
+                        <li><i class="fas fa-check"></i> Coronary Angiography</li>
+                        <li><i class="fas fa-check"></i> Angioplasty & Stenting</li>
+                        <li><i class="fas fa-check"></i> Bypass Surgery</li>
+                        <li><i class="fas fa-check"></i> Heart Valve Repair/Replacement</li>
+                    </ul>
+                    
+                    <a href="cardiac-care.html" class="btn btn-primary btn-block"><i class="fas fa-arrow-right"></i> Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Cancer Care - Improved Card -->
+            <div class="specialty-card">
+                <div class="specialty-badge">Advanced</div>
+                <div class="specialty-img">
+                    <img src="https://github.com/user-attachments/assets/10cb4eba-ca7b-4b07-81f5-c00d684401bc" alt="Cancer Care">
+                </div>
+                <div class="specialty-content">
+                    <h3>Cancer Care</h3>
+                    <p>Multidisciplinary approach to cancer treatment including medical, surgical and radiation oncology with personalized care plans.</p>
+                    
+                    <div class="specialty-expert">
+                        <i class="fas fa-user-md"></i> 35 Super Specialists
+                    </div>
+                    
+                    <ul class="specialty-features">
+                        <li><i class="fas fa-check"></i> Medical Oncology</li>
+                        <li><i class="fas fa-check"></i> Surgical Oncology</li>
+                        <li><i class="fas fa-check"></i> Radiation Therapy</li>
+                        <li><i class="fas fa-check"></i> Bone Marrow Transplant</li>
+                    </ul>
+                    
+                    <a href="cancer-care.html" class="btn btn-primary btn-block"><i class="fas fa-arrow-right"></i> Learn More</a>
+                </div>
+            </div>
+                            <!-- Neurosciences - Improved Card -->
+                            <div class="specialty-card">
+                                <div class="specialty-badge">Robotic</div>
+                                <div class="specialty-img">
+                                    <img src="https://github.com/user-attachments/assets/1618fdf3-ab45-4b90-8f55-0fb989c54c3f" alt="Neurosciences">
+                                </div>
+                                <div class="specialty-content">
+                                    <h3>Neurosciences</h3>
+                                    <p>Advanced treatment for neurological disorders including stroke, epilepsy, and movement disorders with cutting-edge technology.</p>
+                                    
+                                    <div class="specialty-expert">
+                                        <i class="fas fa-user-md"></i> 22 Super Specialists
+                                    </div>
+                                    
+                                    <ul class="specialty-features">
+                                        <li><i class="fas fa-check"></i> Stroke Management</li>
+                                        <li><i class="fas fa-check"></i> Epilepsy Treatment</li>
+                                        <li><i class="fas fa-check"></i> Brain & Spine Surgery</li>
+                                        <li><i class="fas fa-check"></i> Deep Brain Stimulation</li>
+                                    </ul>
+                                    
+                                    <a href="neurosciences.html" class="btn btn-primary btn-block"><i class="fas fa-arrow-right"></i> Learn More</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Gastrosciences - Improved Card -->
+                            <div class="specialty-card">
+                                <div class="specialty-badge">Minimally Invasive</div>
+                                <div class="specialty-img">
+                                    <img src="https://github.com/user-attachments/assets/48d6f1e3-9dcc-4aa8-868a-aa91bc6d3498" alt="Gastrosciences">
+                                </div>
+                                <div class="specialty-content">
+                                    <h3>Gastrosciences</h3>
+                                    <p>Comprehensive care for digestive disorders including advanced endoscopic procedures with high success rates.</p>
+                                    
+                                    <div class="specialty-expert">
+                                        <i class="fas fa-user-md"></i> 18 Super Specialists
+                                    </div>
+                                    
+                                    <ul class="specialty-features">
+                                        <li><i class="fas fa-check"></i> Endoscopic Procedures</li>
+                                        <li><i class="fas fa-check"></i> Liver Disease Management</li>
+                                        <li><i class="fas fa-check"></i> Pancreatic Disorders</li>
+                                        <li><i class="fas fa-check"></i> Inflammatory Bowel Disease</li>
+                                    </ul>
+                                    
+                                    <a href="gastrosciences.html" class="btn btn-primary btn-block"><i class="fas fa-arrow-right"></i> Learn More</a>
+                                </div>
+                            </div>
+                                            <!-- Orthopedics - New Card -->
+                <div class="specialty-card">
+                    <div class="specialty-badge">JCI Accredited</div>
+                    <div class="specialty-img">
+                        <img src="https://github.com/user-attachments/assets/796c994e-cda6-4b57-96ab-4a83ecf7e1dd" alt="Orthopedics">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Orthopedics</h3>
+                        <p>Specialized care for musculoskeletal disorders including joint replacements and sports injuries with rapid recovery protocols.</p>
+                        
+                        <div class="specialty-expert">
+                            <i class="fas fa-user-md"></i> 25 Super Specialists
+                        </div>
+                        
+                        <ul class="specialty-features">
+                            <li><i class="fas fa-check"></i> Joint Replacement</li>
+                            <li><i class="fas fa-check"></i> Sports Medicine</li>
+                            <li><i class="fas fa-check"></i> Spine Surgery</li>
+                            <li><i class="fas fa-check"></i> Trauma Care</li>
+                        </ul>
+                        
+                        <a href="orthopedics.html" class="btn btn-primary btn-block"><i class="fas fa-arrow-right"></i> Learn More</a>
+                    </div>
+                </div>
+                <!-- Renal Care - New Card -->
+                <div class="specialty-card">
+                    <div class="specialty-badge">Advanced</div>
+                    <div class="specialty-img">
+                        <img src="https://github.com/user-attachments/assets/2ed90ccc-0569-4324-9e1c-ec098ee727b6" alt="Renal Care">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Renal Care</h3>
+                        <p>Comprehensive kidney care including dialysis and transplant services with high success rates and personalized treatment plans.</p>
+                        
+                        <div class="specialty-expert">
+                            <i class="fas fa-user-md"></i> 15 Super Specialists
+                        </div>
+                        
+                        <ul class="specialty-features">
+                            <li><i class="fas fa-check"></i> Kidney Transplant</li>
+                            <li><i class="fas fa-check"></i> Dialysis Services</li>
+                            <li><i class="fas fa-check"></i> Kidney Stone Treatment</li>
+                            <li><i class="fas fa-check"></i> Chronic Kidney Disease</li>
+                        </ul>
+                        
+                        <a href="renal-care.html" class="btn btn-primary btn-block"><i class="fas fa-arrow-right"></i> Learn More</a>
+                    </div>
+                </div>
+                                
+                <!-- Pediatrics - New Card -->
+                <div class="specialty-card">
+                    <div class="specialty-badge">Child Care</div>
+                    <div class="specialty-img">
+                        <img src="https://github.com/user-attachments/assets/a715b3fa-9f06-4a70-b40b-80060da458e9" alt="Pediatrics">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Pediatrics</h3>
+                        <p>Specialized care for infants, children and adolescents with child-friendly environment and expert pediatric specialists.</p>
+                        
+                        <div class="specialty-expert">
+                            <i class="fas fa-user-md"></i> 20 Super Specialists
+                        </div>
+                        
+                        <ul class="specialty-features">
+                            <li><i class="fas fa-check"></i> Neonatal Intensive Care</li>
+                            <li><i class="fas fa-check"></i> Pediatric Cardiology</li>
+                            <li><i class="fas fa-check"></i> Vaccination Programs</li>
+                            <li><i class="fas fa-check"></i> Growth & Development</li>
+                        </ul>
+                        
+                        <a href="pediatrics.html" class="btn btn-primary btn-block"><i class="fas fa-arrow-right"></i> Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Pulmonology - New Card -->
+                <div class="specialty-card">
+                    <div class="specialty-badge">Advanced</div>
+                    <div class="specialty-img">
+                        <img src="https://github.com/user-attachments/assets/fc8b1048-9a38-41d5-bb4b-35ad3934b0d5" alt="Pulmonology">
+                    </div>
+                    <div class="specialty-content">
+                        <h3>Pulmonology</h3>
+                        <p>Comprehensive respiratory care for conditions like asthma, COPD, and sleep disorders with advanced diagnostic facilities.</p>
+                        
+                        <div class="specialty-expert">
+                            <i class="fas fa-user-md"></i> 12 Super Specialists
+                        </div>
+                        
+                        <ul class="specialty-features">
+                            <li><i class="fas fa-check"></i> Asthma Management</li>
+                            <li><i class="fas fa-check"></i> Sleep Disorder Treatment</li>
+                            <li><i class="fas fa-check"></i> Bronchoscopy</li>
+                            <li><i class="fas fa-check"></i> Lung Function Tests</li>
+                        </ul>
+                        
+                        <a href="pulmonology.html" class="btn btn-primary btn-block"><i class="fas fa-arrow-right"></i> Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all">
+                <a href="#" class="btn btn-outline"><i class="fas fa-list"></i> View All 62 Specialties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- [Rest of the HTML remains exactly the same, including CTA section] -->
+
+    <!-- CTA Section - Updated with matching emergency button -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Consult with Our Specialists?</h2>
+            <p>Take the first step towards better health. Our team is available 24/7 to assist you.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+                <a href="tel:+911244141414" class="btn btn-emergency"><i class="fas fa-phone-alt"></i> Emergency: +91 124 4141414</a>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Patient Experiences</h2>
+            <p>Hear from our patients about their journey to better health at MediDirect.</p>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>The cardiac team at MediDirect saved my life with their quick response and expert care. The facilities are world-class and the doctors took time to explain everything.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Patient">
+                    </div>
+                    <div class="author-info">
+                        <h4>Rahul Sharma</h4>
+                        <p>Cardiac Patient</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>My cancer treatment journey was made easier by the compassionate staff and cutting-edge technology at MediDirect. The multidisciplinary approach gave me confidence.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Patient">
+                    </div>
+                    <div class="author-info">
+                        <h4>Priya Patel</h4>
+                        <p>Oncology Patient</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>After suffering from chronic digestive issues for years, the gastroenterology team at MediDirect finally diagnosed and treated my condition effectively.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Patient">
+                    </div>
+                    <div class="author-info">
+                        <h4>Vikram Singh</h4>
+                        <p>Gastroenterology Patient</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>The neurology department provided excellent care for my Parkinson's disease. The deep brain stimulation procedure has dramatically improved my quality of life.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Patient">
+                    </div>
+                    <div class="author-info">
+                        <h4>Meena Kapoor</h4>
+                        <p>Neurology Patient</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Consult with Our Specialists?</h2>
+        <p>Take the first step towards better health. Our team is available 24/7 to assist you.</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+            <a href="tel:+911244141414" class="btn btn-emergency"><i class="fas fa-phone-alt"></i> Emergency: +91 124 4141414</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-cta">
+        <div class="container">
+            <h3>Have Questions About Our Specialties?</h3>
+            <a href="#" class="btn btn-primary"><i class="fas fa-headset"></i> Contact Our Care Team</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home4.html">Home</a></li>
+                    <li><a href="doctors.html">Find a Doctor</a></li>
+                    <li><a href="specialities.html">Specialties</a></li>
+                    <li><a href="locations.html">Locations</a></li>
+                    <li><a href="patients-visitors.html">Patients & Visitors</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Specialties</h3>
+                <ul>
+                    <li><a href="cardiac-care.html">Cardiac Care</a></li>
+                    <li><a href="cancer-care.html">Cancer Care</a></li>
+                    <li><a href="neurosciences.html">Neurosciences</a></li>
+                    <li><a href="orthopedics.html">Orthopedics</a></li>
+                    <li><a href="gastrosciences.html">Gastrosciences</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Patient Services</h3>
+                <ul>
+                    <li><a href="#">Book Appointment</a></li>
+                    <li><a href="#">Second Opinion</a></li>
+                    <li><a href="#">International Patients</a></li>
+                    <li><a href="#">Health Checkups</a></li>
+                    <li><a href="#">Insurance Partners</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="footer-contact">
+                    <p><i class="fas fa-map-marker-alt"></i> MediDirect - The Medicity, Sector 38, Gurugram, Haryana 122001</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 124 4141414</p>
+                    <p><i class="fas fa-envelope"></i> info@MediDirect.org</p>
+                    <p><i class="fas fa-clock"></i> 24/7 Emergency Services</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="accreditations">
+            <img src="https://github.com/user-attachments/assets/415d840b-2022-4625-a32e-826c7636e66d" alt="JCI Accredited">
+            <img src="https://github.com/user-attachments/assets/f98ccf3c-44a1-4d78-9ff2-6d7409d52cc6" alt="NABH Accredited">
+            <img src="https://github.com/user-attachments/assets/07d607aa-827e-46d5-b69f-6900a857380a" alt="ISO Certified">
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 MediDirect - The Medicity. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Alphabet Filter
+    const alphabetLinks = document.querySelectorAll('.alphabet-filter a');
+    
+    alphabetLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            alphabetLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            
+            const letter = link.textContent;
+            const specialtyCards = document.querySelectorAll('.specialty-card');
+            
+            specialtyCards.forEach(card => {
+                if (letter === 'All' || card.dataset.letter === letter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Specialty Filter
+    const specialtyFilter = document.getElementById('specialty-filter');
+    
+    specialtyFilter.addEventListener('change', () => {
+        const category = specialtyFilter.value;
+        const specialtyCards = document.querySelectorAll('.specialty-card');
+        
+        specialtyCards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+
+            
+            
+            

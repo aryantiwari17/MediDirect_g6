@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidirect | Medical Records</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #008080;
+            --primary-dark: #006666;
+            --primary-darker: #004d4d;
+            --primary-light: #4cbaba;
+            --primary-lighter: #e0f2f2;
+            --secondary: #4a6fa5;
+            --accent: #ff7e5f;
+            --accent-dark: #e56b4d;
+            --white: #ffffff;
+            --light-bg: #f8fbfb;
+            --light-gray: #f0f4f8;
+            --medium-gray: #e1e8ed;
+            --dark-text: #2d3748;
+            --medium-text: #4a5568;
+            --light-text: #718096;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+            --info: #4299e1;
+            --shadow-sm: 0 1px 3px rgba(0, 128, 128, 0.12);
+            --shadow-md: 0 4px 6px rgba(0, 128, 128, 0.15);
+            --shadow-lg: 0 10px 25px rgba(0, 128, 128, 0.2);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .bg-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 75% 25%, var(--primary-lighter) 0%, transparent 30%),
+                radial-gradient(circle at 25% 75%, rgba(255, 126, 95, 0.05) 0%, transparent 30%),
+                linear-gradient(to bottom right, var(--light-bg), var(--light-bg));
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 128, 128, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--medium-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        nav ul li a i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--danger);
+            color: var(--white);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .user-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            margin-left: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-avatar:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            width: 220px;
+            padding: 1rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .user-menu:hover .user-dropdown {
+            opacity: 1;
+            visibility: visible;
+            top: 50px;
+        }
+
+        .user-dropdown a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            color: var(--medium-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .user-dropdown a:hover {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+        }
+
+        .user-dropdown a i {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .user-dropdown .divider {
+            height: 1px;
+            background: var(--medium-gray);
+            margin: 0.5rem 0;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255,255,255,0.05) 10px,
+                    rgba(255,255,255,0.05) 20px
+                );
+            animation: gradientMove 25s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientMove {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-group {
+            animation: fadeInUp 0.8s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 126, 95, 0.4);
+        }
+
+        .btn i {
+            margin-right: 0.5rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            margin-left: 1rem;
+            box-shadow: none;
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: -2rem auto 0;
+            padding: 0 1.5rem 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 1.5rem;
+        }
+
+        .sidebar {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 1.2rem;
+            height: fit-content;
+            position: sticky;
+            top: 6rem;
+            transition: var(--transition);
+        }
+
+        .sidebar:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .sidebar-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-right: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .sidebar:hover .sidebar-avatar {
+            transform: rotate(15deg);
+        }
+
+        .sidebar-user h3 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark-text);
+        }
+
+        .sidebar-user p {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 0.4rem;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 0.8rem;
+            color: var(--medium-text);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .sidebar-menu a.active::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+        }
+
+        .sidebar-menu a i {
+            margin-right: 0.7rem;
+            width: 18px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .sidebar-menu .badge {
+            margin-left: auto;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .main-content {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .main-content:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-header h2 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .content-header h2 i {
+            margin-right: 0.7rem;
+            color: var(--primary);
+        }
+
+        /* Quick Actions Panel */
+        .quick-actions {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quick-actions h3 {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-dark);
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.8rem;
+        }
+        
+        .action-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+            background: var(--light-bg);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--medium-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .action-button:hover {
+            background: var(--primary-lighter);
+            border-color: var(--primary-light);
+        }
+        
+        .action-button i {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .action-button span {
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Records Specific Styles */
+        .records-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .records-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .records-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--medium-gray);
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .records-tab {
+            padding: 0.7rem 1.2rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--light-text);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        
+        .records-tab.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary);
+        }
+        
+        .records-tab:hover:not(.active) {
+            color: var(--primary);
+            border-bottom-color: var(--primary-light);
+        }
+        
+        .records-tab .badge {
+            margin-left: 0.4rem;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .records-section {
+            display: none;
+        }
+        
+        .records-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .records-search {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .records-search input {
+            width: 100%;
+            padding: 0.7rem 1rem 0.7rem 2.8rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .records-search input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+        }
+        
+        .records-search i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-text);
+        }
+        
+        .records-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-group {
+            position: relative;
+        }
+        
+        .filter-group select {
+            padding: 0.5rem 1.8rem 0.5rem 0.8rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            appearance: none;
+            background-color: var(--white);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .filter-group::after {
+            content: "\f078";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--light-text);
+            font-size: 0.7rem;
+        }
+        
+        .records-list {
+            list-style: none;
+        }
+        
+        .record-item {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .record-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .record-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .record-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .record-date {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+        
+        .record-provider {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .provider-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.7rem;
+            color: var(--primary);
+            font-weight: 600;
+            overflow: hidden;
+        }
+        
+        .provider-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .provider-info h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .provider-info p {
+            font-size: 0.75rem;
+            color: var(--light-text);
+        }
+        
+        .record-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .summary-item {
+            background: var(--light-bg);
+            padding: 0.8rem;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .summary-item h4 {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            margin-bottom: 0.3rem;
+        }
+        
+        .summary-item p {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+        }
+        
+        .record-details {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .record-details p {
+            margin-bottom: 0.7rem;
+        }
+        
+        .record-notes {
+            background: var(--light-bg);
+            padding: 0.8rem;
+            border-radius: var(--radius-sm);
+            margin-top: 0.8rem;
+            border-left: 4px solid var(--accent);
+            font-size: 0.85rem;
+        }
+        
+        .record-notes h5 {
+            font-size: 0.8rem;
+            color: var(--accent-dark);
+            margin-bottom: 0.3rem;
+        }
+        
+        .record-notes p {
+            font-size: 0.85rem;
+            color: var(--medium-text);
+        }
+        
+        .record-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .record-tag {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .record-status {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        
+        .status-active {
+            background: rgba(56, 161, 105, 0.1);
+            color: var(--success);
+        }
+        
+        .status-inactive {
+            background: rgba(113, 128, 150, 0.1);
+            color: var(--light-text);
+        }
+        
+        .status-urgent {
+            background: rgba(229, 62, 62, 0.1);
+            color: var(--danger);
+        }
+        
+        .record-attachments {
+            margin-top: 1.2rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+        
+        .record-attachments h5 {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem;
+            background: var(--light-bg);
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        
+        .attachment-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-lighter);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.8rem;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .attachment-info h5 {
+            font-size: 0.85rem;
+            margin-bottom: 0.1rem;
+        }
+        
+        .attachment-info p {
+            font-size: 0.75rem;
+            color: var(--light-text);
+        }
+        
+        .attachment-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .attachment-actions button {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .record-actions {
+            display: flex;
+            gap: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+        
+        .btn-sm {
+            padding: 0.5rem 0.9rem;
+            font-size: 0.8rem;
+            border-radius: 6px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn-sm:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-sm i {
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
+        }
+        
+        .btn-sm-outline {
+            background: transparent;
+            border: 1px solid var(--medium-gray);
+            color: var(--medium-text);
+        }
+        
+        .btn-sm-outline:hover {
+            background: var(--light-gray);
+            color: var(--primary-dark);
+            border-color: var(--primary-light);
+        }
+        
+        .btn-sm-danger {
+            background: var(--danger);
+        }
+        
+        .btn-sm-danger:hover {
+            background: #c53030;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: var(--radius-md);
+            border: 1px dashed var(--medium-gray);
+        }
+        
+        .empty-state i {
+            font-size: 2.5rem;
+            color: var(--primary-light);
+            margin-bottom: 0.8rem;
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+        
+        .empty-state p {
+            color: var(--light-text);
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.8rem 0.5rem;
+            }
+            
+            .hero {
+                padding: 3rem 1rem 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .dashboard {
+                padding: 0 1rem 2rem;
+            }
+            
+            .records-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+            
+            .records-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .records-tab {
+                padding: 0.7rem 0.9rem;
+            }
+            
+            .records-filters {
+                flex-direction: column;
+            }
+            
+            .record-summary {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .record-actions {
+                flex-wrap: wrap;
+            }
+            
+            .btn-sm {
+                flex: 1;
+                min-width: 100px;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+         /* Health Summary Card */
+    .health-summary {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .summary-card {
+        padding: 1rem;
+        border-radius: var(--radius-sm);
+        background: var(--light-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .summary-card h4 {
+        font-size: 0.9rem;
+        color: var(--light-text);
+        margin-bottom: 0.5rem;
+    }
+    
+    .summary-card .value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 0.3rem;
+    }
+    
+    .summary-card .trend {
+        font-size: 0.75rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .trend-up {
+        color: var(--danger);
+    }
+    
+    .trend-down {
+        color: var(--success);
+    }
+    
+    .trend-neutral {
+        color: var(--light-text);
+    }
+    /* Medication Reminders */
+    .medication-reminders {
+        background: var(--white);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+        padding: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .medication-item {
+        display: flex;
+        align-items: center;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--medium-gray);
+    }
+    
+    .medication-item:last-child {
+        border-bottom: none;
+    }
+    
+    .medication-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-lighter);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        color: var(--primary);
+    }
+    
+    .medication-info h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .medication-info p {
+        font-size: 0.8rem;
+        color: var(--light-text);
+    }
+    
+    .medication-dosage {
+        margin-left: auto;
+        text-align: right;
+    }
+    
+    .medication-dosage .next-dose {
+        font-size: 0.7rem;
+        color: var(--light-text);
+    }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <span>Medidirect</span>
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" class="active"><i class="fas fa-file-medical"></i> Records</a></li>
+                <li><a href="#"><i class="fas fa-calendar-check"></i> Appointments</a></li>
+                <li><a href="#"><i class="fas fa-prescription-bottle-alt"></i> Medications</a></li>
+                <li><a href="#"><i class="fas fa-comment-medical"></i> Messages</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-menu">
+            <div style="position: relative;">
+                <i class="fas fa-bell" style="font-size: 1.2rem; color: var(--medium-text);"></i>
+                <span class="notification-badge">3</span>
+            </div>
+            <div class="user-avatar">JD</div>
+            <div class="user-dropdown">
+                <a href="#"><i class="fas fa-user"></i> My Profile</a>
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+                <div class="divider"></div>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Your Medical Records</h1>
+            <p>Access your complete health history, test results, prescriptions and doctor notes in one secure place.</p>
+            <div class="btn-group">
+                <a href="#" class="btn"><i class="fas fa-plus"></i> Add New Record</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-share-alt"></i> Share Records</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dashboard">
+        <div class="dashboard-grid">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-avatar">JD</div>
+                    <div class="sidebar-user">
+                        <h3>John Doe</h3>
+                        <p>Patient ID: MED123456</p>
+                    </div>
+                </div>
+                
+                <ul class="sidebar-menu">
+                    <li><a href="#" class="active"><i class="fas fa-user"></i> Profile Overview</a></li>
+                    <li><a href="#"><i class="fas fa-file-medical"></i> Medical History</a></li>
+                    <li><a href="#"><i class="fas fa-procedures"></i> Treatments</a></li>
+                    <li><a href="#"><i class="fas fa-vial"></i> Lab Results <span class="badge">2</span></a></li>
+                    <li><a href="#"><i class="fas fa-prescription-bottle-alt"></i> Medications</a></li>
+                    <li><a href="#"><i class="fas fa-allergies"></i> Allergies</a></li>
+                    <li><a href="#"><i class="fas fa-file-pdf"></i> Documents</a></li>
+                    <li><a href="#"><i class="fas fa-share-alt"></i> Shared Access</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </aside>
+            
+            <main class="main-content">
+                <main class="main-content">
+                    <!-- Health Summary Section -->
+                    <div class="health-summary">
+                        <div class="summary-card">
+                            <h4>Blood Pressure</h4>
+                            <div class="value">122/78</div>
+                            <div class="trend trend-down">
+                                <i class="fas fa-arrow-down"></i> 5% from last month
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Heart Rate</h4>
+                            <div class="value">72</div>
+                            <div class="trend trend-neutral">
+                                <i class="fas fa-equals"></i> Stable
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Cholesterol</h4>
+                            <div class="value">185</div>
+                            <div class="trend trend-down">
+                                <i class="fas fa-arrow-down"></i> 12% from last quarter
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>BMI</h4>
+                            <div class="value">24.3</div>
+                            <div class="trend trend-up">
+                                <i class="fas fa-arrow-up"></i> 1.2 from last year
+                            </div>
+                        </div>
+                    </div>
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <div class="action-button">
+                            <i class="fas fa-file-upload"></i>
+                            <span>Upload Record</span>
+                        </div>
+                        <div class="action-button">
+                            <i class="fas fa-print"></i>
+                            <span>Print Summary</span>
+                        </div>
+                        <div class="action-button">
+                            <i class="fas fa-share-square"></i>
+                            <span>Share Records</span>
+                        </div>
+                        <div class="action-button">
+                            <i class="fas fa-qrcode"></i>
+                            <span>Emergency QR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="records-header">
+                    <h2><i class="fas fa-file-medical"></i> Medical Records</h2>
+                    <div class="records-actions">
+                        <button class="btn-sm"><i class="fas fa-plus"></i> New Record</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-filter"></i> Filters</button>
+                        <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                    </div>
+                </div>
+                
+                <div class="records-tabs">
+                    <div class="records-tab active">All Records <span class="badge">24</span></div>
+                    <div class="records-tab">Doctor Visits <span class="badge">12</span></div>
+                    <div class="records-tab">Lab Results <span class="badge">5</span></div>
+                    <div class="records-tab">Prescriptions <span class="badge">7</span></div>
+                    <div class="records-tab">Immunizations</div>
+                    <div class="records-tab">Procedures</div>
+                    <div class="records-tab">Imaging</div>
+                </div>
+                
+                <div class="records-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search records...">
+                </div>
+                
+                <div class="records-filters">
+                    <div class="filter-group">
+                        <select>
+                            <option>Date: Newest First</option>
+                            <option>Date: Oldest First</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select>
+                            <option>All Providers</option>
+                            <option>Dr. Sarah Johnson</option>
+                            <option>Dr. Michael Chen</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select>
+                            <option>All Categories</option>
+                            <option>Primary Care</option>
+                            <option>Cardiology</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select>
+                            <option>All Statuses</option>
+                            <option>Active</option>
+                            <option>Archived</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="records-section active">
+                    <div class="record-item">
+                        <div class="record-header">
+                            <h3 class="record-title">Annual Physical Exam</h3>
+                            <span class="record-date">May 15, 2023</span>
+                        </div>
+                        
+                        <div class="record-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sarah Johnson">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>Primary Care Physician</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-summary">
+                            <div class="summary-item">
+                                <h4>Blood Pressure</h4>
+                                <p>120/80 mmHg</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Heart Rate</h4>
+                                <p>72 bpm</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Temperature</h4>
+                                <p>98.6°F</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Weight</h4>
+                                <p>175 lbs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-details">
+                            <p>Patient presented for routine annual physical examination. No acute complaints. Overall health status is good. Patient reports regular exercise 3-4 times per week and balanced diet. Recommended to continue current healthy lifestyle habits.</p>
+                            
+                            <div class="record-notes">
+                                <h5>Doctor's Notes</h5>
+                                <p>Patient should schedule follow-up in 6 months to monitor cholesterol levels. Recommended increasing fiber intake and reducing saturated fats.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-tags">
+                            <span class="record-tag">Preventive Care</span>
+                            <span class="record-tag">Vital Signs</span>
+                            <span class="record-tag">Normal Results</span>
+                        </div>
+                        
+                        <div class="record-status status-active">Active</div>
+                        
+                        <div class="record-attachments">
+                            <h5>Attachments</h5>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>Physical Exam Summary</h5>
+                                    <p>PDF • 245 KB • May 15, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="record-actions">
+                            <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                     <!-- Medication Reminders -->
+        <div class="medication-reminders">
+            <h3 style="margin-bottom: 1rem; color: var(--primary-dark); display: flex; align-items: center;">
+                <i class="fas fa-pills" style="margin-right: 0.5rem;"></i> Current Medications
+            </h3>
+            <div class="medication-item">
+                <div class="medication-icon">
+                    <i class="fas fa-capsules"></i>
+                </div>
+                <div class="medication-info">
+                    <h4>Atorvastatin</h4>
+                    <p>Cholesterol</p>
+                </div>
+                <div class="medication-dosage">
+                    <div>20mg</div>
+                    <div class="next-dose">Next dose: 8PM</div>
+                </div>
+            </div>
+            <div class="medication-item">
+                <div class="medication-icon">
+                    <i class="fas fa-tablets"></i>
+                </div>
+                <div class="medication-info">
+                    <h4>Lisinopril</h4>
+                    <p>Blood Pressure</p>
+                </div>
+                <div class="medication-dosage">
+                    <div>10mg</div>
+                    <div class="next-dose">Next dose: 8AM</div>
+                </div>
+            </div>
+            <div class="medication-item">
+                <div class="medication-icon">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                </div>
+                <div class="medication-info">
+                    <h4>Vitamin D</h4>
+                    <p>Supplement</p>
+                </div>
+                <div class="medication-dosage">
+                    <div>2000 IU</div>
+                    <div class="next-dose">Daily with breakfast</div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    <div class="record-item">
+                        <div class="record-header">
+                            <h3 class="record-title">Blood Test Results</h3>
+                            <span class="record-date">April 28, 2023</span>
+                        </div>
+                        
+                        <div class="record-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Michael Chen">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Michael Chen</h4>
+                                <p>Endocrinologist</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-summary">
+                            <div class="summary-item">
+                                <h4>Glucose</h4>
+                                <p>92 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>Cholesterol</h4>
+                                <p>198 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>HDL</h4>
+                                <p>45 mg/dL</p>
+                            </div>
+                            <div class="summary-item">
+                                <h4>LDL</h4>
+                                <p>120 mg/dL</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-details">
+                            <p>Comprehensive metabolic panel and lipid profile results. Glucose levels are within normal range. Cholesterol is slightly elevated but within acceptable limits. HDL could be improved with increased exercise. LDL is at the upper limit of normal.</p>
+                            
+                            <div class="record-notes">
+                                <h5>Doctor's Notes</h5>
+                                <p>Recommend dietary changes to focus on heart-healthy fats and increased physical activity. Follow-up blood work in 3 months to monitor progress.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-tags">
+                            <span class="record-tag">Lab Work</span>
+                            <span class="record-tag">Blood Test</span>
+                            <span class="record-tag">Follow-up Needed</span>
+                        </div>
+                        
+                        <div class="record-status status-active">Active</div>
+                        
+                        <div class="record-attachments">
+                            <h5>Attachments</h5>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>Lab Results Report</h5>
+                                    <p>PDF • 312 KB • April 28, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="record-actions">
+                            <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                    
+                    <div class="record-item">
+                        <div class="record-header">
+                            <h3 class="record-title">Knee Pain Consultation</h3>
+                            <span class="record-date">March 10, 2023</span>
+                        </div>
+                        
+                        <div class="record-provider">
+                            <div class="provider-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Lisa Wong">
+                            </div>
+                            <div class="provider-info">
+                                <h4>Dr. Lisa Wong</h4>
+                                <p>Orthopedic Specialist</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-details">
+                            <p>Patient presented with persistent right knee pain that began after running a marathon 3 weeks ago. Pain is localized to the patellar region and worsens with prolonged walking or stair climbing. Physical examination revealed mild swelling and tenderness over the patellar tendon.</p>
+                            
+                            <div class="record-notes">
+                                <h5>Diagnosis</h5>
+                                <p>Patellar tendinitis (runner's knee) - likely due to overuse and inadequate stretching regimen.</p>
+                            </div>
+                            
+                            <div class="record-notes">
+                                <h5>Treatment Plan</h5>
+                                <p>1. RICE protocol (Rest, Ice, Compression, Elevation) for 1-2 weeks<br>
+                                2. Physical therapy referral for quadriceps strengthening exercises<br>
+                                3. Over-the-counter NSAIDs as needed for pain<br>
+                                4. Follow-up in 4 weeks if symptoms persist</p>
+                            </div>
+                        </div>
+                        
+                        <div class="record-tags">
+                            <span class="record-tag">Orthopedics</span>
+                            <span class="record-tag">Sports Injury</span>
+                        </div>
+                        
+                        <div class="record-status status-inactive">Resolved</div>
+                        
+                        <div class="record-attachments">
+                            <h5>Attachments</h5>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>Consultation Notes</h5>
+                                    <p>PDF • 178 KB • March 10, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-share"></i></button>
+                                </div>
+                            </div>
+                            <div class="attachment-item">
+                                <div class="attachment-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="attachment-info">
+                                    <h5>PT Exercises</h5>
+                                    <p>PDF • 1.2 MB • March 10, 2023</p>
+                                </div>
+                                <div class="attachment-actions">
+                                    <button><i class="fas fa-download"></i></button>
+                                    <button><i class="fas fa-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="record-actions">
+                            <button class="btn-sm"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-share-alt"></i> Share</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-sm btn-sm-outline"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="records-section">
+                    <!-- Doctor Visits content would go here -->
+                    <div class="empty-state">
+                        <i class="fas fa-stethoscope"></i>
+                        <h3>No Doctor Visits Found</h3>
+                        <p>You don't have any doctor visit records yet. Schedule an appointment to get started.</p>
+                        <button class="btn-sm"><i class="fas fa-calendar-plus"></i> Schedule Appointment</button>
+                    </div>
+                </div>
+                
+                <div class="records-section">
+                    <!-- Lab Results content would go here -->
+                    <div class="empty-state">
+                        <i class="fas fa-vial"></i>
+                        <h3>No Lab Results Found</h3>
+                        <p>You don't have any lab results uploaded yet. Contact your provider to request access.</p>
+                        <button class="btn-sm"><i class="fas fa-envelope"></i> Request Records</button>
+                    </div>
+                </div>
+                
+                <div class="records-section">
+                    <!-- Prescriptions content would go here -->
+                    <div class="empty-state">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                        <h3>No Prescriptions Found</h3>
+                        <p>You don't have any prescription records yet. Contact your provider for medication management.</p>
+                        <button class="btn-sm"><i class="fas fa-comment-medical"></i> Message Provider</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.records-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.records-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.records-section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding section
+                const sections = document.querySelectorAll('.records-section');
+                const index = Array.from(document.querySelectorAll('.records-tab')).indexOf(tab);
+                if (sections[index]) {
+                    sections[index].classList.add('active');
+                }
+            });
+        });
+        
+        // Simple animation for record items when they come into view
+        const recordItems = document.querySelectorAll('.record-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        recordItems.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>

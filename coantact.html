@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | MediDirect - The Medicity | India's Premier Multi-Speciality Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #008080;
+            --primary-dark: #006666;
+            --primary-light: rgba(0, 128, 128, 0.1);
+            --secondary: #e74c3c;
+            --secondary-dark: #c0392b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-contact a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 20px;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .top-contact a:hover {
+            opacity: 0.9;
+        }
+
+        .top-contact i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        .top-social a {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .top-social a:hover {
+            transform: translateY(-2px);
+            opacity: 0.8;
+        }
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            /* background-color: transparent; */
+            background-color: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+        .btn-emergency {
+            background-color: var(--secondary);
+            color: var(--white);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-emergency:hover {
+            background-color: var(--secondary-dark);
+        }
+               /* Contact Page Specific Styles */
+               .page-header {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') 
+                no-repeat center center/cover;
+            padding: 180px 0 120px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--white), transparent);
+            z-index: 1;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: slideUp 1s ease-out;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            animation: slideUp 1s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .page-header .btn {
+            animation: slideUp 1s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+            /* Contact Section */
+            .contact-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .contact-detail:hover .contact-icon {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotate(10deg);
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+
+               /* Departments Contact Cards */
+               .departments-contact {
+            padding: 60px 0;
+            background-color: var(--light);
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .department-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .department-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .department-icon {
+            background: var(--primary);
+            color: var(--white);
+            padding: 25px;
+            font-size: 2.5rem;
+        }
+
+        .department-content {
+            padding: 25px;
+        }
+
+        .department-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .department-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .department-contact {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+
+        /* /this is for testing */
+               /* Map Section */
+               .map-container {
+            margin-top: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            display: block;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+
+        .map-overlay h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .map-overlay p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+                /* Emergency Contact Section */
+                .emergency-contact {
+            background: 
+                linear-gradient(rgba(0, 96, 96, 0.9), rgba(0, 96, 96, 0.9)), 
+                url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') 
+                no-repeat center center/cover;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .emergency-contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .emergency-contact h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .emergency-contact p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .emergency-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .emergency-number i {
+            color: var(--secondary);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .emergency-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+                /* International Patients Section */
+                .international-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .international-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+
+        .international-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .international-content h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .international-content p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+
+        .international-services {
+            margin-top: 30px;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+               /* FAQ Section */
+               .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            background: var(--primary);
+            color: var(--white);
+            padding: 18px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--primary-dark);
+        }
+
+        .faq-question h4 {
+            font-weight: 500;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            background: var(--white);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-answer-content {
+            padding: 25px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+                /* Footer Styles */
+                footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .footer-cta {
+            background-color: var(--dark);
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .footer-cta h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .footer-cta .btn {
+            min-width: 200px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: #adb5bd;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact i {
+            margin-right: 12px;
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .accreditations {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .accreditations img {
+            height: 60px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .accreditations img:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--white);
+        }
+               /* Back to Top Button */
+               .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-contact {
+                margin-bottom: 10px;
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav {
+                margin: 20px 0;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 15px;
+            }
+
+            .auth-buttons {
+                margin: 20px 0 0;
+            }
+
+            .page-header {
+                padding: 120px 0 80px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .emergency-number {
+                font-size: 1.8rem;
+            }
+
+            .map-overlay {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .emergency-number {
+                font-size: 1.5rem;
+                flex-direction: column;
+            }
+
+            .emergency-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-contact">
+                    <a href="tel:+911244141414"><i class="fas fa-phone"></i> +91 124 4141414</a>
+                    <a href="mailto:info@MediDirect.org"><i class="fas fa-envelope"></i> info@MediDirect.org</a>
+                </div>
+                <div class="top-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+          <!-- Main Header -->
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="https://github.com/user-attachments/assets/c02c456b-8611-4a38-a9bc-32492ef8a74c" alt="MediDirect Logo">
+                        </a>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="home4.html">Home</a></li>
+                            <li><a href="doctors.html">Doctors</a></li>
+                            <li><a href="specialties.html">Specialities</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="patients.html">Patients & Visitors</a></li>
+                            <li><a href="aboutus.html">About Us</a></li>
+                            <li><a href="coantact.html" class="active">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline btn-small" id="login-btn"><i class="fas fa-user"></i> Login</a>
+                        <a href="sign.html" class="btn btn-primary btn-small" id="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+        <!-- Contact Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Connect With MediDirect</h1>
+                <p>We're here to help you with all your healthcare needs. Reach out to us through any of these channels or visit our world-class facility.</p>
+                <a href="#contact-form" class="btn btn-primary animate__animated animate__pulse animate__infinite animate__slow"><i class="fas fa-paper-plane"></i> Send Us a Message</a>
+            </div>
+        </section>
+            <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Our team is available 24/7 to assist you with appointments, queries, or any healthcare needs you may have.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info animate__animated animate__fadeInLeft">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Main Hospital Address</h4>
+                            <p>MediDirect - The Medicity<br>
+                            Sector 38, Gurugram<br>
+                            Haryana 122001, India</p>
+                            <a href="#" class="btn btn-outline btn-small" style="margin-top: 10px;">Get Directions</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone Numbers</h4>
+                            <p>Appointments: <a href="tel:+911244141414">+91 124 4141414</a><br>
+                            International Patients: <a href="tel:+911244141500">+91 124 4141500</a><br>
+                            Teleconsultation: <a href="tel:+911244141600">+91 124 4141600</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email Addresses</h4>
+                            <p>General Inquiries: <a href="mailto:info@MediDirect.org">info@MediDirect.org</a><br>
+                            Appointments: <a href="mailto:appointments@MediDirect.org">appointments@MediDirect.org</a><br>
+                            Feedback: <a href="mailto:feedback@MediDirect.org">feedback@MediDirect.org</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Operating Hours</h4>
+                            <p>OPD: 8:00 AM - 8:00 PM (Mon-Sat)<br>
+                            Emergency: 24/7<br>
+                            Pharmacy: 8:00 AM - 10:00 PM (Daily)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form animate__animated animate__fadeInRight" id="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="appointment">Appointment Booking</option>
+                                <option value="query">General Query</option>
+                                <option value="feedback">Feedback/Suggestion</option>
+                                <option value="billing">Billing Inquiry</option>
+                                <option value="international">International Patient</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-overlay">
+                    <h4>MediDirect - The Medicity</h4>
+                    <p>Sector 38, Gurugram, Haryana 122001, India</p>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.137908131025!2d77.0421113150781!3d28.4503969824936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1855b02a2f61%3A0x37b1d1a3b1c6654!2sMediDirect%20-%20The%20Medicity!5e0!3m2!1sen!2sin!4v1623833287899!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Departments Contact Section -->
+    <section class="departments-contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Department Contacts</h2>
+                <p>Connect directly with our specialized departments for specific healthcare needs and inquiries.</p>
+            </div>
+            
+            <div class="departments-grid">
+                <div class="department-card animate__animated animate__fadeInUp">
+                    <div class="department-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3>Cardiac Care</h3>
+                        <p>World-class heart care with cutting-edge technology and expert cardiologists.</p>
+                        <div class="department-contact">
+                            <i class="fas fa-phone"></i> +91 124 4141420
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="department-card animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="department-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3>Neurosciences</h3>
+                        <p>Advanced neurological care with minimally invasive techniques.</p>
+                        <div class="department-contact">
+                            <i class="fas fa-phone"></i> +91 124 4141430
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="department-card animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="department-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3>Orthopedics</h3>
+                        <p>Comprehensive bone and joint care with robotic-assisted surgeries.</p>
+                        <div class="department-contact">
+                            <i class="fas fa-phone"></i> +91 124 4141440
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="department-card animate__animated animate__fadeInUp">
+                    <div class="department-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3>Pulmonology</h3>
+                        <p>Expert care for respiratory disorders and sleep medicine.</p>
+                        <div class="department-contact">
+                            <i class="fas fa-phone"></i> +91 124 4141450
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="department-card animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="department-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3>Gastroenterology</h3>
+                        <p>Advanced digestive care with endoscopic procedures.</p>
+                        <div class="department-contact">
+                            <i class="fas fa-phone"></i> +91 124 4141460
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="department-card animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="department-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="department-content">
+                        <h3>Pediatrics</h3>
+                        <p>Specialized care for infants, children and adolescents.</p>
+                        <div class="department-contact">
+                            <i class="fas fa-phone"></i> +91 124 4141470
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- Emergency Contact Section -->
+       <section class="emergency-contact">
+        <div class="container">
+            <h2>Emergency Services</h2>
+            <p>Our emergency department is staffed 24/7 with trauma specialists ready to handle any medical emergency.</p>
+            
+            <div class="emergency-number">
+                <i class="fas fa-phone-alt"></i>
+                <span>+91 124 4141999</span>
+            </div>
+            
+            <div class="emergency-buttons">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-ambulance"></i> Request Ambulance
+                </a>
+                <a href="#" class="btn btn-emergency">
+                    <i class="fas fa-directions"></i> Emergency Directions
+                </a>
+            </div>
+        </div>
+    </section>
+       <!-- International Patients Section -->
+       <section class="international-section">
+        <div class="container">
+            <div class="international-container">
+                <div class="international-image animate__animated animate__fadeInLeft">
+                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="International Patients">
+                </div>
+                <div class="international-content animate__animated animate__fadeInRight">
+                    <h3>International Patients</h3>
+                    <p>MediDirect welcomes patients from across the globe, offering world-class medical treatment combined with Indian hospitality. Our International Patient Services team is dedicated to making your healthcare journey seamless.</p>
+                    
+                    <div class="international-services">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div>
+                                <h4>Travel Assistance</h4>
+                                <p>Visa letters, airport transfers, and local transportation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-hotel"></i>
+                            </div>
+                            <div>
+                                <h4>Accommodation</h4>
+                                <p>Hospitality services for patients and attendants</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div>
+                                <h4>Language Support</h4>
+                                <p>Interpreters for multiple languages</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary" style="margin-top: 20px;">
+                        <i class="fas fa-globe"></i> International Patient Desk
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about contacting MediDirect and our services.</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How do I book an appointment at MediDirect?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>You can book an appointment through multiple channels:</p>
+                                <ul>
+                                    <li>Call our appointment helpline at +91 124 4141414</li>
+                                    <li>Use our online appointment system on the website</li>
+                                    <li>Visit the hospital in person at our reception</li>
+                                    <li>Email us at appointments@MediDirect.org</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What are the visiting hours for patients?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>General visiting hours are from 11:00 AM to 12:30 PM and 5:00 PM to 7:00 PM daily. However, ICU visiting hours may vary and are limited to immediate family members. Please check with the nursing station for specific ICU visiting policies.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Does MediDirect accept international insurance?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Yes, MediDirect has tie-ups with several international insurance providers. Our International Patient Services team can assist with insurance verification and processing. Please contact our International Patient Desk at +91 124 4141500 or email international@MediDirect.org for assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How can I get my medical records from MediDirect?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Medical records can be obtained by submitting a request at the Medical Records Department or through our online portal. You will need to provide valid identification and complete the required authorization forms. There may be nominal charges for processing medical records requests.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What COVID-19 safety measures are in place at MediDirect?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>MediDirect follows all recommended COVID-19 safety protocols including:</p>
+                                <ul>
+                                    <li>Mandatory temperature checks at all entry points</li>
+                                    <li>Hand sanitization stations throughout the facility</li>
+                                    <li>Regular disinfection of all areas</li>
+                                    <li>Social distancing measures in waiting areas</li>
+                                    <li>PPE for all healthcare staff</li>
+                                    <li>Separate pathways for suspected COVID-19 cases</li>
+                                </ul>
+                                <p>Please wear a mask at all times while in the hospital premises.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+           <!-- Footer -->
+    <footer>
+        <div class="footer-cta">
+            <div class="container">
+                <h3>Have More Questions?</h3>
+                <p>Our patient care representatives are available 24/7 to assist you.</p>
+                <a href="tel:+911244141414" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Call Us Now</a>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Find a Doctor</a></li>
+                        <li><a href="#">Specialities</a></li>
+                        <li><a href="#">Patient Testimonials</a></li>
+                        <li><a href="#">Health Checkups</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Emergency Care</a></li>
+                        <li><a href="#">Robotic Surgery</a></li>
+                        <li><a href="#">Organ Transplant</a></li>
+                        <li><a href="#">Cancer Care</a></li>
+                        <li><a href="#">Cardiac Sciences</a></li>
+                        <li><a href="#">Neurology</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Patients & Visitors</h3>
+                    <ul>
+                        <li><a href="#">Patient Guide</a></li>
+                        <li><a href="#">International Patients</a></li>
+                        <li><a href="#">Insurance Partners</a></li>
+                        <li><a href="#">Patient Education</a></li>
+                        <li><a href="#">Visiting Hours</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+
+                        <p><i class="fas fa-map-marker-alt"></i> MediDirect - The Medicity, Sector 38, Gurugram, Haryana 122001, India</p>
+                        <p><i class="fas fa-phone-alt"></i> +91 124 4141414</p>
+                        <p><i class="fas fa-envelope"></i> info@MediDirect.org</p>
+                        
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accreditations">
+                <img src="https://github.com/user-attachments/assets/415d840b-2022-4625-a32e-826c7636e66d" alt="JCI Accredited">
+                <img src="https://github.com/user-attachments/assets/f98ccf3c-44a1-4d78-9ff2-6d7409d52cc6" alt="NABH Accredited">
+                <img src="https://github.com/user-attachments/assets/07d607aa-827e-46d5-b69f-6900a857380a" alt="ISO Certified">
+                <img src="https://github.com/user-attachments/assets/87f3e47a-b934-42e3-86a9-b50a71a41266" alt="NABL Accredited">
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 MediDirect - The Medicity. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Sitemap</a></p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- Back to Top Button -->
+        <div class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        
+        <script>
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentNode;
+                    item.classList.toggle('active');
+                    
+                    // Close other open items
+                    faqQuestions.forEach(q => {
+                        if (q !== question) {
+                            q.parentNode.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Form Submission
+            const contactForm = document.querySelector('.contact-form form');
+            
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Simple validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                if (!name || !email || !phone || !subject || !message) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Here you would typically send the form data to a server
+                // For this example, we'll just show a success message
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+            
+            // Animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate__animated');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        const animationClass = element.classList[1];
+                        element.classList.add(animationClass);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('load', animateOnScroll);
+        </script>
+    </body>
+    </html>
+    
+        
+    
+
+
+     

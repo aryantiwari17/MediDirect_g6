@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MediDirect - The Medicity | India's Premier Multi-Speciality Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern CSS Reset */
+        :root {
+            --primary: #008080;
+            --primary-dark: #006666;
+            --primary-light: rgba(0, 128, 128, 0.1);
+            --secondary: #e74c3c;
+            --secondary-dark: #c0392b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles - Same as Specialties Page */
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-contact a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 20px;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .top-contact a:hover {
+            opacity: 0.9;
+        }
+
+        .top-contact i {
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        .top-social a {
+            color: var(--white);
+            margin-left: 15px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .top-social a:hover {
+            transform: translateY(-2px);
+            opacity: 0.8;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        /* Page Header */
+   /* Page Header */
+.page-header {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') 
+        no-repeat center center/cover;
+    padding: 180px 0 120px;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, var(--white), transparent);
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: slideUp 1s ease-out;
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    opacity: 0.9;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: slideUp 1s ease-out 0.2s;
+    animation-fill-mode: both;
+}
+
+.page-header .btn {
+    animation: slideUp 1s ease-out 0.4s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .page-header {
+        padding: 150px 0 100px;
+    }
+    .page-header h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 120px 0 80px;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    .page-header p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-header {
+        padding: 100px 0 60px;
+    }
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    .page-header p {
+        font-size: 1rem;
+    }
+}
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Mission Vision Section */
+        .mission-vision {
+            background-color: var(--light);
+            padding: 80px 0;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .mv-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .mv-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Milestones Section */
+        .milestones-section {
+    padding: 100px 0;
+    background: linear-gradient(rgba(0, 128, 128, 0.9), rgba(0, 128, 128, 0.9)), 
+                url('https://www.MediDirect.org/uploaded/images/banners/milestones-bg.jpg') center/cover;
+    color: var(--white);
+}
+
+.milestones-section .section-title h2 {
+    color: #efeff5; /* Gold color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.milestones-section .section-title p {
+    color: #f2f5f7; /* Light gold */
+}
+
+.milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.milestone-item {
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.milestone-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.milestone-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.milestone-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--white);
+    line-height: 1;
+}
+
+.milestone-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+        /* Leadership Section */
+        .leadership-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .leader-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .leader-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .leader-card:hover .leader-image img {
+            transform: scale(1.05);
+        }
+
+        .leader-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 300px); /* Adjust based on image height */
+}
+
+.leader-info .bio {
+    flex-grow: 1; /* Makes bio take available space */
+    margin-bottom: 20px;
+}
+
+.leader-info .btn {
+    align-self: center; /* Center the button */
+    margin-top: auto; /* Push button to bottom */
+    width: fit-content; /* Make button fit content */
+    min-width: 150px; /* Ensure consistent width */
+}
+
+        .leader-info h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .leader-info p {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .leader-info .bio {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons a:nth-child(2) {
+        background-color: #e74c3c;
+        border-color: #e74c3c;
+        }
+
+        .cta-buttons a:nth-child(2):hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+
+        /* Footer - Same as Specialties Page */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .footer-cta {
+            background-color: var(--dark);
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .footer-cta h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .footer-cta .btn {
+            min-width: 200px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: #adb5bd;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact i {
+            margin-right: 12px;
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .accreditations {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .accreditations img {
+            height: 60px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .accreditations img:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--white);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-contact {
+                margin-bottom: 10px;
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav {
+                margin: 20px 0;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 15px;
+            }
+
+            .auth-buttons {
+                margin: 20px 0 0;
+            }
+
+            .page-header {
+                padding: 120px 0 80px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .milestones-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-contact">
+                <a href="tel:+911244141414"><i class="fas fa-phone"></i> +91 124 4141414</a>
+                <a href="mailto:info@MediDirect.org"><i class="fas fa-envelope"></i> info@MediDirect.org</a>
+            </div>
+            <div class="top-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="https://github.com/user-attachments/assets/c02c456b-8611-4a38-a9bc-32492ef8a74c" alt="MediDirect Logo">
+                        </a>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="home4.html">Home</a></li>
+                            <li><a href="doctors.html">Doctors</a></li>
+                            <li><a href="specialties.html">Specialities</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="patients.html">Patients & Visitors</a></li>
+                            <li><a href="aboutus.html" class="active">About Us</a></li>
+                            <li><a href="coantact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-outline btn-small" id="login-btn"><i class="fas fa-user"></i> Login</a>
+                        <a href="sign.html" class="btn btn-primary btn-small" id="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>About MediDirect - The Medicity</h1>
+        <p>Pioneering excellence in healthcare through innovation, compassion, and world-class medical expertise.</p>
+        <a href="doctors.html" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Consultation</a>
+    </div>
+</section>
+    
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+                <p>From humble beginnings to becoming India's most trusted multi-specialty hospital</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Transforming Healthcare in India</h3>
+                    <p>Founded in 2009 by renowned cardiac surgeon Dr. Naresh Trehan, MediDirect - The Medicity was conceived as an institution that would bring together the brightest medical minds to provide world-class healthcare in India. What began as a vision to create a center of excellence has now grown into one of India's largest and most respected multi-specialty hospitals.</p>
+                    <p>Spread across 43 acres in Gurugram, MediDirect houses over 1,250 beds, 45 operating theaters, and state-of-the-art facilities for over 62 medical specialties. Our institution is built on the pillars of clinical excellence, patient-centric care, and cutting-edge research.</p>
+                    <p>As the first hospital in India to be accredited by Joint Commission International (JCI), we maintain the highest global standards in healthcare delivery. Our team of 400+ super-specialists, many trained at premier international institutions, work collaboratively to provide comprehensive, integrated care.</p>
+                    <a href="#" class="btn btn-outline">Our Facilities</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://www.MediDirect.org/uploaded/images/about-us/hospital-building.jpg" alt="MediDirect Hospital">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To deliver exceptional, compassionate healthcare through innovation, excellence, and a patient-first approach while advancing medical knowledge through research and education.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted healthcare institution globally, recognized for clinical excellence, transformative research, and making quality healthcare accessible to all.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>Compassion, Integrity, Excellence, Innovation, and Collaboration guide every decision we make and every patient we serve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Milestones Section -->
+   <!-- Milestones Section -->
+   <section class="milestones-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Journey</h2>
+            <p>Key milestones in our pursuit of healthcare excellence</p>
+        </div>
+        
+        <div class="milestones-grid">
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-hospital"></i></div>
+                <div class="milestone-number">2009</div>
+                <div class="milestone-label">MediDirect Founded</div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-award"></i></div>
+                <div class="milestone-number">2010</div>
+                <div class="milestone-label">First JCI Accreditation</div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-user-friends"></i></div>
+                <div class="milestone-number">1.8M+</div>
+                <div class="milestone-label">Patients Treated</div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-stethoscope"></i></div>
+                <div class="milestone-number">62+</div>
+                <div class="milestone-label">Specialties</div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-user-md"></i></div>
+                <div class="milestone-number">400+</div>
+                <div class="milestone-label">Super Specialists</div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-procedures"></i></div>
+                <div class="milestone-number">45</div>
+                <div class="milestone-label">Operating Theaters</div>
+            </div>
+            
+            <!-- New Milestone Boxes -->
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-globe-asia"></i></div>
+                <div class="milestone-number">50+</div>
+                <div class="milestone-label">Countries Served</div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-flask"></i></div>
+                <div class="milestone-number">150+</div>
+                <div class="milestone-label">Research Papers</div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-trophy"></i></div>
+                <div class="milestone-number">25+</div>
+                <div class="milestone-label">International Awards</div>
+            </div>
+            
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="milestone-number">10K+</div>
+                <div class="milestone-label">Transplants</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    <!-- Leadership Section -->
+    <section class="leadership-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Leadership</h2>
+                <p>The visionary minds guiding MediDirect's excellence</p>
+            </div>
+            
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="https://github.com/user-attachments/assets/13a22b25-eea2-4731-9b5a-aad2fa351b13" alt="Dr. Naresh Trehan">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Dr. Naresh Trehan</h3>
+                        <p>Chairman & Managing Director</p>
+                        <div class="bio">Renowned cardiac surgeon and visionary founder of MediDirect with over 45 years of experience in cardiovascular surgery.</div>
+                        <a href="#" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="https://github.com/user-attachments/assets/d63bc469-1c8e-46ce-8d3c-a1f39825039e" alt="Dr. A.S. Soin">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Dr. A.S. Soin</h3>
+                        <p>Chief Liver Transplant Surgeon</p>
+                        <div class="bio">Pioneer in liver transplantation in India with over 3,000 successful transplants to his credit.</div>
+                        <a href="#" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="https://github.com/user-attachments/assets/f396d6fd-7149-4c24-8e37-04b8d2edba93" alt="Dr. Rajesh Malhotra">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Dr. Rajesh Malhotra</h3>
+                        <p>Chief of Orthopedics</p>
+                        <div class="bio">Internationally recognized joint replacement surgeon with expertise in complex orthopedic cases.</div>
+                        <a href="#" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <img src="https://github.com/user-attachments/assets/587c56b7-eff9-453e-a4e3-0e8ec90b782c" alt="Dr. Pooja Chhabra">
+                    </div>
+                    <div class="leader-info">
+                        <h3>Dr. Pooja Chhabra</h3>
+                        <p>Chief of Neurosciences</p>
+                        <div class="bio">Expert in minimally invasive neurosurgery and treatment of complex neurological disorders.</div>
+                        <a href="#" class="btn btn-outline">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Experience the MediDirect Difference</h2>
+        <p>Join the millions who have trusted us with their healthcare needs</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+            <a href="#" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Emergency: +91 124 4141414</a>
+        </div>
+    </div>
+</section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-cta">
+            <div class="container">
+                <h3>Have Questions About Our Services?</h3>
+                <a href="#" class="btn btn-primary"><i class="fas fa-headset"></i> Contact Our Care Team</a>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="home4.html">Home</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="specialities.html">Specialties</a></li>
+                        <li><a href="locations.html">Locations</a></li>
+                        <li><a href="patients-visitors.html">Patients & Visitors</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Specialties</h3>
+                    <ul>
+                        <li><a href="cardiac-care.html">Cardiac Care</a></li>
+                        <li><a href="cancer-care.html">Cancer Care</a></li>
+                        <li><a href="neurosciences.html">Neurosciences</a></li>
+                        <li><a href="orthopedics.html">Orthopedics</a></li>
+                        <li><a href="gastrosciences.html">Gastrosciences</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Patient Services</h3>
+                    <ul>
+                        <li><a href="#">Book Appointment</a></li>
+                        <li><a href="#">Second Opinion</a></li>
+                        <li><a href="#">International Patients</a></li>
+                        <li><a href="#">Health Checkups</a></li>
+                        <li><a href="#">Insurance Partners</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> MediDirect - The Medicity, Sector 38, Gurugram, Haryana 122001</p>
+                        <p><i class="fas fa-phone-alt"></i> +91 124 4141414</p>
+                        <p><i class="fas fa-envelope"></i> info@MediDirect.org</p>
+                        <p><i class="fas fa-clock"></i> 24/7 Emergency Services</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accreditations">
+                <img src="https://www.MediDirect.org/images/default-source/default-album/jci-logo.png" alt="JCI Accredited">
+                <img src="https://www.MediDirect.org/images/default-source/default-album/nabh-logo.png" alt="NABH Accredited">
+                <img src="https://www.MediDirect.org/images/default-source/default-album/iso-logo.png" alt="ISO Certified">
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 MediDirect - The Medicity. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
