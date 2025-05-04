@@ -41,7 +41,7 @@ Development
 
 Credits:
 MediDirect was developed as part of the SCM course project by the DevSync Team:
-•	Ashmita Dangwak
+•	Ashmita Dangwal
 •	Aryan Tiwari
 
 
