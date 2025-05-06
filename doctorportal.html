@@ -1635,7 +1635,7 @@
         
                 appointments.forEach(appt => {
                     const card = document.createElement('div');
-                    card.className = appointment-card urgency-${appt.urgency};
+                    card.className = `appointment-card urgency-${appt.urgency}`;
                     card.innerHTML = `
                         <div class="appointment-header">
                             <span class="appointment-status status-upcoming">${appt.statusLabel}</span>
